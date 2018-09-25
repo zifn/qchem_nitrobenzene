@@ -1,0 +1,44 @@
+$molecule
+    0 1
+    C1
+    N C1 rcn
+    X N 1.0 C1 90.0
+    C2 C1 rcc1 N t1 X p1
+    C3 C1 rcc1 N t1 X -p1
+    C4 C2 rcc2 C1 t2 N p2
+    C5 C3 rcc2 C1 t2 N p2
+    C6 C5 rcc3 C3 t3 C1 p3
+    O1 N rno1 C1 t5 X -90.0
+    O2 N rno1 C1 t5 X  90.0
+    H1 C2 rch1 C1 t6 N p5
+    H2 C3 rch1 C1 t6 N p5
+    H3 C4 rch2 C2 t7 H1 p6
+    H4 C5 rch2 C3 t7 H2 p6
+    H5 C6 rch3 C5 t8 H4 p7
+
+    rcn 1.49
+    rcc1 1.37
+    rcc2 1.43
+    rcc3 1.37
+    rno1 1.21
+    rch1 1.084
+    rch2 1.084
+    rch3 1.084
+    t1 120.0
+    t2 120.0
+    t3 120.0
+    t5 120.0
+    t6 120.0
+    t7 120.0
+    t8 120.0
+    p1 90.0
+    p2 180.0
+    p3 0.0
+    p5 0.0
+    p6 0.0
+    p7 0.0
+$end
+$rem
+    BASIS   6-31G*
+    METHOD  mp2
+$end
