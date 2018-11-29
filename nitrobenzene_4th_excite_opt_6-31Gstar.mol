@@ -1,8 +1,8 @@
 BASIS
 6-31G*
 nitrobenzene
------------
-Atomtypes=4 Angstrom
+----------- using units of Bhor
+Atomtypes=4
 Charge=6.0 Atoms=6
 C_1     -0.0370703445           -2.3660239800            0.9055747119
 C_2     -0.0480683216           -2.4209453509            3.5151771893
