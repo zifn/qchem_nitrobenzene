@@ -47,7 +47,6 @@ def extract_gammas_from_file(filename):
         return gammas
 
 if __name__ == "__main__":
-    # jank tests because I wanted to use pytest but then remembered my system python setup is borked
     gamma_output = extract_gammas_from_file(argv[1])
     print(gamma_output)
         
