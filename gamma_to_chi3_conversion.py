@@ -1,5 +1,4 @@
 import os
-from IPython.display import Math, Latex
 import itertools
 import pickle
 import sympy as sp
@@ -7,13 +6,10 @@ import numpy as np
 import pandas as pd
 from sympy import init_printing
 import scipy.constants as constants
+init_printing()
 
-chi3_conversion_factor = constants.physical_constants["atomic unit of 2nd hyperpolarizability"][0]/constants.epsilon_0
-NB_mass_density = 1.199 #g/cm^3
-NB_molar_mass = 123.11 # g/mol
-NB_numb_density_per_cm3 = np.multiply(np.true_divide(NB_mass_density, NB_molar_mass), constants.N_A) # numb/cm^3
-NB_numb_density_per_m3 =  np.multiply(NB_numb_density_g_per_cm3, 100**3)
-NB_numb_density = NB_numb_density_per_m3
+
+
 
 def euler_integration(R):
     return sp.integrate(sp.integrate(sp.integrate(R, (alph, -sp.pi, sp.pi)), (beta, -sp.pi/2, sp.pi/2)), (gamma, -sp.pi, sp.pi))
@@ -128,6 +124,8 @@ def Lorentz_Lorenz_local_field_correction_NB_and_density(gamma, numb_density, la
     gamma is a 4d numpy array
     all lambdas in microns
     """
+    chi3_conversion_factor = constants.physical_constants["atomic unit of 2nd hyperpolarizability"][0]/constants.epsilon_0
+    
     e_0, e_1, e_2, e_3 = refractive_index_sq_of_liq_NB(lambda_out), refractive_index_sq_of_liq_NB(lambda_1), refractive_index_sq_of_liq_NB(lambda_2), refractive_index_sq_of_liq_NB(lambda_3) 
     correction = ((e_0 + 2)/3)*((e_1 + 2)/3)*((e_2 + 2)/3)*((e_3 + 2)/3)
     return np.multiply(correction, gamma)*chi3_conversion_factor*numb_density*6
@@ -138,7 +136,7 @@ def display_chi3_elements(chi3_symbols, chi3_values):
         for j in coordinates:
             for k in coordinates:
                 for l in coordinates:
-                    display(Math("{0} = {1} \\text{{ }} \\text{{m}}^2 / \\text{{V}}^2".format(sp.latex(chi3_symbols[i][j][k][l]), chi3_values[i][j][k][l])))
+                    sp.pprint(Math("{0} = {1} \\text{{ }} \\text{{m}}^2 / \\text{{V}}^2".format(sp.latex(chi3_symbols[i][j][k][l]), chi3_values[i][j][k][l])))
 
 def initialize_3D_4th_rank_tensor(gamma_tuples):
     coordinates = [0, 1, 2]
@@ -155,7 +153,7 @@ def initialize_3D_alpha_matrix(alpha_tuples):
         alpha[indices[1]][indices[0]] = alpha_val
     return alpha
 
-def compute_and_display_chi3_from_raw_gamma(gamma_tuples, lambda_out, numb_density, lambda_1, lambda_2, lambda_3):
+def compute_and_display_chi3_from_raw_gamma(gamma_tuples, numb_density, lambda_out, lambda_1, lambda_2, lambda_3):
     """
     Parameters:
         gamma_tuples: list of tuples
