@@ -123,14 +123,14 @@ def make_uncorrected_chi3_tensor(gamma, alpha1, alpha2):
                     gamma_ave[i][j][k][l] = gamma_temp + alpha_alpha_temp
     return np.array(gamma_ave)
 
-def Lorentz_Lorenz_local_field_correction_NB_and_density(gamma, lambda_out, lambda_1, lambda_2, lambda_3):
+def Lorentz_Lorenz_local_field_correction_NB_and_density(gamma, numb_density, lambda_out, lambda_1, lambda_2, lambda_3):
     """
     gamma is a 4d numpy array
     all lambdas in microns
     """
     e_0, e_1, e_2, e_3 = refractive_index_sq_of_liq_NB(lambda_out), refractive_index_sq_of_liq_NB(lambda_1), refractive_index_sq_of_liq_NB(lambda_2), refractive_index_sq_of_liq_NB(lambda_3) 
     correction = ((e_0 + 2)/3)*((e_1 + 2)/3)*((e_2 + 2)/3)*((e_3 + 2)/3)
-    return np.multiply(correction, gamma)*chi3_conversion_factor*NB_numb_density*6
+    return np.multiply(correction, gamma)*chi3_conversion_factor*numb_density*6
 
 def display_chi3_elements(chi3_symbols, chi3_values):
     coordinates = [0, 1, 2]
@@ -155,7 +155,24 @@ def initialize_3D_alpha_matrix(alpha_tuples):
         alpha[indices[1]][indices[0]] = alpha_val
     return alpha
 
-def compute_and_display_chi3_from_raw_gamma(gamma_tuples, lambda_out, lambda_1, lambda_2, lambda_3):
+def compute_and_display_chi3_from_raw_gamma(gamma_tuples, lambda_out, numb_density, lambda_1, lambda_2, lambda_3):
+    """
+    Parameters:
+        gamma_tuples: list of tuples
+            gamma value in atomic units
+            [(axis0, axis1, axis2, axis3), gamma_value),...]
+        lambda_out: float
+            output frequency in units of microns
+        lambda_1: float
+            first input frequency in units of microns
+        lambda_2: float
+            second input frequency in units of microns
+        lambda_3: float
+            third input frequency in units of microns
+        numb_density: float
+            density of target molecule in #/m**3
+    """
+
     chi3_elms = sp.symbols("chi^(3)_x:zx:zx:zx:z")
     coordinates = [0, 1, 2]
 
@@ -169,14 +186,14 @@ def compute_and_display_chi3_from_raw_gamma(gamma_tuples, lambda_out, lambda_1, 
     gamma_rot_ave = make_rot_ave_gamma_tensor(gamma)
 
     #calculate coorections and change in units
-    chi3_rot_ave = Lorentz_Lorenz_local_field_correction_NB_and_density(gamma_rot_ave, lambda_out, lambda_1, lambda_2, lambda_3)
+    chi3_rot_ave = Lorentz_Lorenz_local_field_correction_NB_and_density(gamma_rot_ave, numb_density, lambda_out, lambda_1, lambda_2, lambda_3)
 
     # display results of chi3
     display_chi3_elements(chi3_sym, chi3_rot_ave)
     
     return gamma_rot_ave, chi3_rot_ave
                           
-def compute_and_display_chi3_from_raw_gamma_alpha(gamma_tuples, alpha_tuples, lambda_out, lambda_1, lambda_2, lambda_3):
+def compute_and_display_chi3_from_raw_gamma_alpha(gamma_tuples, alpha_tuples, numb_density, lambda_out, lambda_1, lambda_2, lambda_3):
     "assumes all lambdas are the same"
     chi3_elms = sp.symbols("chi^(3)_x:zx:zx:zx:z")
     coordinates = [0, 1, 2]
@@ -194,7 +211,7 @@ def compute_and_display_chi3_from_raw_gamma_alpha(gamma_tuples, alpha_tuples, la
     chi3_uncorrected = make_uncorrected_chi3_tensor(gamma, alpha, alpha)
 
     #calculate coorections and change in units
-    chi3_corrected= Lorentz_Lorenz_local_field_correction_NB_and_density(chi3_uncorrected, lambda_out, lambda_1, lambda_2, lambda_3)
+    chi3_corrected= Lorentz_Lorenz_local_field_correction_NB_and_density(chi3_uncorrected, numb_density, lambda_out, lambda_1, lambda_2, lambda_3)
 
     # display results of chi3
     display_chi3_elements(chi3_sym, chi3_corrected)
