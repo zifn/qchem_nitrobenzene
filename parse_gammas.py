@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+from sys import argv
 """
 take a dalton output file like output_files/NB_rotated_static_gamma_STO-3G_hf.out and extract the
 gamma info
@@ -10,8 +10,8 @@ def strip_gamma(k):
 
 
 def convert(k):
-    """convert "Y;Y,Z,Z" to "(1,1,2,2)"
-    output is a string because json keys need to be strings
+    """convert "Y;Y,Z,Z" to (1,1,2,2)
+    output is a tuple
     """
     convert_axes = {
         "X": 0,
@@ -21,7 +21,7 @@ def convert(k):
     k = k.replace(";", ",")
     parts = k.split(',')
     converted = [convert_axes[part] for part in parts]
-    return str(tuple(converted))
+    return tuple(converted)
 
 
 def parse_gamma(gamma_line):
@@ -46,43 +46,9 @@ def extract_gammas_from_file(filename):
                 gammas.append(parse_gamma(line))
         return gammas
 
-    
-def test_parse_gamma():
-    test_data = [
-        ("@ gamma(Y;Y,Z,Z)       -190.6259", ("(1, 1, 2, 2)", -190.6259)),
-        ("@ gamma(Z;Z,Z,Z)       6205.8187", ("(2, 2, 2, 2)", 6205.8187)),
-        ("@ gamma(X;X,X,X)        -18.3970", ("(0, 0, 0, 0)", -18.3970))
-    ]
-    for test_input, expected in test_data:
-        assert parse_gamma(test_input) == expected, "got {0}, expected {1}".format(test_input, expected)
-
-
-def test_strip_gamma():
-    test_data = [
-        ("gamma(Y;Y,Z,Z)", "Y;Y,Z,Z")
-    ]
-    for test_input, expected in test_data:
-        test_output = strip_gamma(test_input)
-        assert test_output == expected, test_output
-
-
-def test_convert_to_ints():
-    test_data = [
-        ("Y;Y,Z,Z", "(1, 1, 2, 2)")
-    ]
-    for test_input, expected in test_data:
-        test_output = convert(test_input)
-        assert test_output == expected, "output: {0}, type: {1}, expected: {2}".format(test_output, type(test_output), expected)
-
-
-def test():
-    test_strip_gamma()
-    test_convert_to_ints()
-    test_parse_gamma()
-    print("\nHooray, it worked!\n")
-
-
 if __name__ == "__main__":
     # jank tests because I wanted to use pytest but then remembered my system python setup is borked
-    test()
+    gamma_output = extract_gammas_from_file(argv[1])
+    print(gamma_output)
+        
 
