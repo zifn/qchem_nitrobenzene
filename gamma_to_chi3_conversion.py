@@ -100,6 +100,7 @@ def alpha_alpha_contribution_to_chi3(alpha1, alpha2, i, j, k, l):
     return accumulator, called_indices_no_rep
 
 def make_rot_ave_gamma_tensor(gamma):
+    coordinates = [0, 1, 2]
     gamma_ave = [[[[None for l in coordinates] for k in coordinates] for j in coordinates] for i in coordinates]
     for i in coordinates:
         for j in coordinates:
@@ -131,12 +132,16 @@ def Lorentz_Lorenz_local_field_correction_NB_and_density(gamma, numb_density, la
     return np.multiply(correction, gamma)*chi3_conversion_factor*numb_density*6
 
 def display_chi3_elements(chi3_symbols, chi3_values):
+    """
+    when formating with latex
+    {0} = {1} \\text{{ }} \\text{{m}}^2 / \\text{{V}}^2
+    """
     coordinates = [0, 1, 2]
     for i in coordinates:
         for j in coordinates:
             for k in coordinates:
                 for l in coordinates:
-                    sp.pprint(Math("{0} = {1} \\text{{ }} \\text{{m}}^2 / \\text{{V}}^2".format(sp.latex(chi3_symbols[i][j][k][l]), chi3_values[i][j][k][l])))
+                    print("{0} = {1} m^2 / V^2".format(sp.latex(chi3_symbols[i][j][k][l]), chi3_values[i][j][k][l]))
 
 def initialize_3D_4th_rank_tensor(gamma_tuples):
     coordinates = [0, 1, 2]
@@ -189,7 +194,7 @@ def compute_and_display_chi3_from_raw_gamma(gamma_tuples, numb_density, lambda_o
     # display results of chi3
     display_chi3_elements(chi3_sym, chi3_rot_ave)
     
-    return gamma_rot_ave, chi3_rot_ave
+    return gamma_rot_ave, chi3_rot_ave, chi3_sym
                           
 def compute_and_display_chi3_from_raw_gamma_alpha(gamma_tuples, alpha_tuples, numb_density, lambda_out, lambda_1, lambda_2, lambda_3):
     "assumes all lambdas are the same"
@@ -214,4 +219,4 @@ def compute_and_display_chi3_from_raw_gamma_alpha(gamma_tuples, alpha_tuples, nu
     # display results of chi3
     display_chi3_elements(chi3_sym, chi3_corrected)
     
-    return chi3_uncorrected, chi3_corrected
+    return chi3_uncorrected, chi3_corrected, chi3_sym
