@@ -2,7 +2,7 @@ BASIS
 6-311++G**
 nitrobenzene optimized with C2v symetry
 -----------
-Atomtypes=4 Generators=2 X Y
+Atomtypes=4 Angstrom Generators=2 X Y
 Charge=6.0 Atoms=6
 C_1     -0.0194784352           -1.2244798211            0.4752894730
 C_2     -0.0257314473           -1.2560640758            1.8663046834
