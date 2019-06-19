@@ -146,7 +146,7 @@
   Hans Agren,               KTH Stockholm,                Sweden      (SIRIUS module, RESPONS, MC-SCRF solvation model)
  --------------------------------------------------------------------------------
 
-     Date and time (Linux)  : Tue Jun 18 11:25:58 2019
+     Date and time (Linux)  : Mon Jun 17 12:57:58 2019
      Host name              : Lab2-333-NPs                            
 
  * Work memory size             :    64000000 =  488.28 megabytes.
@@ -191,7 +191,7 @@ Compilation information
 .DIRECT
 **WAVE FUNCTIONS
 .MCSCF
-*CONFIGURATION INPUT
+*CONGIFURATION INPUT
 .SPIN MULTIPLICITY
 1
 .SYMMETRY
@@ -204,7 +204,6 @@ Compilation information
 10
 *ORBITAL INPUT
 .MOSTART
-.HUCKEL
 **RESPONSE
 *CUBIC
 .DIPLEN
@@ -268,7 +267,7 @@ H        0.0000000000            0.0000000000           -3.8683953478
   --------------------
   Nuclear charge:   6.00000
   Number of symmetry independent centers:    4
-  Number of basis sets to read;    2
+  Number of basis sets to read;    1
   Basis set file used for this atomic type with Z =   6 :
      "/home/lab333/dalton/build_2018_atlas/basis/aug-cc-pCVDZ"
 
@@ -276,7 +275,7 @@ H        0.0000000000            0.0000000000           -3.8683953478
   --------------------
   Nuclear charge:   7.00000
   Number of symmetry independent centers:    1
-  Number of basis sets to read;    2
+  Number of basis sets to read;    1
   Basis set file used for this atomic type with Z =   7 :
      "/home/lab333/dalton/build_2018_atlas/basis/aug-cc-pCVDZ"
 
@@ -284,7 +283,7 @@ H        0.0000000000            0.0000000000           -3.8683953478
   --------------------
   Nuclear charge:   8.00000
   Number of symmetry independent centers:    1
-  Number of basis sets to read;    2
+  Number of basis sets to read;    1
   Basis set file used for this atomic type with Z =   8 :
      "/home/lab333/dalton/build_2018_atlas/basis/aug-cc-pCVDZ"
 
@@ -292,7 +291,7 @@ H        0.0000000000            0.0000000000           -3.8683953478
   --------------------
   Nuclear charge:   1.00000
   Number of symmetry independent centers:    3
-  Number of basis sets to read;    2
+  Number of basis sets to read;    1
   Basis set file used for this atomic type with Z =   1 :
      "/home/lab333/dalton/build_2018_atlas/basis/aug-cc-pCVDZ"
 
@@ -858,9 +857,9 @@ H        0.0000000000            0.0000000000           -3.8683953478
       z    -32.41191504       -82.38286538      -274.79965949
 
 
-  Time used in GABGEN     is       0.12 seconds
-  Total CPU  time used in HERMIT:   0.39 seconds
-  Total wall time used in HERMIT:   0.39 seconds
+  Time used in GABGEN     is       0.11 seconds
+  Total CPU  time used in HERMIT:   0.36 seconds
+  Total wall time used in HERMIT:   0.36 seconds
 
 
                         .----------------------------------.
@@ -874,122 +873,61 @@ H        0.0000000000            0.0000000000           -3.8683953478
                    `--------------------------------------------'
 
 
- *** Output from Huckel module :
+ Keyword *CONGIF not recognized in Sirius input.
 
-     Using EWMO model:          F
-     Using EHT  model:          T
-     Number of Huckel orbitals each symmetry:   24   17    6    3
 
- Huckel EHT eigenvalues for symmetry :  1
-          -20.695822     -15.706036     -11.414993     -11.394585     -11.376746
-          -11.362597      -1.748744      -1.555382      -1.196259      -0.941364
-           -0.817059      -0.782210      -0.643577      -0.589224      -0.493397
-           -0.429144      -0.328230      -0.246947      -0.225806      -0.213738
-           -0.205823      -0.178738      -0.166343      -0.160473
 
- Huckel EHT eigenvalues for symmetry :  2
-          -20.700625     -11.396474     -11.377857      -1.399983      -1.203200
-           -0.879843      -0.646405      -0.569964      -0.526471      -0.479328
-           -0.414891      -0.271537      -0.213209      -0.202807      -0.176234
-           -0.165379      -0.163255
+ General Sirius input keywords
+ =============================
+     *CONFIG
+     *OPTIMI
+     *CI INP
+     *ORBITA
+     *CI VEC
+     *STEP C
+     *POPULA
+     *TRANSF
+     *SCF IN
+     *UPDATE
+     *SOLVEN
+     *PRINT 
+     *AUXILI
+     *HF INP
+     *MP2 IN
+     *HAMILT
+     *CC INP
+     *DFT IN
+     *NEVPT2
+     *AUXILL
+     *LUCITA
+     *STEX I
+     *CUBE  
+     *CHOACT
+     *APSG I
+     *END OF
 
- Huckel EHT eigenvalues for symmetry :  3
-           -0.800032      -0.672072      -0.465792      -0.384453      -0.281766
-           -0.236539
 
- Huckel EHT eigenvalues for symmetry :  4
-           -0.592875      -0.460139      -0.288832
-
- **********************************************************************
- *SIRIUS* a direct, restricted step, second order MCSCF program       *
- **********************************************************************
-
- 
-     Date and time (Linux)  : Tue Jun 18 11:25:59 2019
+  --- SEVERE ERROR, PROGRAM WILL BE ABORTED ---
+     Date and time (Linux)  : Mon Jun 17 12:57:59 2019
      Host name              : Lab2-333-NPs                            
 
- Title lines from ".mol" input file:
-      nitrobenzene                                                           
-      Generated by the Dalton Input File Plugin for Avogadro                 
+ Reason: Illegal keyword in top level SIRIUS input
 
- Print level on unit LUPRI =   2 is   0
- Print level on unit LUW4  =   2 is   5
-
-@    MC-SCF optimization.
-
-@    Multi-configurational response calculation.
-@              Type: complete active space calculation (CAS).
- Fock matrices are calculated directly without use of integrals on disk.
-
- Initial molecular orbitals are obtained according to
- ".MOSTART EHT   " input option
-
-     Wave function specification
-     ============================
-@    Wave function type        --- MC-SCF ---
-@    Number of closed shell electrons          54
-@    Number of electrons in active shells      10
-@    Total charge of the molecule               0
-
-@    Spin multiplicity and 2 M_S                1         0
-@    Total number of symmetries                 4 (point group: C2v)
-@    Reference state symmetry                   1 (irrep name : A1 )
-
-     Orbital specifications
-     ======================
-@    Abelian symmetry species          All |    1    2    3    4
-@                                          |  A1   B1   B2   A2 
-                                       --- |  ---  ---  ---  ---
-@    Inactive orbitals                  27 |   15   10    2    0
-@    Active orbitals                     9 |    3    2    2    2
-@    Secondary orbitals                252 |   97   79   44   32
-@    Total number of orbitals          288 |  115   91   48   34
-@    Number of basis functions         288 |  115   91   48   34
-
-     Optimization information
-     ========================
-@    Number of configurations              1368
-@    Number of orbital rotations           3003
-     ------------------------------------------
-@    Total number of variables             4371
-
-     Maximum number of macro iterations      25
-     Maximum number of micro iterations     600
-     Threshold for MCSCF gradient      1.00D-05
-     Number of initial trial vectors          1
-     Number of initial CI iterations          3
-     Number of simultaneous trial vectors     1
-
-@    This calculation converges to the lowest state for the specified symmetry and spin species.
-
-     Maximum number of NEO/NR iterations  24
-
-    INFORMATION: Switched to "new" integral transformation (from 1988 ;-) )
-    because more than 255 basis functions.
+  Total CPU  time used in DALTON:   0.38 seconds
+  Total wall time used in DALTON:   0.37 seconds
 
 
-        SIRIUS MCSCF optimization (SIROPT)
- ================================================
+ QTRACE dump of internal trace stack
 
+ ========================
+      level    module
+ ========================
+          7    SIR_NEWINP  
+          6    SIRRDI      
+          5    SIRINP      
+          4    SIRCTL      
+          3    SIRIUS      
+          2    DALTON      
+          1    DALTON main 
+ ========================
 
- Fock matrix screening setting for SIRCNO: IFTHRS =    9
-
-
- ----- Output from SIRIUS CI module (CICTL) -----
-
-
-
-
----> (Re)generating AOTWOINT
-
-
-     ************************************************************************
-     ************************** Output from HERINT **************************
-     ************************************************************************
-
-
- Threshold for neglecting two-electron integrals:  1.00D-12
- HERMIT - Number of two-electron integrals written:   203489779 ( 23.5% )
- HERMIT - Megabytes written:                           3106.305
-
-  Time used in TWOINT     is      37.75 seconds
