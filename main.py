@@ -16,6 +16,14 @@ import scipy.constants as constants
 import parse_gammas
 import gamma_to_chi3_conversion
 
+def display_chi3_elements(chi3_symbols, chi3_values):
+    coordinates = [0, 1, 2]
+    for i in coordinates:
+        for j in coordinates:
+            for k in coordinates:
+                for l in coordinates:
+                    display(Math("{0} = {1} \\text{{ }} \\text{{m}}^2 / \\text{{V}}^2".format(sp.latex(chi3_symbols[i][j][k][l]), chi3_values[i][j][k][l])))
+
 def number_density_of_liquid_nitrobenzene():
     #calculate number density of liquid nitrobenzene
     NB_mass_density = 1.199 #g/cm^3
@@ -24,13 +32,13 @@ def number_density_of_liquid_nitrobenzene():
     NB_numb_density_per_m3 =  np.multiply(NB_numb_density_per_cm3, 100**3)
     return NB_numb_density_per_m3
 
-def main():
+def main_conversion(file_path, should_return=False):
     lambda_out = .8 # 800nm OKE pulses
     lambda_1 = .8
     lambda_2 = .8
     lambda_3 = .8
     
-    gamma_tuples = parse_gammas.extract_gammas_from_file(argv[1])
+    gamma_tuples = parse_gammas.extract_gammas_from_file(file_path)
     if len(gamma_tuples) > 0:
         gamma_rot_ave, chi3_rot_ave, chi3_sym = gamma_to_chi3_conversion.compute_and_display_chi3_from_raw_gamma(
             gamma_tuples,
@@ -43,8 +51,11 @@ def main():
         chi3_eff_sym = sp.symbols("chi^(3)_eff")
         chi3_eff_expr = chi3_sym[1][0][0][1] + chi3_sym[1][0][1][0]
         chi3_eff_value = chi3_rot_ave[1][0][0][1] + chi3_rot_ave[1][0][1][0]
-        print("\n{0} = {1}".format(sp.latex(chi3_eff_sym), sp.latex(chi3_eff_expr)))
-        print("{0} = {1} m^2 / V^2".format(sp.latex(chi3_eff_sym), chi3_eff_value))
+        if should_return:
+            return chi3_eff_sym, chi3_eff_expr, chi3_eff_value, gamma_rot_ave, chi3_rot_ave, chi3_sym
+        else:
+            print("\n{0} = {1}".format(sp.latex(chi3_eff_sym), sp.latex(chi3_eff_expr)))
+            print("{0} = {1} m^2 / V^2".format(sp.latex(chi3_eff_sym), chi3_eff_value))
 
 if __name__ == "__main__":
-	main()
+	main_conversion(argv[1])
