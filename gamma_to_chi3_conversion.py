@@ -192,7 +192,7 @@ def compute_and_display_chi3_from_raw_gamma(gamma_tuples, numb_density, lambda_o
     chi3_rot_ave = Lorentz_Lorenz_local_field_correction_NB_and_density(gamma_rot_ave, numb_density, lambda_out, lambda_1, lambda_2, lambda_3)
 
     # display results of chi3
-    display_chi3_elements(chi3_sym, chi3_rot_ave)
+    #display_chi3_elements(chi3_sym, chi3_rot_ave)
     
     return gamma_rot_ave, chi3_rot_ave, chi3_sym
                           
@@ -217,6 +217,6 @@ def compute_and_display_chi3_from_raw_gamma_alpha(gamma_tuples, alpha_tuples, nu
     chi3_corrected= Lorentz_Lorenz_local_field_correction_NB_and_density(chi3_uncorrected, numb_density, lambda_out, lambda_1, lambda_2, lambda_3)
 
     # display results of chi3
-    display_chi3_elements(chi3_sym, chi3_corrected)
+    #display_chi3_elements(chi3_sym, chi3_corrected)
     
     return chi3_uncorrected, chi3_corrected, chi3_sym
