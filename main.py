@@ -24,6 +24,18 @@ def display_chi3_elements(chi3_symbols, chi3_values):
                 for l in coordinates:
                     display(Math("{0} = {1} \\text{{ }} \\text{{m}}^2 / \\text{{V}}^2".format(sp.latex(chi3_symbols[i][j][k][l]), chi3_values[i][j][k][l])))
 
+def print_chi3_elements(chi3_symbols, chi3_values):
+    """
+    when formating with latex
+    {0} = {1} \\text{{ }} \\text{{m}}^2 / \\text{{V}}^2
+    """
+    coordinates = [0, 1, 2]
+    for i in coordinates:
+        for j in coordinates:
+            for k in coordinates:
+                for l in coordinates:
+                    print("{0} = {1} m^2 / V^2".format(sp.latex(chi3_symbols[i][j][k][l]), chi3_values[i][j][k][l]))
+
 def number_density_of_liquid_nitrobenzene():
     #calculate number density of liquid nitrobenzene
     NB_mass_density = 1.199 #g/cm^3
@@ -54,6 +66,7 @@ def main_conversion(file_path, should_return=False):
         if should_return:
             return chi3_eff_sym, chi3_eff_expr, chi3_eff_value, gamma_rot_ave, chi3_rot_ave, chi3_sym
         else:
+            print_chi3_elements(chi3_sym, chi3_rot_ave)
             print("\n{0} = {1}".format(sp.latex(chi3_eff_sym), sp.latex(chi3_eff_expr)))
             print("{0} = {1} m^2 / V^2".format(sp.latex(chi3_eff_sym), chi3_eff_value))
 
