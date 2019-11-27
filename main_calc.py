@@ -74,10 +74,10 @@ H        0.0000000000            0.0000000000           -3.8683953478
     return file_path
 
 def main():
-    cwd = os.getcwd()
+    cwd = "qchem_nitrobenzene"#os.getcwd()
     dal_file_path = os.path.join(cwd, "temp_dal_file.dal")
     mol_file_path = os.path.join(cwd, "temp_mol_file.dal")
-    output_dir = os.path.join(cwd, "output_files")
+    output_dir = os.path.join(cwd, "main_calc_output_files")
 
     if os.path.isdir(output_dir) == False:
         os.mkdir(output_dir)
@@ -94,7 +94,6 @@ def main():
                 file.write(stdout)
         except:
             print("error with output_file_path tyring next calculation")
-            print(stderr)
             print(stdout)
             pass
 
