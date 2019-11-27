@@ -94,6 +94,8 @@ def main():
                 file.write(stdout)
         except:
             print("error with output_file_path tyring next calculation")
+            print(stderr)
+            print(stdout)
             pass
 
 if __name__ == "__main__":
