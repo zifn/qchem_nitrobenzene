@@ -1,4 +1,5 @@
 import os
+import traceback
 from sys import argv
 import numpy as np
 import util_calc
@@ -91,9 +92,10 @@ def main():
             print("\t running command - {}".format(cmd_to_run))
             exit_code, stdout, stderr = util_calc.run_cmd(cmd_to_run)
             with open(stdout_output_file_path, 'w') as file:
-                file.write(stdout)
-        except:
-            print("error with output_file_path tyring next calculation")
+                file.write(str(stdout))
+        except Exception as err:
+            print("An error occured trying next calculation")
+            traceback.print_tb(err.__traceback__)
             pass
 
 if __name__ == "__main__":
