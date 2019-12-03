@@ -4,6 +4,23 @@ from sys import argv
 import numpy as np
 import util_calc
 
+def unit_vector(vector):
+    """ Returns the unit vector of the vector.  """
+    return vector / np.linalg.norm(vector)
+
+def angle_between(v1, v2):
+    """ Returns the angle in radians between vectors 'v1' and 'v2'::
+
+            >>> angle_between((1, 0, 0), (0, 1, 0))
+            1.5707963267948966
+            >>> angle_between((1, 0, 0), (1, 0, 0))
+            0.0
+            >>> angle_between((1, 0, 0), (-1, 0, 0))
+            3.141592653589793
+    """
+    v1_u = unit_vector(v1)
+    v2_u = unit_vector(v2)
+    return np.arccos(np.clip(np.dot(v1_u, v2_u), -1.0, 1.0))
 
 def make_dal_file(file_path, freq_hartree):
     dal_input = """**DALTON INPUT
@@ -49,7 +66,13 @@ def make_dal_file(file_path, freq_hartree):
     
     return file_path
 
-def make_mol_file(file_path):
+def make_mol_file(file_path, CN_displacement=0, ONO_rotation=0):
+    nitrogen_eq = np.array((0.0000000000, 0.0000000000, 1.4549291696))
+    oxygen_eq = np.array((-1.0847503743, 0.0000000000, 2.0235779798))
+    ONO_half_angle = angle_between(nitrogen_eq, oxygen_eq)
+    NO_distance = np.linalg.norm(oxygen_eq - nitrogen_eq)
+    N_new_location = nitrogen_eq + np.array((0.0000000000, 0.0000000000, CN_displacement))
+    O_new_location = np.array((NO_distance*np.sin(ONO_half_angle+ONO_rotation/2), 0.0000000000, N_new_location[2] + NO_distance*np.cos(ONO_half_angle+ONO_rotation/2)))
     mol_input=  """BASIS
 aug-cc-pCVDZ
  nitrobenzene
@@ -61,14 +84,14 @@ C       -1.2190534920            0.0000000000           -0.6979856948
 C       -1.2105095870            0.0000000000           -2.0897394457
 C        0.0000000000            0.0000000000           -2.7841484631
 Charge=7.0 Atoms=1
-N        0.0000000000            0.0000000000            1.4549291696
+N        0.0000000000            0.0000000000            {0}
 Charge=8.0 Atoms=1
-O       -1.0847503743            0.0000000000            2.0235779798
+O       {1}            {2}            {3}
 Charge=1.0 Atoms=3
 H       -2.1410602955            0.0000000000           -0.1327964319
 H       -2.1492827751            0.0000000000           -2.6311811056
 H        0.0000000000            0.0000000000           -3.8683953478    
-"""
+""".format(N_new_location[2], O_new_location[0], O_new_location[1], O_new_location[2])
     with open(file_path, 'w') as mol_file:
         mol_file.write(mol_input)
     
