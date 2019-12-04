@@ -100,7 +100,6 @@ H        0.0000000000            0.0000000000           -3.8683953478
     return file_path
 
 def main():
-    state = 1
     cwd = "qchem_nitrobenzene"#os.getcwd()
     dal_file_path = os.path.join(cwd, "temp_dal_file.dal")
     mol_file_path = os.path.join(cwd, "temp_mol_file.mol")
@@ -109,10 +108,13 @@ def main():
     if os.path.isdir(output_dir) == False:
         os.mkdir(output_dir)
 
+    state = 2
     for freq_hartree in np.linspace(0, 0.06, 21):
         output_file_path = os.path.join(output_dir, "freq-{}_cubic_response_NBopt_dunningZ-2.out".format(freq_hartree))
         stdout_output_file_path = os.path.join(output_dir, "freq-{}_cubic_response_NBopt_dunningZ-2.stdout".format(freq_hartree))
-        cmd_to_run = ['./dalton', '-mb', '8000', '-o', str(output_file_path), str(make_dal_file(dal_file_path, freq_hartree)), str(make_mol_file(mol_file_path))]
+        next_dal_file_path = make_dal_file(dal_file_path, freq_hartree, state)
+        next_mol_file_path = make_mol_file(mol_file_path)
+        cmd_to_run = ['./dalton', '-mb', '8000', '-o', str(output_file_path), str(next_dal_file_path), str(next_mol_file_path)]
         try:
             print("running next calculation freq = {}".format(freq_hartree))
             print("\t running command - {}".format(cmd_to_run))
