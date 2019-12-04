@@ -22,7 +22,7 @@ def angle_between(v1, v2):
     v2_u = unit_vector(v2)
     return np.arccos(np.clip(np.dot(v1_u, v2_u), -1.0, 1.0))
 
-def make_dal_file(file_path, freq_hartree):
+def make_dal_file(file_path, freq_hartree, state):
     dal_input = """**DALTON INPUT
 .RUN RESPONSE
 .DIRECT
@@ -46,6 +46,8 @@ def make_dal_file(file_path, freq_hartree):
 .HUCKEL
 *OPTIMIZATION
 .DETERMINANTS
+.STATE
+{1}
 *CI VECTOR
 .PLUS COMBINATIONS
 **RESPONSE
@@ -60,7 +62,7 @@ def make_dal_file(file_path, freq_hartree):
 .DFREQ
 1
 {0}
-**END OF DALTON INPUT""".format(freq_hartree)
+**END OF DALTON INPUT""".format(freq_hartree, int(state))
     with open(file_path, 'w') as dal_file:
         dal_file.write(dal_input)
     
@@ -98,6 +100,7 @@ H        0.0000000000            0.0000000000           -3.8683953478
     return file_path
 
 def main():
+    state = 1
     cwd = "qchem_nitrobenzene"#os.getcwd()
     dal_file_path = os.path.join(cwd, "temp_dal_file.dal")
     mol_file_path = os.path.join(cwd, "temp_mol_file.mol")
