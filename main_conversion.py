@@ -50,7 +50,7 @@ def main_conversion(file_path, should_return=False):
     lambda_2 = .8
     lambda_3 = .8
     
-    gamma_tuples = parse_gammas.extract_gammas_from_file(file_path)
+    gamma_tuples, freqs = parse_gammas.extract_gammas_and_freq_from_file(file_path)
     if len(gamma_tuples) > 0:
         gamma_rot_ave, chi3_rot_ave, chi3_sym = gamma_to_chi3_conversion.compute_and_display_chi3_from_raw_gamma(
             gamma_tuples,
