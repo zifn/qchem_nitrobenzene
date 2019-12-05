@@ -36,18 +36,31 @@ def parse_gamma(gamma_line):
     v = float(v)
     return (k, v)
 
+def parse_freq(freq_line):
+    """convert line from dalton to
+    (
+        (int, int, int, int),
+        float
+    )
+    """
+    _, _, v = freq_line.split()
+    v = float(v)
+    return v
 
-def extract_gammas_from_file(filename):
+def extract_gammas_and_freq_from_file(filename):
     with open(filename) as f:
         lines = f.readlines()
         gammas = []
+        freqs = []
         for line in lines:
             if "@ gamma(" in line:
                 gammas.append(parse_gamma(line))
-        return gammas
+            if "@ B-freq:" in line or "@ C-freq:" in line or "@ D-freq:" in line:
+                freqs.append(parse_freq(line))
+        return gammas, freqs
 
 if __name__ == "__main__":
-    gamma_output = extract_gammas_from_file(argv[1])
+    gamma_output, freq = extract_gammas_from_file(argv[1])
     print(gamma_output)
         
 
