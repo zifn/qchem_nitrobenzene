@@ -60,7 +60,8 @@ def extract_gammas_and_freq_from_file(filename):
         return gammas, freqs
 
 if __name__ == "__main__":
-    gamma_output, freq = extract_gammas_from_file(argv[1])
+    gamma_output, freqs = extract_gammas_and_freq_from_file(argv[1])
     print(gamma_output)
+    print(freqs)
         
 
