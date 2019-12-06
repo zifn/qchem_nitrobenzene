@@ -13,7 +13,7 @@ def find_frequency_used(file):
     value = temp.split('_')[0]
     return float(value)
 
-def main(dir_path, output_file_name):
+def main(dir_path, output_file_name, should_return=False):
     folder_location = os.path.normpath(dir_path)
     output_file_path = os.path.join(folder_location, output_file_name)
     output_data = []
@@ -28,6 +28,8 @@ def main(dir_path, output_file_name):
     output_df = pd.DataFrame(output_data)
     print('saving data to -> {}'.format(output_file_path))
     output_df.to_csv(output_file_path)
+    if should_return:
+        return output_df
 
 if __name__ == "__main__":
     """
