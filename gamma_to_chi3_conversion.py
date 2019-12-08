@@ -118,6 +118,7 @@ def Lorentz_Lorenz_local_field_correction_NB_and_density(gamma, numb_density, sq
     
     e_0, e_1, e_2, e_3 = sq_refractive_index(lambda_out), sq_refractive_index(lambda_1), sq_refractive_index(lambda_2), sq_refractive_index(lambda_3) 
     correction = ((e_0 + 2)/3)*((e_1 + 2)/3)*((e_2 + 2)/3)*((e_3 + 2)/3)
+    print(correction)
     return np.multiply(correction, gamma)*chi3_conversion_factor*numb_density*6
 
 def display_chi3_elements(chi3_symbols, chi3_values):

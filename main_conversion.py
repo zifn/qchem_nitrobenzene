@@ -50,7 +50,10 @@ def refractive_index_sq_of_liq_NB(lambda_um):
     from https://refractiveindex.info/?shelf=organic&book=nitrobenzene&page=Kedenburg
     wavelen of light must be in microns
     """
-    return 1 + ((1.30628*np.square(lambda_um))/(np.square(lambda_um) - 0.02268)) + ((0.00502*np.square(lambda_um))/(np.square(lambda_um) - 0.18487))
+    if np.isclose(lambda_um, 0.0):
+        return 1 + 1.30628 + 0.00502
+    else:
+        return 1 + ((1.30628*np.square(lambda_um))/(np.square(lambda_um) - 0.02268)) + ((0.00502*np.square(lambda_um))/(np.square(lambda_um) - 0.18487))
 
 def convert_hartree_freq_to_microns(freq):
     if np.isclose(freq, 0.0):
@@ -62,7 +65,7 @@ def convert_hartree_freq_to_microns(freq):
         return freq_micron
 
 def main_conversion(file_path, should_return=False):
-    gamma_tuples, freqs = parse_gammas.extract_gammas_and_freq_from_file(file_path)
+    gamma_tuples, freqs, warning_flag = parse_gammas.extract_gammas_and_freq_from_file(file_path)
     if len(gamma_tuples) > 0: # check for valid dalton run
         freqs.insert(0, -sum(freqs))
         lambda_out, lambda_1, lambda_2, lambda_3 = [convert_hartree_freq_to_microns(freq) for freq in freqs]
@@ -80,11 +83,12 @@ def main_conversion(file_path, should_return=False):
         chi3_eff_value = chi3_rot_ave[1][0][0][1] + chi3_rot_ave[1][0][1][0]
         gamma_eff_value = gamma_rot_ave[1][0][0][1] + gamma_rot_ave[1][0][1][0]
         if should_return:
-            return chi3_eff_sym, chi3_eff_expr, chi3_eff_value, gamma_eff_value, gamma_rot_ave, chi3_rot_ave, chi3_sym, lambda_out, lambda_1, lambda_2, lambda_3
+            return chi3_eff_sym, chi3_eff_expr, chi3_eff_value, gamma_eff_value, gamma_rot_ave, chi3_rot_ave, chi3_sym, lambda_out, lambda_1, lambda_2, lambda_3, warning_flag
         else:
             print_chi3_elements(chi3_sym, chi3_rot_ave)
             print("\n{0} = {1}".format(sp.latex(chi3_eff_sym), sp.latex(chi3_eff_expr)))
             print("{0} = {1} m^2 / V^2".format(sp.latex(chi3_eff_sym), chi3_eff_value))
+            print("Warning Flag Raised = {}".format(warning_flag))
     return []
 
 if __name__ == "__main__":

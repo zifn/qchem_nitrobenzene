@@ -52,12 +52,15 @@ def extract_gammas_and_freq_from_file(filename):
         lines = f.readlines()
         gammas = []
         freqs = []
+        warning_flag = False
         for line in lines:
             if "@ gamma(" in line:
                 gammas.append(parse_gamma(line))
             if "@ B-freq:" in line or "@ C-freq:" in line or "@ D-freq:" in line:
                 freqs.append(parse_freq(line))
-        return gammas, freqs
+            if "@WARNING" in line:
+                warning_flag = True
+        return gammas, freqs, warning_flag
 
 if __name__ == "__main__":
     gamma_output, freqs = extract_gammas_and_freq_from_file(argv[1])

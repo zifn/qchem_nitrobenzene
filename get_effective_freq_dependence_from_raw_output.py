@@ -1,5 +1,7 @@
 from sys import argv
 import os
+
+from scipy import constants as consts
 import pandas as pd
 
 import main_conversion
@@ -13,6 +15,11 @@ def find_frequency_used(file):
     value = temp.split('_')[0]
     return float(value)
 
+def convert_hartree_freq_to_eV(freq_hartee):
+    E_hartree_conversion = consts.physical_constants['Hartree energy in eV'][0]
+    freq_eV = freq_hartee*E_hartree_conversion
+    return freq_eV
+
 def main(dir_path, output_file_name, should_return=False):
     folder_location = os.path.normpath(dir_path)
     output_file_path = os.path.join(folder_location, output_file_name)
@@ -23,8 +30,12 @@ def main(dir_path, output_file_name, should_return=False):
             freq = find_frequency_used(file)
             file_output = main_conversion.main_conversion(os.path.join(folder_location, file), True)
             if file_output:
-                chi3_eff_sym, chi3_eff_expr, chi3_eff_value, gamma_eff_value, gamma_rot_ave, chi3_rot_ave, chi3_sym, lambda_out, lambda_1, lambda_2, lambda_3 = file_output
-                output_data.append({'freq (Hartree)': freq, 'freq (nm)': abs(main_conversion.convert_hartree_freq_to_microns(freq)*1000), 'gamma effective': gamma_eff_value, 'chi3 effective': chi3_eff_value})
+                chi3_eff_sym, chi3_eff_expr, chi3_eff_value, gamma_eff_value, gamma_rot_ave, chi3_rot_ave, chi3_sym, lambda_out, lambda_1, lambda_2, lambda_3, warning_flag = file_output
+                output_data.append({'freq (Hartree)': freq,
+                                    'freq (eV)': abs(convert_hartree_freq_to_eV(freq)),
+                                    'gamma effective': gamma_eff_value,
+                                    'chi3 effective': chi3_eff_value,
+                                    'warning_flag': warning_flag})
     output_df = pd.DataFrame(output_data)
     print('saving data to -> {}'.format(output_file_path))
     output_df.to_csv(output_file_path)
