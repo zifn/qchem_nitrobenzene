@@ -8,9 +8,6 @@ from sympy import init_printing
 import scipy.constants as constants
 init_printing()
 
-
-
-
 def euler_integration(R):
     return sp.integrate(sp.integrate(sp.integrate(R, (alph, -sp.pi, sp.pi)), (beta, -sp.pi/2, sp.pi/2)), (gamma, -sp.pi, sp.pi))
 
@@ -22,14 +19,6 @@ def delta(i, j):
         return 1
     else:
         return 0
-
-def refractive_index_sq_of_liq_NB(lambda_um):
-    """
-    temp 20 deg C
-    from https://refractiveindex.info/?shelf=organic&book=nitrobenzene&page=Kedenburg
-    wavelen of light must be in microns
-    """
-    return 1 + ((1.30628*np.square(lambda_um))/(np.square(lambda_um) - 0.02268)) + ((0.00502*np.square(lambda_um))/(np.square(lambda_um) - 0.18487))
     
 def rot_ave_gamma(gamma, i, j, k, l):
     """
@@ -120,15 +109,16 @@ def make_uncorrected_chi3_tensor(gamma, alpha1, alpha2):
                     gamma_ave[i][j][k][l] = gamma_temp + alpha_alpha_temp
     return np.array(gamma_ave)
 
-def Lorentz_Lorenz_local_field_correction_NB_and_density(gamma, numb_density, lambda_out, lambda_1, lambda_2, lambda_3):
+def Lorentz_Lorenz_local_field_correction_NB_and_density(gamma, numb_density, sq_refractive_index, lambda_out, lambda_1, lambda_2, lambda_3):
     """
     gamma is a 4d numpy array
     all lambdas in microns
     """
     chi3_conversion_factor = constants.physical_constants["atomic unit of 2nd hyperpolarizability"][0]/constants.epsilon_0
     
-    e_0, e_1, e_2, e_3 = refractive_index_sq_of_liq_NB(lambda_out), refractive_index_sq_of_liq_NB(lambda_1), refractive_index_sq_of_liq_NB(lambda_2), refractive_index_sq_of_liq_NB(lambda_3) 
+    e_0, e_1, e_2, e_3 = sq_refractive_index(lambda_out), sq_refractive_index(lambda_1), sq_refractive_index(lambda_2), sq_refractive_index(lambda_3) 
     correction = ((e_0 + 2)/3)*((e_1 + 2)/3)*((e_2 + 2)/3)*((e_3 + 2)/3)
+    print(correction)
     return np.multiply(correction, gamma)*chi3_conversion_factor*numb_density*6
 
 def display_chi3_elements(chi3_symbols, chi3_values):
@@ -158,7 +148,7 @@ def initialize_3D_alpha_matrix(alpha_tuples):
         alpha[indices[1]][indices[0]] = alpha_val
     return alpha
 
-def compute_and_display_chi3_from_raw_gamma(gamma_tuples, numb_density, lambda_out, lambda_1, lambda_2, lambda_3):
+def compute_and_display_chi3_from_raw_gamma(gamma_tuples, numb_density, sq_refractive_index, lambda_out, lambda_1, lambda_2, lambda_3):
     """
     Parameters:
         gamma_tuples: list of tuples
@@ -189,14 +179,14 @@ def compute_and_display_chi3_from_raw_gamma(gamma_tuples, numb_density, lambda_o
     gamma_rot_ave = make_rot_ave_gamma_tensor(gamma)
 
     #calculate coorections and change in units
-    chi3_rot_ave = Lorentz_Lorenz_local_field_correction_NB_and_density(gamma_rot_ave, numb_density, lambda_out, lambda_1, lambda_2, lambda_3)
+    chi3_rot_ave = Lorentz_Lorenz_local_field_correction_NB_and_density(gamma_rot_ave, numb_density, sq_refractive_index, lambda_out, lambda_1, lambda_2, lambda_3)
 
     # display results of chi3
     #display_chi3_elements(chi3_sym, chi3_rot_ave)
     
     return gamma_rot_ave, chi3_rot_ave, chi3_sym
                           
-def compute_and_display_chi3_from_raw_gamma_alpha(gamma_tuples, alpha_tuples, numb_density, lambda_out, lambda_1, lambda_2, lambda_3):
+def compute_and_display_chi3_from_raw_gamma_alpha(gamma_tuples, alpha_tuples, numb_density, sq_refractive_index, lambda_out, lambda_1, lambda_2, lambda_3):
     "assumes all lambdas are the same"
     chi3_elms = sp.symbols("chi^(3)_x:zx:zx:zx:z")
     coordinates = [0, 1, 2]
@@ -214,7 +204,7 @@ def compute_and_display_chi3_from_raw_gamma_alpha(gamma_tuples, alpha_tuples, nu
     chi3_uncorrected = make_uncorrected_chi3_tensor(gamma, alpha, alpha)
 
     #calculate coorections and change in units
-    chi3_corrected= Lorentz_Lorenz_local_field_correction_NB_and_density(chi3_uncorrected, numb_density, lambda_out, lambda_1, lambda_2, lambda_3)
+    chi3_corrected= Lorentz_Lorenz_local_field_correction_NB_and_density(chi3_uncorrected, numb_density, sq_refractive_index, lambda_out, lambda_1, lambda_2, lambda_3)
 
     # display results of chi3
     #display_chi3_elements(chi3_sym, chi3_corrected)
