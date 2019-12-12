@@ -22,7 +22,7 @@ def angle_between(v1, v2):
     v2_u = unit_vector(v2)
     return np.arccos(np.clip(np.dot(v1_u, v2_u), -1.0, 1.0))
 
-def make_dal_file(file_path, freq_hartree, state):
+def make_dal_file(file_path, freq_hartree, state, spin_mult):
     dal_input = """**DALTON INPUT
 .RUN RESPONSE
 .DIRECT
@@ -32,7 +32,7 @@ def make_dal_file(file_path, freq_hartree, state):
 .MCSCF
 *CONFIGURATION INPUT
 .SPIN MULTIPLICITY
-1
+{2}
 .SYMMETRY
 1
 .INACTIVE ORBITALS
@@ -62,7 +62,7 @@ def make_dal_file(file_path, freq_hartree, state):
 .DFREQ
 1
 {0}
-**END OF DALTON INPUT""".format(freq_hartree, int(state))
+**END OF DALTON INPUT""".format(freq_hartree, int(state), int(spin_mult))
     with open(file_path, 'w') as dal_file:
         dal_file.write(dal_input)
     
@@ -108,23 +108,32 @@ def main():
     if os.path.isdir(output_dir) == False:
         os.mkdir(output_dir)
 
-    state = 2
-    for freq_hartree in np.linspace(0, 0.06, 21):
-        output_file_path = os.path.join(output_dir, "state-{}_freq-{}_cubic_response_NBopt_dunningZ-2.out".format(state, freq_hartree))
-        stdout_output_file_path = os.path.join(output_dir, "state-{}_freq-{}_cubic_response_NBopt_dunningZ-2.stdout".format(state, freq_hartree))
-        next_dal_file_path = make_dal_file(dal_file_path, freq_hartree, state)
-        next_mol_file_path = make_mol_file(mol_file_path)
-        cmd_to_run = ['./dalton', '-mb', '8000', '-o', str(output_file_path), str(next_dal_file_path), str(next_mol_file_path)]
-        try:
-            print("running next calculation freq = {}".format(freq_hartree))
-            print("\t running command - {}".format(cmd_to_run))
-            exit_code, stdout, stderr = util_calc.run_cmd(cmd_to_run)
-            with open(stdout_output_file_path, 'w') as file:
-                file.write(str(stdout))
-        except Exception as err:
-            print("An error occured trying next calculation")
-            traceback.print_tb(err.__traceback__)
-            pass
+    states = [1, 2]
+    spin_mults = [1, 3]
+    hartree_freqs = np.linspace(0.058, 1)
+    CN_displacements = np.linspace(0, 0, 1) #np.linspace(-0.05, 0.05, 7)
+    ONO_rotations = np.linspace(-0.17, -0.17, 7)
+    
+    for state in states:
+        for spin_mult in spin_mults:
+            for CN_displacement in CN_displacements:
+                for ONO_rotation in ONO_rotations:
+                    for freq_hartree in hartree_freqs:
+                        output_file_path = os.path.join(output_dir, "state-{}_freq-{}_cubic_response_NBopt_dunningZ-2.out".format(state, freq_hartree))
+                        stdout_output_file_path = os.path.join(output_dir, "state-{}_freq-{}_cubic_response_NBopt_dunningZ-2.stdout".format(state, freq_hartree))
+                        next_dal_file_path = make_dal_file(dal_file_path, freq_hartree, state, spin_mult)
+                        next_mol_file_path = make_mol_file(mol_file_path, CN_displacement, ONO_rotation)
+                        cmd_to_run = ['./dalton', '-mb', '8000', '-o', str(output_file_path), str(next_dal_file_path), str(next_mol_file_path)]
+                        try:
+                            print("running next calculation freq = {}".format(freq_hartree))
+                            print("\t running command - {}".format(cmd_to_run))
+                            exit_code, stdout, stderr = util_calc.run_cmd(cmd_to_run)
+                            with open(stdout_output_file_path, 'w') as file:
+                                file.write(str(stdout))
+                        except Exception as err:
+                            print("An error occured trying next calculation")
+                            traceback.print_tb(err.__traceback__)
+                            pass
 
 if __name__ == "__main__":
     main()
