@@ -120,12 +120,12 @@ def main():
                 for ONO_rotation in ONO_rotations:
                     for freq_hartree in hartree_freqs:
                         output_file_path = os.path.join(output_dir, "state-{}_freq-{}_cubic_response_NBopt_dunningZ-2.out".format(state, freq_hartree))
-                        stdout_output_file_path = os.path.join(output_dir, "state-{}_freq-{}_cubic_response_NBopt_dunningZ-2.stdout".format(state, freq_hartree))
+                        stdout_output_file_path = os.path.join(output_dir, "state-{}_freq-{}_spin-{}_CN_disp-{}_ONO_rot-{}_cubic_response_NBopt_dunningZ-2.stdout".format(state, freq_hartree, spin_mult, CN_displacement, ONO_rotation))
                         next_dal_file_path = make_dal_file(dal_file_path, freq_hartree, state, spin_mult)
                         next_mol_file_path = make_mol_file(mol_file_path, CN_displacement, ONO_rotation)
                         cmd_to_run = ['./dalton', '-mb', '8000', '-o', str(output_file_path), str(next_dal_file_path), str(next_mol_file_path)]
                         try:
-                            print("running next calculation freq = {}".format(freq_hartree))
+                            print("running next calculation: freq {}, state {}, spin {}, CN_disp {}, ONO_rot {}".format(freq_hartree, state, spin_mult, CN_displacement, ONO_rotation))
                             print("\t running command - {}".format(cmd_to_run))
                             exit_code, stdout, stderr = util_calc.run_cmd(cmd_to_run)
                             with open(stdout_output_file_path, 'w') as file:
