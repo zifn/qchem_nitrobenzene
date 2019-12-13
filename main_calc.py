@@ -2,6 +2,7 @@ import os
 import traceback
 from sys import argv
 import numpy as np
+import json
 import util_calc
 
 def unit_vector(vector):
@@ -99,20 +100,31 @@ H        0.0000000000            0.0000000000           -3.8683953478
     
     return file_path
 
-def main():
-    cwd = "qchem_nitrobenzene"#os.getcwd()
-    dal_file_path = os.path.join(cwd, "temp_dal_file.dal")
-    mol_file_path = os.path.join(cwd, "temp_mol_file.mol")
-    output_dir = os.path.join(cwd, "main_calc_output_files")
+def parse_config(json_path):
+    file_path = os.path.normpath(json_path)
+    with open(file_path) as config_file:
+        raw_json = json.load(config_file)
+    output_dir = os.path.join(raw_json["output_file_dir"])    
+    states = raw_json["states"]
+    spin_mults = raw_json["spin_multiplicities"]
+    hartree_freqs = np.linspace(raw_json["hartree_freqs"]['start'], raw_json["hartree_freqs"]['end'], raw_json["hartree_freqs"]['points'])
+    CN_displacements = np.linspace(raw_json["CN_displacements"]['start'], raw_json["CN_displacements"]['end'], raw_json["CN_displacements"]['points'])
+    ONO_rotations = np.linspace(raw_json["ONO_rotations"]['start'], raw_json["ONO_rotations"]['end'], raw_json["ONO_rotations"]['points'])
+    return output_dir, states, spin_mults, hartree_freqs, CN_displacements, ONO_rotations
 
+
+def main(json_config_path):
+    output_dir, states, spin_mults, hartree_freqs, CN_displacements, ONO_rotations = parse_config(json_config_path)
+    
     if os.path.isdir(output_dir) == False:
         os.mkdir(output_dir)
-
-    states = [1, 2]
-    spin_mults = [1, 3]
-    hartree_freqs = np.linspace(0.058, 1)
-    CN_displacements = np.linspace(0, 0, 1) #np.linspace(-0.05, 0.05, 7)
-    ONO_rotations = np.linspace(-0.17, -0.17, 7)
+    
+    temp_dir = os.path.join(output_dir, "temp")
+    if os.path.isdir(temp_dir) == False:
+        os.mkdir(temp_dir)
+        
+    dal_file_path = os.path.join(temp_dir, "temp_dal_file.dal")
+    mol_file_path = os.path.join(temp_dir, "temp_mol_file.mol")
     
     for state in states:
         for spin_mult in spin_mults:
@@ -136,4 +148,4 @@ def main():
                             pass
 
 if __name__ == "__main__":
-    main()
+    main(argv[1])
