@@ -131,7 +131,7 @@ def main(json_config_path):
             for CN_displacement in CN_displacements:
                 for ONO_rotation in ONO_rotations:
                     for freq_hartree in hartree_freqs:
-                        output_file_path = os.path.join(output_dir, "state-{}_freq-{}_cubic_response_NBopt_dunningZ-2.out".format(state, freq_hartree))
+                        output_file_path = os.path.join(output_dir, "state-{}_freq-{}_spin-{}_CN_disp-{}_ONO_rot-{}_cubic_response_NBopt_dunningZ-2.out".format(state, freq_hartree, spin_mult, CN_displacement, ONO_rotation))
                         stdout_output_file_path = os.path.join(output_dir, "state-{}_freq-{}_spin-{}_CN_disp-{}_ONO_rot-{}_cubic_response_NBopt_dunningZ-2.stdout".format(state, freq_hartree, spin_mult, CN_displacement, ONO_rotation))
                         next_dal_file_path = make_dal_file(dal_file_path, freq_hartree, state, spin_mult)
                         next_mol_file_path = make_mol_file(mol_file_path, CN_displacement, ONO_rotation)
