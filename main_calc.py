@@ -136,16 +136,17 @@ def main(json_config_path):
                         next_dal_file_path = make_dal_file(dal_file_path, freq_hartree, state, spin_mult)
                         next_mol_file_path = make_mol_file(mol_file_path, CN_displacement, ONO_rotation)
                         cmd_to_run = ['./dalton', '-mb', '8000', '-o', str(output_file_path), str(next_dal_file_path), str(next_mol_file_path)]
-                        try:
-                            print("running next calculation: freq {}, state {}, spin {}, CN_disp {}, ONO_rot {}".format(freq_hartree, state, spin_mult, CN_displacement, ONO_rotation))
-                            print("\t running command - {}".format(cmd_to_run))
-                            exit_code, stdout, stderr = util_calc.run_cmd(cmd_to_run)
-                            with open(stdout_output_file_path, 'w') as file:
-                                file.write(str(stdout))
-                        except Exception as err:
-                            print("An error occured trying next calculation")
-                            traceback.print_tb(err.__traceback__)
-                            pass
+                        if not os.path.isfile(output_file_path):
+                            try:
+                                print("running next calculation: freq {}, state {}, spin {}, CN_disp {}, ONO_rot {}".format(freq_hartree, state, spin_mult, CN_displacement, ONO_rotation))
+                                print("\t running command - {}".format(cmd_to_run))
+                                exit_code, stdout, stderr = util_calc.run_cmd(cmd_to_run)
+                                with open(stdout_output_file_path, 'w') as file:
+                                    file.write(str(stdout))
+                            except Exception as err:
+                                print("An error occured trying next calculation")
+                                traceback.print_tb(err.__traceback__)
+                                pass
 
 if __name__ == "__main__":
     main(argv[1])
