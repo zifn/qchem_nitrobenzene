@@ -10,10 +10,13 @@ def is_dalton_output_file(file):
     root, ext = os.path.splitext(file)
     return ext == ".out"
 
-def find_frequency_used(file):
-    _, temp = file.split('freq-')
-    value = temp.split('_')[0]
-    return float(value)
+def find_parameter_used(file_name, tag='freq-'):
+    if tag in file_name:
+        _, temp = file_name.split(tag)
+        value = temp.split('_')[0]
+        return float(value)
+    else:
+        return np.nan
 
 def convert_hartree_freq_to_eV(freq_hartee):
     E_hartree_conversion = consts.physical_constants['Hartree energy in eV'][0]
