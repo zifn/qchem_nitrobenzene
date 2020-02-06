@@ -54,12 +54,16 @@ def extract_gammas_and_freq_from_file(filename):
         freqs = []
         warning_flag = False
         for line in lines:
-            if "@ gamma(" in line:
-                gammas.append(parse_gamma(line))
-            if "@ B-freq:" in line or "@ C-freq:" in line or "@ D-freq:" in line:
-                freqs.append(parse_freq(line))
-            if "@WARNING" in line:
-                warning_flag = True
+            try:
+                if "@ gamma(" in line:
+                    gammas.append(parse_gamma(line))
+                if "@ B-freq:" in line or "@ C-freq:" in line or "@ D-freq:" in line:
+                    freqs.append(parse_freq(line))
+                if "@WARNING" in line:
+                    warning_flag = True
+            except ValueError as e:
+                print("error parsing file - {}".format(filename))
+                return [], [], True
         return gammas, freqs, warning_flag
 
 if __name__ == "__main__":
