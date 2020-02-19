@@ -1,0 +1,1048 @@
+
+
+     ************************************************************************
+     *************** Dalton - An Electronic Structure Program ***************
+     ************************************************************************
+
+    This is output from DALTON release Dalton2018.1 (2019)
+         ( Web site: http://daltonprogram.org )
+
+   ----------------------------------------------------------------------------
+
+    NOTE:
+     
+    Dalton is an experimental code for the evaluation of molecular
+    properties using (MC)SCF, DFT, CI, and CC wave functions.
+    The authors accept no responsibility for the performance of
+    the code or for the correctness of the results.
+     
+    The code (in whole or part) is provided under a licence and
+    is not to be reproduced for further distribution without
+    the written permission of the authors or their representatives.
+     
+    See the home page "http://daltonprogram.org" for further information.
+     
+    If results obtained with this code are published,
+    the appropriate citations would be both of:
+     
+       K. Aidas, C. Angeli, K. L. Bak, V. Bakken, R. Bast,
+       L. Boman, O. Christiansen, R. Cimiraglia, S. Coriani,
+       P. Dahle, E. K. Dalskov, U. Ekstroem,
+       T. Enevoldsen, J. J. Eriksen, P. Ettenhuber, B. Fernandez,
+       L. Ferrighi, H. Fliegl, L. Frediani, K. Hald, A. Halkier,
+       C. Haettig, H. Heiberg, T. Helgaker, A. C. Hennum,
+       H. Hettema, E. Hjertenaes, S. Hoest, I.-M. Hoeyvik,
+       M. F. Iozzi, B. Jansik, H. J. Aa. Jensen, D. Jonsson,
+       P. Joergensen, J. Kauczor, S. Kirpekar,
+       T. Kjaergaard, W. Klopper, S. Knecht, R. Kobayashi, H. Koch,
+       J. Kongsted, A. Krapp, K. Kristensen, A. Ligabue,
+       O. B. Lutnaes, J. I. Melo, K. V. Mikkelsen, R. H. Myhre,
+       C. Neiss, C. B. Nielsen, P. Norman, J. Olsen,
+       J. M. H. Olsen, A. Osted, M. J. Packer, F. Pawlowski,
+       T. B. Pedersen, P. F. Provasi, S. Reine, Z. Rinkevicius,
+       T. A. Ruden, K. Ruud, V. Rybkin, P. Salek, C. C. M. Samson,
+       A. Sanchez de Meras, T. Saue, S. P. A. Sauer,
+       B. Schimmelpfennig, K. Sneskov, A. H. Steindal,
+       K. O. Sylvester-Hvid, P. R. Taylor, A. M. Teale,
+       E. I. Tellgren, D. P. Tew, A. J. Thorvaldsen, L. Thoegersen,
+       O. Vahtras, M. A. Watson, D. J. D. Wilson, M. Ziolkowski
+       and H. Agren,
+       "The Dalton quantum chemistry program system",
+       WIREs Comput. Mol. Sci. 2014, 4:269–284 (doi: 10.1002/wcms.1172)
+     
+    and
+     
+       Dalton, a molecular electronic structure program,
+       Release Dalton2018.1 (2019), see http://daltonprogram.org
+   ----------------------------------------------------------------------------
+
+    Authors in alphabetical order (major contribution(s) in parenthesis):
+
+  Kestutis Aidas,           Vilnius University,           Lithuania   (QM/MM)
+  Celestino Angeli,         University of Ferrara,        Italy       (NEVPT2)
+  Keld L. Bak,              UNI-C,                        Denmark     (AOSOPPA, non-adiabatic coupling, magnetic properties)
+  Vebjoern Bakken,          University of Oslo,           Norway      (DALTON; geometry optimizer, symmetry detection)
+  Radovan Bast,             UiT The Arctic U. of Norway,  Norway      (DALTON installation and execution frameworks)
+  Pablo Baudin,             University of Valencia,       Spain       (Cholesky excitation energies)
+  Linus Boman,              NTNU,                         Norway      (Cholesky decomposition and subsystems)
+  Ove Christiansen,         Aarhus University,            Denmark     (CC module)
+  Renzo Cimiraglia,         University of Ferrara,        Italy       (NEVPT2)
+  Sonia Coriani,            Technical Univ. of Denmark,   Denmark     (CC module, MCD in RESPONS)
+  Janusz Cukras,            University of Trieste,        Italy       (MChD in RESPONS)
+  Paal Dahle,               University of Oslo,           Norway      (Parallelization)
+  Erik K. Dalskov,          UNI-C,                        Denmark     (SOPPA)
+  Thomas Enevoldsen,        Univ. of Southern Denmark,    Denmark     (SOPPA)
+  Janus J. Eriksen,         Aarhus University,            Denmark     (Polarizable embedding model, TDA)
+  Rasmus Faber,             University of Copenhagen,     Denmark     (Vib.avg. NMR with SOPPA, parallel AO-SOPPA)
+  Tobias Fahleson,          KTH Stockholm,                Sweden      (Damped cubic response)
+  Berta Fernandez,          U. of Santiago de Compostela, Spain       (doublet spin, ESR in RESPONS)
+  Lara Ferrighi,            Aarhus University,            Denmark     (PCM Cubic response)
+  Heike Fliegl,             University of Oslo,           Norway      (CCSD(R12))
+  Luca Frediani,            UiT The Arctic U. of Norway,  Norway      (PCM)
+  Bin Gao,                  UiT The Arctic U. of Norway,  Norway      (Gen1Int library)
+  Christof Haettig,         Ruhr-University Bochum,       Germany     (CC module)
+  Kasper Hald,              Aarhus University,            Denmark     (CC module)
+  Asger Halkier,            Aarhus University,            Denmark     (CC module)
+  Frederik Beyer Hansen,    University of Copenhagen,     Denmark     (Parallel AO-SOPPA)
+  Erik D. Hedegaard,        Univ. of Southern Denmark,    Denmark     (Polarizable embedding model, QM/MM)
+  Hanne Heiberg,            University of Oslo,           Norway      (geometry analysis, selected one-electron integrals)
+  Trygve Helgaker,          University of Oslo,           Norway      (DALTON; ABACUS, ERI, DFT modules, London, and much more)
+  Alf Christian Hennum,     University of Oslo,           Norway      (Parity violation)
+  Hinne Hettema,            University of Auckland,       New Zealand (quadratic response in RESPONS; SIRIUS supersymmetry)
+  Eirik Hjertenaes,         NTNU,                         Norway      (Cholesky decomposition)
+  Pi A. B. Haase,           University of Copenhagen,     Denmark     (Triplet AO-SOPPA)
+  Maria Francesca Iozzi,    University of Oslo,           Norway      (RPA)
+  Christoph Jacob           TU Braunschweig               Germany     (Frozen density embedding model)
+  Brano Jansik              Technical Univ. of Ostrava    Czech Rep.  (DFT cubic response)
+  Hans Joergen Aa. Jensen,  Univ. of Southern Denmark,    Denmark     (DALTON; SIRIUS, RESPONS, ABACUS modules, London, and much more)
+  Dan Jonsson,              UiT The Arctic U. of Norway,  Norway      (cubic response in RESPONS module)
+  Poul Joergensen,          Aarhus University,            Denmark     (RESPONS, ABACUS, and CC modules)
+  Maciej Kaminski,          University of Warsaw,         Poland      (CPPh in RESPONS)
+  Joanna Kauczor,           Linkoeping University,        Sweden      (Complex polarization propagator (CPP) module)
+  Sheela Kirpekar,          Univ. of Southern Denmark,    Denmark     (Mass-velocity & Darwin integrals)
+  Wim Klopper,              KIT Karlsruhe,                Germany     (R12 code in CC, SIRIUS, and ABACUS modules)
+  Stefan Knecht,            ETH Zurich,                   Switzerland (Parallel CI and MCSCF)
+  Rika Kobayashi,           Australian National Univ.,    Australia   (DIIS in CC, London in MCSCF)
+  Henrik Koch,              NTNU,                         Norway      (CC module, Cholesky decomposition)
+  Jacob Kongsted,           Univ. of Southern Denmark,    Denmark     (Polarizable embedding model, QM/MM)
+  Andrea Ligabue,           University of Modena,         Italy       (CTOCD, AOSOPPA)
+  Nanna H. List             Univ. of Southern Denmark,    Denmark     (Polarizable embedding model)
+  Ola B. Lutnaes,           University of Oslo,           Norway      (DFT Hessian)
+  Juan I. Melo,             University of Buenos Aires,   Argentina   (LRESC, Relativistic Effects on NMR Shieldings)
+  Kurt V. Mikkelsen,        University of Copenhagen,     Denmark     (MC-SCRF and QM/MM)
+  Rolf H. Myhre,            NTNU,                         Norway      (Subsystems and CC3)
+  Christian Neiss,          Univ. Erlangen-Nuernberg,     Germany     (CCSD(R12))
+  Christian B. Nielsen,     University of Copenhagen,     Denmark     (QM/MM)
+  Patrick Norman,           KTH Stockholm,                Sweden      (Cubic response and complex frequency response in RESPONS)
+  Jeppe Olsen,              Aarhus University,            Denmark     (SIRIUS CI/density modules)
+  Jogvan Magnus H. Olsen,   Univ. of Southern Denmark,    Denmark     (Polarizable embedding model, QM/MM)
+  Anders Osted,             Copenhagen University,        Denmark     (QM/MM)
+  Martin J. Packer,         University of Sheffield,      UK          (SOPPA)
+  Filip Pawlowski,          Kazimierz Wielki University,  Poland      (CC3)
+  Morten N. Pedersen,       Univ. of Southern Denmark,    Denmark     (Polarizable embedding model)
+  Thomas B. Pedersen,       University of Oslo,           Norway      (Cholesky decomposition)
+  Patricio F. Provasi,      University of Northeastern,   Argentina   (Analysis of coupling constants in localized orbitals)
+  Zilvinas Rinkevicius,     KTH Stockholm,                Sweden      (open-shell DFT, ESR)
+  Elias Rudberg,            KTH Stockholm,                Sweden      (DFT grid and basis info)
+  Torgeir A. Ruden,         University of Oslo,           Norway      (Numerical derivatives in ABACUS)
+  Kenneth Ruud,             UiT The Arctic U. of Norway,  Norway      (DALTON; ABACUS magnetic properties and much more)
+  Pawel Salek,              KTH Stockholm,                Sweden      (DALTON; DFT code)
+  Claire C. M. Samson       University of Karlsruhe       Germany     (Boys localization, r12 integrals in ERI)
+  Alfredo Sanchez de Meras, University of Valencia,       Spain       (CC module, Cholesky decomposition)
+  Trond Saue,               Paul Sabatier University,     France      (direct Fock matrix construction)
+  Stephan P. A. Sauer,      University of Copenhagen,     Denmark     (SOPPA(CCSD), SOPPA prop., AOSOPPA, vibrational g-factors)
+  Andre S. P. Gomes,        CNRS/Universite de Lille,     France      (Frozen density embedding model)
+  Bernd Schimmelpfennig,    Forschungszentrum Karlsruhe,  Germany     (AMFI module)
+  Kristian Sneskov,         Aarhus University,            Denmark     (Polarizable embedding model, QM/MM)
+  Arnfinn H. Steindal,      UiT The Arctic U. of Norway,  Norway      (parallel QM/MM, Polarizable embedding model)
+  Casper Steinmann,         Univ. of Southern Denmark,    Denmark     (QFIT, Polarizable embedding model)
+  K. O. Sylvester-Hvid,     University of Copenhagen,     Denmark     (MC-SCRF)
+  Peter R. Taylor,          VLSCI/Univ. of Melbourne,     Australia   (Symmetry handling ABACUS, integral transformation)
+  Andrew M. Teale,          University of Nottingham,     England     (DFT-AC, DFT-D)
+  David P. Tew,             University of Bristol,        England     (CCSD(R12))
+  Olav Vahtras,             KTH Stockholm,                Sweden      (triplet response, spin-orbit, ESR, TDDFT, open-shell DFT)
+  Lucas Visscher,           Vrije Universiteit Amsterdam, Netherlands (Frozen density embedding model)
+  David J. Wilson,          La Trobe University,          Australia   (DFT Hessian and DFT magnetizabilities)
+  Hans Agren,               KTH Stockholm,                Sweden      (SIRIUS module, RESPONS, MC-SCRF solvation model)
+ --------------------------------------------------------------------------------
+
+     Date and time (Linux)  : Wed Feb 19 11:39:13 2020
+     Host name              : Lab2-333-NPs                            
+
+ * Work memory size             :  1024000000 =  7.629 gigabytes.
+
+ * Directories for basis set searches:
+   1) /home/lab333/dalton/build_2018_atlas
+   2) /home/lab333/dalton/build_2018_atlas/basis
+
+
+Compilation information
+-----------------------
+
+ Who compiled             | lab333
+ Host                     | Lab2-333-NPs
+ System                   | Linux-4.4.0-43-Microsoft
+ CMake generator          | Unix Makefiles
+ Processor                | x86_64
+ 64-bit integers          | OFF
+ MPI                      | OFF
+ Fortran compiler         | /usr/bin/gfortran
+ Fortran compiler version | GNU Fortran (Ubuntu 7.3.0-27ubuntu1~18.04) 7.3.0
+ C compiler               | /usr/bin/gcc
+ C compiler version       | gcc (Ubuntu 7.3.0-27ubuntu1~18.04) 7.3.0
+ C++ compiler             | /usr/bin/g++
+ C++ compiler version     | g++ (Ubuntu 7.3.0-27ubuntu1~18.04) 7.3.0
+ BLAS                     | /usr/lib/x86_64-linux-gnu/libf77blas.so;/usr/lib/x
+                          | 86_64-linux-gnu/libcblas.so;/usr/lib/x86_64-linux-
+                          | gnu/libatlas.so
+ LAPACK                   | /usr/lib/x86_64-linux-gnu/libatlas.so;/usr/lib/x86
+                          | _64-linux-gnu/atlas/liblapack.so
+ Static linking           | OFF
+ Last Git revision        | da625bf48c74028e805616daee31bc5d76b3a20d
+ Git branch               | (HEAD detached at Dalton2018.1)
+ Configuration time       | 2019-01-18 10:20:51.437510
+
+
+   Content of the .dal input file
+ ----------------------------------
+
+**DALTON INPUT
+.RUN PROPERTIES
+.DIRECT
+**WAVE FUNCTIONS
+.DFT
+B3LYP
+**PROPERTIES
+**END OF DALTON INPUT
+
+
+   Content of the .mol file
+ ----------------------------
+
+BASIS
+6-311+G*
+ N2
+ Generated by the Dalton Input File Plugin for Avogadro
+Atomtypes=1
+Charge=7.0 Atoms=2
+N1          0.0000000000            0.0000000000            1.0353392882
+N2          0.0000000000            0.0000000000           -1.0353392882
+
+
+       *******************************************************************
+       *********** Output from DALTON general input processing ***********
+       *******************************************************************
+
+ --------------------------------------------------------------------------------
+   Overall default print level:    0
+   Print level for DALTON.STAT:    1
+
+    AO-direct calculation (in sections where implemented)
+    HERMIT 1- and 2-electron integral sections will be executed
+    "Old" integral transformation used (limited to max 255 basis functions)
+    Wave function sections will be executed (SIRIUS module)
+    Static molecular property section will be executed (ABACUS module)
+ --------------------------------------------------------------------------------
+
+
+   ****************************************************************************
+   *************** Output of molecule and basis set information ***************
+   ****************************************************************************
+
+
+    The two title cards from your ".mol" input:
+    ------------------------------------------------------------------------
+ 1:  N2                                                                     
+ 2:  Generated by the Dalton Input File Plugin for Avogadro                 
+    ------------------------------------------------------------------------
+
+  Atomic type no.    1
+  --------------------
+  Nuclear charge:   7.00000
+  Number of symmetry independent centers:    2
+  Number of basis sets to read;    2
+  Basis set file used for this atomic type with Z =   7 :
+     "/home/lab333/dalton/build_2018_atlas/basis/6-311+G*"
+
+  Info about the basis set file: your basis has no documentation.
+  Basis set: 6-311+G*                                                                        
+
+
+                      SYMADD: Requested addition of symmetry
+                      --------------------------------------
+
+ Symmetry test threshold:  5.00E-06
+
+@   The molecule is centered at center of mass and rotated
+@   so principal axes of inertia are along coordinate axes.
+
+ Symmetry class found: D(oo,h)        
+
+ Symmetry Independent Centres             
+ ----------------------------
+       7 :      0.00000000     0.00000000     1.03533929  Isotope  1
+
+ The following symmetry elements were found:   X  Y  Z  
+
+
+                         SYMGRP: Point group information
+                         -------------------------------
+
+@    Full point group is: D(oo,h)        
+@    Represented as:      D2h
+
+@  * The irrep name for each symmetry:    1: Ag     2: B3u    3: B2u    4: B1g    5: B1u    6: B2g    7: B3g    8: Au 
+
+
+   * The point group was generated by:
+
+      Reflection in the yz-plane
+      Reflection in the xz-plane
+      Reflection in the xy-plane
+
+   * Group multiplication table
+
+        |  E   C2z  C2y  C2x   i   Oxy  Oxz  Oyz
+   -----+----------------------------------------
+     E  |  E   C2z  C2y  C2x   i   Oxy  Oxz  Oyz
+    C2z | C2z   E   C2x  C2y  Oxy   i   Oyz  Oxz
+    C2y | C2y  C2x   E   C2z  Oxz  Oyz   i   Oxy
+    C2x | C2x  C2y  C2z   E   Oyz  Oxz  Oxy   i 
+     i  |  i   Oxy  Oxz  Oyz   E   C2z  C2y  C2x
+    Oxy | Oxy   i   Oyz  Oxz  C2z   E   C2x  C2y
+    Oxz | Oxz  Oyz   i   Oxy  C2y  C2x   E   C2z
+    Oyz | Oyz  Oxz  Oxy   i   C2x  C2y  C2z   E 
+
+   * Character table
+
+        |  E   C2z  C2y  C2x   i   Oxy  Oxz  Oyz
+   -----+----------------------------------------
+    Ag  |   1    1    1    1    1    1    1    1
+    B3u |   1   -1   -1    1   -1    1    1   -1
+    B2u |   1   -1    1   -1   -1    1   -1    1
+    B1g |   1    1   -1   -1    1    1   -1   -1
+    B1u |   1    1   -1   -1   -1   -1    1    1
+    B2g |   1   -1    1   -1    1   -1    1   -1
+    B3g |   1   -1   -1    1    1   -1   -1    1
+    Au  |   1    1    1    1   -1   -1   -1   -1
+
+   * Direct product table
+
+        | Ag   B3u  B2u  B1g  B1u  B2g  B3g  Au 
+   -----+----------------------------------------
+    Ag  | Ag   B3u  B2u  B1g  B1u  B2g  B3g  Au 
+    B3u | B3u  Ag   B1g  B2u  B2g  B1u  Au   B3g
+    B2u | B2u  B1g  Ag   B3u  B3g  Au   B1u  B2g
+    B1g | B1g  B2u  B3u  Ag   Au   B3g  B2g  B1u
+    B1u | B1u  B2g  B3g  Au   Ag   B3u  B2u  B1g
+    B2g | B2g  B1u  Au   B3g  B3u  Ag   B1g  B2u
+    B3g | B3g  Au   B1u  B2g  B2u  B1g  Ag   B3u
+    Au  | Au   B3g  B2g  B1u  B1g  B2u  B3u  Ag 
+
+
+                                 Isotopic Masses
+                                 ---------------
+
+                           N1  _1     14.003074
+                           N1  _2     14.003074
+
+                       Total mass:    28.006148 amu
+                       Natural abundance:  99.261 %
+
+ Center-of-mass coordinates (a.u.):    0.000000    0.000000    0.000000
+
+
+  Atoms and basis sets
+  --------------------
+
+  Number of atom types :    1
+  Total number of atoms:    2
+
+  Basis set used is "6-311+G*" from the basis set library.
+
+  label    atoms   charge   prim   cont     basis
+  ----------------------------------------------------------------------
+  N1          2    7.0000    35    22      [12s6p1d|5s4p1d]                                   
+  ----------------------------------------------------------------------
+  total:      2   14.0000    70    44
+  ----------------------------------------------------------------------
+  Spherical harmonic basis used.
+
+  Threshold for neglecting AO integrals:  1.00D-12
+
+
+  Cartesian Coordinates (a.u.)
+  ----------------------------
+
+  Total number of coordinates:    6
+  N1  / 1 :     1  x   0.0000000000    2  y   0.0000000000    3  z   1.0353392882
+  N1  / 2 :     4  x   0.0000000000    5  y   0.0000000000    6  z  -1.0353392882
+
+
+  Symmetry Coordinates
+  --------------------
+
+  Number of coordinates in each symmetry:     1    1    1    0    1    1    1    0
+
+  Symmetry  Ag  ( 1)
+
+    1   N1    z    [  3  -    6 ]/2
+
+  Symmetry  B3u ( 2)
+
+    2   N1    x    [  1  +    4 ]/2
+
+  Symmetry  B2u ( 3)
+
+    3   N1    y    [  2  +    5 ]/2
+
+  Symmetry  B1u ( 5)
+
+    4   N1    z    [  3  +    6 ]/2
+
+  Symmetry  B2g ( 6)
+
+    5   N1    x    [  1  -    4 ]/2
+
+  Symmetry  B3g ( 7)
+
+    6   N1    y    [  2  -    5 ]/2
+
+
+   Interatomic separations (in Angstrom):
+   --------------------------------------
+
+            N1  _1      N1  _2
+            ------      ------
+ N1  _1:    0.000000
+ N1  _2:    1.095756    0.000000
+
+
+  Max    interatomic separation is    1.0958 Angstrom (    2.0707 Bohr)
+  between atoms    2 and    1, "N1  _2" and "N1  _1".
+
+  Min YX interatomic separation is    1.0958 Angstrom (    2.0707 Bohr)
+
+
+  Bond distances (Angstrom):
+  --------------------------
+
+                  atom 1     atom 2       distance
+                  ------     ------       --------
+  bond distance:  N1  _2     N1  _1       1.095756
+
+
+
+
+ Principal moments of inertia (u*A**2) and principal axes
+ --------------------------------------------------------
+
+   IA       0.000000          0.000000    0.000000    1.000000
+   IB       8.406613          0.000000    1.000000    0.000000
+   IC       8.406613          1.000000    0.000000    0.000000
+
+
+ Rotational constants
+ --------------------
+
+@    The molecule is linear.
+
+               B =        60116.84 MHz     (    2.005282 cm-1)
+
+
+@  Nuclear repulsion energy :   23.663740262957 Hartree
+
+
+  Symmetry Orbitals
+  -----------------
+
+  Number of orbitals in each symmetry:          11    5    5    1   11    5    5    1
+
+
+  Symmetry  Ag ( 1)
+
+    1     N1       1s         1 +    2
+    2     N1       1s         3 +    4
+    3     N1       1s         5 +    6
+    4     N1       1s         7 +    8
+    5     N1       1s         9 +   10
+    6     N1       2pz       15 -   16
+    7     N1       2pz       21 -   22
+    8     N1       2pz       27 -   28
+    9     N1       2pz       33 -   34
+   10     N1       3d0       39 +   40
+   11     N1       3d2+      43 +   44
+
+
+  Symmetry  B3u( 2)
+
+   12     N1       2px       11 +   12
+   13     N1       2px       17 +   18
+   14     N1       2px       23 +   24
+   15     N1       2px       29 +   30
+   16     N1       3d1+      41 -   42
+
+
+  Symmetry  B2u( 3)
+
+   17     N1       2py       13 +   14
+   18     N1       2py       19 +   20
+   19     N1       2py       25 +   26
+   20     N1       2py       31 +   32
+   21     N1       3d1-      37 -   38
+
+
+  Symmetry  B1g( 4)
+
+   22     N1       3d2-      35 +   36
+
+
+  Symmetry  B1u( 5)
+
+   23     N1       1s         1 -    2
+   24     N1       1s         3 -    4
+   25     N1       1s         5 -    6
+   26     N1       1s         7 -    8
+   27     N1       1s         9 -   10
+   28     N1       2pz       15 +   16
+   29     N1       2pz       21 +   22
+   30     N1       2pz       27 +   28
+   31     N1       2pz       33 +   34
+   32     N1       3d0       39 -   40
+   33     N1       3d2+      43 -   44
+
+
+  Symmetry  B2g( 6)
+
+   34     N1       2px       11 -   12
+   35     N1       2px       17 -   18
+   36     N1       2px       23 -   24
+   37     N1       2px       29 -   30
+   38     N1       3d1+      41 +   42
+
+
+  Symmetry  B3g( 7)
+
+   39     N1       2py       13 -   14
+   40     N1       2py       19 -   20
+   41     N1       2py       25 -   26
+   42     N1       2py       31 -   32
+   43     N1       3d1-      37 +   38
+
+
+  Symmetry  Au ( 8)
+
+   44     N1       3d2-      35 -   36
+
+  Symmetries of electric field:  B3u(2)  B2u(3)  B1u(5)
+
+  Symmetries of magnetic field:  B3g(7)  B2g(6)  B1g(4)
+
+
+                     .---------------------------------------.
+                     | Starting in Integral Section (HERMIT) |
+                     `---------------------------------------'
+
+
+
+ ***************************************************************************************
+ ****************** Output from **INTEGRALS input processing (HERMIT) ******************
+ ***************************************************************************************
+
+
+ - Using defaults, no **INTEGRALS input found
+
+ Default print level:        1
+
+ Calculation of one-electron Hamiltonian integrals.
+
+ Center of mass  (bohr):      0.000000000000      0.000000000000      0.000000000000
+ Operator center (bohr):      0.000000000000      0.000000000000      0.000000000000
+ Gauge origin    (bohr):      0.000000000000      0.000000000000      0.000000000000
+ Dipole origin   (bohr):      0.000000000000      0.000000000000      0.000000000000
+
+
+     ************************************************************************
+     ************************** Output from HERINT **************************
+     ************************************************************************
+
+
+
+                      Nuclear contribution to dipole moments
+                      --------------------------------------
+
+                    All dipole components are zero by symmetry
+
+
+  Total CPU  time used in HERMIT:   0.02 seconds
+  Total wall time used in HERMIT:   0.01 seconds
+
+
+                        .----------------------------------.
+                        | End of Integral Section (HERMIT) |
+                        `----------------------------------'
+
+
+
+                   .--------------------------------------------.
+                   | Starting in Wave Function Section (SIRIUS) |
+                   `--------------------------------------------'
+
+
+ *** Output from Huckel module :
+
+     Using EWMO model:          F
+     Using EHT  model:          T
+     Number of Huckel orbitals each symmetry:    3    1    1    0    3    1    1    0
+
+ Huckel EHT eigenvalues for symmetry :  1
+          -15.703544      -1.364632      -0.476381
+
+ Huckel EHT eigenvalues for symmetry :  2
+           -0.648932
+
+ Huckel EHT eigenvalues for symmetry :  3
+           -0.648932
+
+ Huckel EHT eigenvalues for symmetry :  5
+          -15.694935      -0.814082      -0.224025
+
+ Huckel EHT eigenvalues for symmetry :  6
+           -0.368468
+
+ Huckel EHT eigenvalues for symmetry :  7
+           -0.368468
+
+ **********************************************************************
+ *SIRIUS* a direct, restricted step, second order MCSCF program       *
+ **********************************************************************
+
+ 
+     Date and time (Linux)  : Wed Feb 19 11:39:13 2020
+     Host name              : Lab2-333-NPs                            
+
+ Title lines from ".mol" input file:
+      N2                                                                     
+      Generated by the Dalton Input File Plugin for Avogadro                 
+
+ Print level on unit LUPRI =   2 is   0
+ Print level on unit LUW4  =   2 is   5
+
+@    Restricted, closed shell Kohn-Sham DFT calculation.
+ Fock matrices are calculated directly without use of integrals on disk.
+
+ Initial molecular orbitals are obtained according to
+ ".MOSTART EHT   " input option
+
+     Wave function specification
+     ============================
+@    Wave function type        --- KS-DFT ---
+@    Number of closed shell electrons          14
+@    Number of electrons in active shells       0
+@    Total charge of the molecule               0
+
+@    Spin multiplicity and 2 M_S                1         0
+@    Total number of symmetries                 8 (point group: D2h)
+@    Reference state symmetry                   1 (irrep name : Ag )
+ 
+     This is a DFT calculation of type: B3LYP
+ Weighted mixed functional:
+               HF exchange:    0.20000
+                       VWN:    0.19000
+                       LYP:    0.81000
+                     Becke:    0.72000
+                    Slater:    0.80000
+
+     Orbital specifications
+     ======================
+@    Abelian symmetry species          All |    1    2    3    4    5    6    7    8
+@                                          |  Ag   B3u  B2u  B1g  B1u  B2g  B3g  Au 
+                                       --- |  ---  ---  ---  ---  ---  ---  ---  ---
+@    Total number of orbitals           44 |   11    5    5    1   11    5    5    1
+@    Number of basis functions          44 |   11    5    5    1   11    5    5    1
+
+      ** Automatic occupation of RKS orbitals **
+
+      -- Initial occupation of symmetries is determined from extended Huckel guess.           
+      -- Initial occupation of symmetries is :
+@    Occupied SCF orbitals               7 |    3    1    1    0    2    0    0    0
+
+     Maximum number of Fock   iterations      0
+     Maximum number of DIIS   iterations     60
+     Maximum number of QC-SCF iterations     60
+     Threshold for SCF convergence     1.00D-05
+ 
+     This is a DFT calculation of type: B3LYP
+ Weighted mixed functional:
+               HF exchange:    0.20000
+                       VWN:    0.19000
+                       LYP:    0.81000
+                     Becke:    0.72000
+                    Slater:    0.80000
+
+
+ ***********************************************
+ ***** DIIS acceleration of SCF iterations *****
+ ***********************************************
+
+ C1-DIIS algorithm; max error vectors =    8
+
+ Automatic occupation of symmetries with  14 electrons.
+
+ Iter     Total energy    Error norm  Delta(E)    SCF occupation
+ -----------------------------------------------------------------------------
+   1  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)   -6    1    F  1.56D-02  2.40D-02
+      K-S energy, electrons, error :    -10.800581550475  14.0000003226    3.23D-07
+@  1  -109.164624866       2.99D+00  -1.09D+02     3   1   1   0   2   0   0   0
+      Virial theorem: -V/T =      2.014862
+@    MULPOP   N1  _1  0.00; N1  _2  0.00; 
+   1  Level shift: doubly occupied orbital energies shifted by -2.00D-01
+ -----------------------------------------------------------------------------
+   2  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)   -7    2    F  3.12D-02  2.20D-02
+      K-S energy, electrons, error :    -11.188962320419  14.0000003414    3.41D-07
+@  2  -109.463744640       9.94D-01  -2.99D-01     3   1   1   0   2   0   0   0
+      Virial theorem: -V/T =      1.989286
+@    MULPOP   N1  _1  0.00; N1  _2  0.00; 
+   2  Level shift: doubly occupied orbital energies shifted by -1.00D-01
+ -----------------------------------------------------------------------------
+   3  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)   -7    3    F  1.56D-02  2.20D-02
+      K-S energy, electrons, error :    -11.004315742119  14.0000003410    3.41D-07
+@  3  -109.506518027       1.51D-01  -4.28D-02     3   1   1   0   2   0   0   0
+      Virial theorem: -V/T =      2.005484
+@    MULPOP   N1  _1  0.00; N1  _2  0.00; 
+   3  Level shift: doubly occupied orbital energies shifted by -2.50D-02
+ -----------------------------------------------------------------------------
+   4  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)   -8    4    F  1.56D-02  2.20D-02
+      K-S energy, electrons, error :    -11.037225272689  14.0000003411    3.41D-07
+@  4  -109.507494162       2.92D-02  -9.76D-04     3   1   1   0   2   0   0   0
+      Virial theorem: -V/T =      2.002377
+@    MULPOP   N1  _1  0.00; N1  _2  0.00; 
+ -----------------------------------------------------------------------------
+   5  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)   -9    5    F  1.56D-02  2.30D-02
+      K-S energy, electrons, error :    -11.031039801746  14.0000003412    3.41D-07
+@  5  -109.507538213       2.59D-03  -4.41D-05     3   1   1   0   2   0   0   0
+      Virial theorem: -V/T =      2.002924
+@    MULPOP   N1  _1  0.00; N1  _2  0.00; 
+ -----------------------------------------------------------------------------
+   6  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)  -10    6    F  3.12D-02  2.20D-02
+      K-S energy, electrons, error :    -11.031434070550  14.0000003412    3.41D-07
+@  6  -109.507538520       1.91D-04  -3.06D-07     3   1   1   0   2   0   0   0
+      Virial theorem: -V/T =      2.002891
+@    MULPOP   N1  _1  0.00; N1  _2  0.00; 
+ -----------------------------------------------------------------------------
+   7  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)  -10    7    F  3.12D-02  2.20D-02
+      K-S energy, electrons, error :    -11.031391710182  14.0000003412    3.41D-07
+@  7  -109.507538522       7.40D-06  -2.16D-09     3   1   1   0   2   0   0   0
+
+@ *** DIIS converged in   7 iterations !
+@     Converged SCF energy, gradient:   -109.507538521884    7.40D-06
+    - total time used in SIRFCK :              0.00 seconds
+
+
+ *** SCF orbital energy analysis ***
+
+ Only the 20 lowest virtual orbital energies printed in each symmetry.
+
+ Number of electrons :   14
+ Orbital occupations :    3    1    1    0    2    0    0    0
+
+ Sym       Kohn-Sham orbital energies
+
+1 Ag    -14.42165436    -1.13712192    -0.43750380     0.06558420     0.14357418
+          0.67104213     0.90381646     1.66640365     2.49688170     4.18896048
+         35.03269459
+
+2 B3u    -0.47334504     0.09296221     0.71008508     1.69806162     3.66096228
+
+
+3 B2u    -0.47334504     0.09296221     0.71008508     1.69806162     3.66096228
+
+
+4 B1g     1.66640366
+
+5 B1u   -14.41992680    -0.55716508     0.08245239     0.26057857     0.51131414
+          0.91137334     1.22229170     2.15914608     3.14460539     4.50749562
+         36.29227126
+
+6 B2g    -0.03457204     0.17473085     0.81458640     2.85755667     3.94302232
+
+
+7 B3g    -0.03457204     0.17473085     0.81458640     2.85755667     3.94302232
+
+
+8 Au      2.15914609
+
+    E(LUMO) :    -0.03457204 au (symmetry 6)
+  - E(HOMO) :    -0.43750380 au (symmetry 1)
+  ------------------------------------------
+    gap     :     0.40293176 au
+
+ NOTE: MOLECULAR ORBITALS ARE NOT CANONICAL HARTREE-FOCK ORBITALS
+
+ Largest off-diagonal Fock matrix element is  8.03D-04
+
+ --- Writing SIRIFC interface file
+
+ CPU and wall time for SCF :       1.125       1.137
+
+
+                       .-----------------------------------.
+                       | --- Final results from SIRIUS --- |
+                       `-----------------------------------'
+
+
+@    Spin multiplicity:           1
+@    Spatial symmetry:            1 ( irrep  Ag  in D2h )
+@    Total charge of molecule:    0
+
+@    Final DFT energy:           -109.507538521884                 
+@    Nuclear repulsion:            23.663740262957
+@    Electronic energy:          -133.171278784842
+
+@    Final gradient norm:           0.000007398855
+
+ 
+     Date and time (Linux)  : Wed Feb 19 11:39:14 2020
+     Host name              : Lab2-333-NPs                            
+
+File label for MO orbitals:  19Feb20   FOCKDIIS
+
+ (Only coefficients > 0.0100 are printed.)
+
+ Molecular orbitals for symmetry species 1  (Ag )
+ ------------------------------------------------
+
+    Orbital         1        2        3        4        5        6        7
+   1 N1  :1s     0.3939  -0.0904  -0.0303  -0.0268  -0.0111  -0.0021  -0.0824
+   2 N1  :1s     0.3297  -0.1408  -0.0488  -0.0425  -0.0168  -0.0092  -0.1665
+   3 N1  :1s     0.0096   0.3860   0.1360   0.1139   0.0343   0.2495   1.3125
+   4 N1  :1s    -0.0045   0.1653   0.2635   0.6197   0.3936   0.0103  -1.6852
+   5 N1  :1s     0.0013  -0.0071   0.0532  -0.9014  -0.0234  -0.1593   0.6364
+   6 N1  :2pz   -0.0014  -0.1144   0.2180   0.0622  -0.0261  -0.1136   0.0614
+   7 N1  :2pz    0.0004  -0.1448   0.2975   0.0618  -0.0197  -0.4458   0.1633
+   8 N1  :2pz    0.0002  -0.0322   0.1761   0.2204  -0.0488   1.3258  -0.1681
+   9 N1  :2pz   -0.0008   0.0090   0.0038  -0.3553   1.5532  -1.0347  -0.2484
+  10 N1  :3d0   -0.0000   0.0249  -0.0239   0.0009   0.0251   0.0416   0.0585
+
+    Orbital         8        9       10       11
+   1 N1  :1s    -0.0000   0.0199  -0.0027  -1.5160
+   2 N1  :1s    -0.0000   0.0571  -0.0235   1.5920
+   3 N1  :1s     0.0000  -0.6704   0.3034  -0.2518
+   4 N1  :1s     0.0000   0.3712  -0.2935   0.1980
+   5 N1  :1s    -0.0000  -0.0182   0.1207  -0.0589
+   6 N1  :2pz   -0.0000  -0.1325  -0.9659   0.0037
+   7 N1  :2pz   -0.0000   0.5098   0.9267  -0.0092
+   8 N1  :2pz   -0.0000  -0.7474  -0.4759  -0.0229
+   9 N1  :2pz   -0.0000   0.3856   0.2155   0.0449
+  10 N1  :3d0   -0.0000   0.7617  -0.1901   0.0283
+  11 N1  :3d2+   0.6619   0.0000   0.0000  -0.0000
+
+ Molecular orbitals for symmetry species 2  (B3u)
+ ------------------------------------------------
+
+    Orbital         1        2        3        4        5
+   1 N1  :2px    0.2075  -0.0743   0.1624   0.0918  -0.9140
+   2 N1  :2px    0.3106  -0.0798   0.5929   0.1720   1.0512
+   3 N1  :2px    0.2109  -0.2349  -0.9904  -0.0602  -0.5292
+   4 N1  :2px    0.0091   0.6356   0.4464   0.0020   0.1683
+   5 N1  :3d1+  -0.0384   0.0182  -0.0550   0.6047   0.0862
+
+ Molecular orbitals for symmetry species 3  (B2u)
+ ------------------------------------------------
+
+    Orbital         1        2        3        4        5
+   1 N1  :2py    0.2075  -0.0743   0.1624   0.0918  -0.9140
+   2 N1  :2py    0.3106  -0.0798   0.5929   0.1720   1.0512
+   3 N1  :2py    0.2109  -0.2349  -0.9904  -0.0602  -0.5292
+   4 N1  :2py    0.0091   0.6356   0.4464   0.0020   0.1683
+   5 N1  :3d1-  -0.0384   0.0182  -0.0550   0.6047   0.0862
+
+ Molecular orbitals for symmetry species 4  (B1g)
+ ------------------------------------------------
+
+    Orbital         1
+   1 N1  :3d2-   0.6619
+
+ Molecular orbitals for symmetry species 5  (B1u)
+ ------------------------------------------------
+
+    Orbital         1        2        3        4        5        6        7
+   1 N1  :1s     0.3941  -0.0842   0.0234   0.0177   0.0499  -0.0005   0.0899
+   2 N1  :1s     0.3291  -0.1354   0.0391   0.0291   0.0825   0.0011   0.1731
+   3 N1  :1s     0.0130   0.3990  -0.1438  -0.0576  -0.2022  -0.1551  -1.4714
+   4 N1  :1s    -0.0054   0.4995   0.0716  -0.6603  -4.8905  -0.2271   7.7405
+   5 N1  :1s     0.0155  -0.1616 -11.6531  40.0580   4.2885  -9.3719 -16.9248
+   6 N1  :2pz   -0.0004   0.0973  -0.0206  -0.0419   0.1209  -0.2793   0.1507
+   7 N1  :2pz   -0.0062   0.1319  -0.0143   0.0245   0.1630  -0.8402  -0.1416
+   8 N1  :2pz    0.0018   0.0372  -0.2520  -0.3712   3.1872   1.3785  -3.0534
+   9 N1  :2pz   -0.0040   0.0583   3.8586 -10.6108  -1.5830   2.1149   4.4897
+  10 N1  :3d0    0.0034  -0.0099   0.0147  -0.0252   0.0368  -0.0531   0.2231
+
+    Orbital         8        9       10       11
+   1 N1  :1s     0.0000  -0.0358   0.0787   1.5273
+   2 N1  :1s     0.0000  -0.0816   0.1729  -1.6628
+   3 N1  :1s     0.0000   0.4862  -1.2790   0.5226
+   4 N1  :1s     0.0000   3.3866  -2.8341  -0.0158
+   5 N1  :1s    -0.0000  -2.4179   7.7162   0.1454
+   6 N1  :2pz   -0.0000  -0.5117  -0.8200   0.0809
+   7 N1  :2pz   -0.0000  -0.4184   3.1853  -0.5485
+   8 N1  :2pz   -0.0000  -1.8207   0.4037   0.0497
+   9 N1  :2pz   -0.0000   0.7718  -1.8972  -0.0460
+  10 N1  :3d0    0.0000   1.0754  -1.3638   0.2757
+  11 N1  :3d2+   0.7630  -0.0000  -0.0000  -0.0000
+
+ Molecular orbitals for symmetry species 6  (B2g)
+ ------------------------------------------------
+
+    Orbital         1        2        3        4        5
+   1 N1  :2px    0.2198  -0.1131  -0.1913   0.2101  -0.9076
+   2 N1  :2px    0.3348  -0.1357  -0.6221  -0.0374   1.2943
+   3 N1  :2px    0.4570  -0.4755   1.7252   0.5833  -0.7328
+   4 N1  :2px    0.4037   2.2202  -1.2542  -0.2981   0.4037
+   5 N1  :3d1+   0.0179   0.0014   0.0004  -0.9982  -0.3739
+
+ Molecular orbitals for symmetry species 7  (B3g)
+ ------------------------------------------------
+
+    Orbital         1        2        3        4        5
+   1 N1  :2py    0.2198  -0.1131  -0.1913   0.2101  -0.9076
+   2 N1  :2py    0.3348  -0.1357  -0.6221  -0.0374   1.2943
+   3 N1  :2py    0.4570  -0.4755   1.7252   0.5833  -0.7328
+   4 N1  :2py    0.4037   2.2202  -1.2542  -0.2981   0.4037
+   5 N1  :3d1-   0.0179   0.0014   0.0004  -0.9982  -0.3739
+
+ Molecular orbitals for symmetry species 8  (Au )
+ ------------------------------------------------
+
+    Orbital         1
+   1 N1  :3d2-   0.7630
+
+  Total CPU  time used in SIRIUS :   1.14 seconds
+  Total wall time used in SIRIUS :   1.14 seconds
+
+ 
+     Date and time (Linux)  : Wed Feb 19 11:39:14 2020
+     Host name              : Lab2-333-NPs                            
+
+
+                     .---------------------------------------.
+                     | End of Wave Function Section (SIRIUS) |
+                     `---------------------------------------'
+
+
+
+        *****************************************************************
+        ******** Output from **PROPE input processing for ABACUS ********
+        *****************************************************************
+
+
+
+ The following molecular properties will be calculated in this run:
+ ------------------------------------------------------------------
+
+ Default print level:        0
+
+      Direct calculation - no two-electron integrals written or read.
+      Natural orbital connection is used
+      for perturbation dependent basis sets.
+
+ Center of mass dipole origin  :    0.000000    0.000000    0.000000
+
+ Center of mass gauge origin   :    0.000000    0.000000    0.000000
+
+
+                 .------------------------------------------------.
+                 | Starting in Static Property Section (ABACUS) - |
+                 `------------------------------------------------'
+
+
+ 
+     Date and time (Linux)  : Wed Feb 19 11:39:14 2020
+     Host name              : Lab2-333-NPs                            
+
+
+   ***************************************************************************
+   ************************ FINAL RESULTS from ABACUS ************************
+   ***************************************************************************
+
+
+ 
+     Date and time (Linux)  : Wed Feb 19 11:39:14 2020
+     Host name              : Lab2-333-NPs                            
+
+
+                             Molecular geometry (au)
+                             -----------------------
+
+ N1  _1     0.0000000000            0.0000000000            1.0353392882
+ N1  _2     0.0000000000            0.0000000000           -1.0353392882
+
+
+
+
+
+                        Molecular wave function and energy
+                        ----------------------------------
+
+     Spatial symmetry   1 ( Ag  )
+     Spin multiplicity  1
+     2 * M_S            0
+     State number       1
+     Total charge       0
+
+     Total energy       -109.5075385219 au (Hartrees)
+                         -2979.85170461 eV
+                           -287511.9981 kJ/mol
+                            -68717.0167 kcal/mol
+
+
+                   Scalar Breit-Pauli relativistic corrections
+                   -------------------------------------------
+
+     Darwin correction:                          0.2287222487 au
+     Mass-velocity correction:                  -0.2871699907 au
+
+     Total relativistic correction:             -0.0584477420 au ( 0.0534%)
+     Non-relativistic + relativistic energy:  -109.5659862639 au
+
+
+
+      (Note that these corrections are NOT included in the results below.)
+
+
+                                  Dipole moment
+                                  -------------
+
+                 au               Debye          C m (/(10**-30)
+              0.000000           0.000000           0.000000
+
+
+                             Dipole moment components
+                             ------------------------
+
+                    All dipole components are zero by symmetry
+
+
+   Units:   1 a.u. =   2.54175 Debye 
+            1 a.u. =   8.47835 (10**-30) C m (SI)
+
+
+
+
+   Interatomic separations (in Angstrom):
+   --------------------------------------
+
+            N1  _1      N1  _2
+            ------      ------
+ N1  _1:    0.000000
+ N1  _2:    1.095756    0.000000
+
+
+  Max    interatomic separation is    1.0958 Angstrom (    2.0707 Bohr)
+  between atoms    2 and    1, "N1  _2" and "N1  _1".
+
+  Min YX interatomic separation is    1.0958 Angstrom (    2.0707 Bohr)
+
+
+  Bond distances (Angstrom):
+  --------------------------
+
+                  atom 1     atom 2       distance
+                  ------     ------       --------
+  bond distance:  N1  _2     N1  _1       1.095756
+
+
+  Total CPU  time used in ABACUS:   0.00 seconds
+  Total wall time used in ABACUS:   0.01 seconds
+
+
+                   .-------------------------------------------.
+                   | End of Static Property Section (ABACUS) - |
+                   `-------------------------------------------'
+
+  Total CPU  time used in DALTON:   1.16 seconds
+  Total wall time used in DALTON:   1.18 seconds
+
+ 
+     Date and time (Linux)  : Wed Feb 19 11:39:14 2020
+     Host name              : Lab2-333-NPs                            
