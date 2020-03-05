@@ -1,0 +1,20 @@
+{
+	"output_file_dir": "qchem_nitrobenzene//nb_triplet_freq_dependence_corrected001",
+	"states": [1],
+	"spin_multiplicities": [3],
+	"hartree_freqs": {
+		"start": 0,
+		"end": 0.117,
+		"points": 21
+	},
+	"CN_displacements": {
+		"start": 0,
+		"end": 0,
+		"points": 1
+	},
+	"ONO_rotations": {
+		"start": 0,
+		"end": 0,
+		"points": 1
+	}
+}
