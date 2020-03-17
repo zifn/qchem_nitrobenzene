@@ -137,7 +137,7 @@ def main(json_config_path):
                         for freq_perm in [0, 1, 2]:
                             output_file_path = os.path.join(output_dir, "state-{}_freq-{}_spin-{}_perm-{}_CN_disp-{}_ONO_rot-{}_cubic_response_NBopt_dunningZ-2.out".format(state, freq_hartree, spin_mult, freq_perm, CN_displacement, ONO_rotation))
                             stdout_output_file_path = os.path.join(output_dir, "state-{}_freq-{}_spin-{}_perm-{}_CN_disp-{}_ONO_rot-{}_cubic_response_NBopt_dunningZ-2.stdout".format(state, freq_hartree, spin_mult, freq_perm, CN_displacement, ONO_rotation))
-                            next_dal_file_path = make_dal_file(dal_file_path, freq_hartree, state, spin_mult)
+                            next_dal_file_path = make_dal_file(dal_file_path, freq_hartree, state, spin_mult, freq_perm)
                             next_mol_file_path = make_mol_file(mol_file_path, CN_displacement, ONO_rotation)
                             cmd_to_run = ['./dalton', '-mb', '8000', '-o', str(output_file_path), str(next_dal_file_path), str(next_mol_file_path)]
                             if not os.path.isfile(stdout_output_file_path):
