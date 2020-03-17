@@ -25,7 +25,7 @@ def angle_between(v1, v2):
 
 def make_dal_file(file_path, freq_hartree, state, spin_mult, freq_permutation):
     f = freq_hartree
-    freq_1, freq_2, freq_3 = [(-f, f, f), (f, -f, f), (f, f, -f)][permutation]
+    freq_1, freq_2, freq_3 = [(-f, f, f), (f, -f, f), (f, f, -f)][freq_permutation]
 
     dal_input = """**DALTON INPUT
 .RUN RESPONSE
