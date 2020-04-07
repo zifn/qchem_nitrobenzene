@@ -74,7 +74,7 @@ def make_dal_file(file_path, freq_hartree, state, spin_mult, freq_permutation):
 
 def make_mol_file(file_path, CN_displacement=0, ONO_rotation=0):
     """
-    ONO_rotation: Positive ONO_rotation value increases the ONO angle from equilibrium
+    ONO_rotation: Positive ONO_rotation value increases the ONO angle in radians from equilibrium
     CN_displacement: Positive CN_displacement increases the CN bond length
     """
 
@@ -141,7 +141,7 @@ def main(json_config_path):
             for CN_displacement in CN_displacements:
                 for ONO_rotation in ONO_rotations:
                     for freq_hartree in hartree_freqs:
-                        for freq_perm in [0, 1, 2]:
+                        for freq_perm in [0]:
                             output_file_path = os.path.join(output_dir, "state-{}_freq-{}_spin-{}_perm-{}_CN_disp-{}_ONO_rot-{}_cubic_response_NBopt_dunningZ-2.out".format(state, freq_hartree, spin_mult, freq_perm, CN_displacement, ONO_rotation))
                             stdout_output_file_path = os.path.join(output_dir, "state-{}_freq-{}_spin-{}_perm-{}_CN_disp-{}_ONO_rot-{}_cubic_response_NBopt_dunningZ-2.stdout".format(state, freq_hartree, spin_mult, freq_perm, CN_displacement, ONO_rotation))
                             next_dal_file_path = make_dal_file(dal_file_path, freq_hartree, state, spin_mult, freq_perm)
