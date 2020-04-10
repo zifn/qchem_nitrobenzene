@@ -23,9 +23,10 @@ def angle_between(v1, v2):
     v2_u = unit_vector(v2)
     return np.arccos(np.clip(np.dot(v1_u, v2_u), -1.0, 1.0))
 
-def make_dal_file(file_path, freq_hartree, state, spin_mult, freq_permutation):
-    f = freq_hartree
-    freq_1, freq_2, freq_3 = [(-f, f, f), (f, -f, f), (f, f, -f)][freq_permutation]
+def make_dal_file(file_path, freq_hartree_drive, freq_hartree_probe, state, spin_mult):
+    fd = freq_hartree_drive
+    fp = freq_hartree_probe
+    freq_1, freq_2, freq_3 = -fd, fd, fp
 
     dal_input = """**DALTON INPUT
 .RUN RESPONSE
@@ -56,6 +57,8 @@ def make_dal_file(file_path, freq_hartree, state, spin_mult, freq_permutation):
 .PLUS COMBINATIONS
 **RESPONSE
 *CUBIC
+.MAX IT
+120
 .DIPLEN
 .BFREQ
 1
@@ -117,14 +120,15 @@ def parse_config(json_path):
     output_dir = os.path.join(raw_json["output_file_dir"])    
     states = raw_json["states"]
     spin_mults = raw_json["spin_multiplicities"]
-    hartree_freqs = np.linspace(raw_json["hartree_freqs"]['start'], raw_json["hartree_freqs"]['end'], raw_json["hartree_freqs"]['points'])
+    hartree_freqs_probe = np.linspace(raw_json["hartree_freqs_probe"]['start'], raw_json["hartree_freqs_probe"]['end'], raw_json["hartree_freqs"]['points'])
+    hartree_freqs_drive = np.linspace(raw_json["hartree_freqs_drive"]['start'], raw_json["hartree_freqs_drive"]['end'], raw_json["hartree_freqs"]['points'])
     CN_displacements = np.linspace(raw_json["CN_displacements"]['start'], raw_json["CN_displacements"]['end'], raw_json["CN_displacements"]['points'])
     ONO_rotations = np.linspace(raw_json["ONO_rotations"]['start'], raw_json["ONO_rotations"]['end'], raw_json["ONO_rotations"]['points'])
-    return output_dir, states, spin_mults, hartree_freqs, CN_displacements, ONO_rotations
+    return output_dir, states, spin_mults, hartree_freqs_probe, hartree_freqs_drive, CN_displacements, ONO_rotations
 
 
 def main(json_config_path):
-    output_dir, states, spin_mults, hartree_freqs, CN_displacements, ONO_rotations = parse_config(json_config_path)
+    output_dir, states, spin_mults, hartree_freqs_probe, hartree_freqs_drive, CN_displacements, ONO_rotations = parse_config(json_config_path)
     
     if os.path.isdir(output_dir) == False:
         os.mkdir(output_dir)
@@ -140,24 +144,23 @@ def main(json_config_path):
         for spin_mult in spin_mults:
             for CN_displacement in CN_displacements:
                 for ONO_rotation in ONO_rotations:
-                    for freq_hartree in hartree_freqs:
-                        for freq_perm in [0]:
-                            output_file_path = os.path.join(output_dir, "state-{}_freq-{}_spin-{}_perm-{}_CN_disp-{}_ONO_rot-{}_cubic_response_NBopt_dunningZ-2.out".format(state, freq_hartree, spin_mult, freq_perm, CN_displacement, ONO_rotation))
-                            stdout_output_file_path = os.path.join(output_dir, "state-{}_freq-{}_spin-{}_perm-{}_CN_disp-{}_ONO_rot-{}_cubic_response_NBopt_dunningZ-2.stdout".format(state, freq_hartree, spin_mult, freq_perm, CN_displacement, ONO_rotation))
-                            next_dal_file_path = make_dal_file(dal_file_path, freq_hartree, state, spin_mult, freq_perm)
-                            next_mol_file_path = make_mol_file(mol_file_path, CN_displacement, ONO_rotation)
-                            cmd_to_run = ['./dalton', '-mb', '8000', '-o', str(output_file_path), str(next_dal_file_path), str(next_mol_file_path)]
-                            if not os.path.isfile(stdout_output_file_path):
-                                try:
-                                    print("running next calculation: freq {}, perm {}, state {}, spin {}, CN_disp {}, ONO_rot {}".format(freq_hartree, freq_perm, state, spin_mult, CN_displacement, ONO_rotation))
-                                    print("\t running command - {}".format(cmd_to_run))
-                                    exit_code, stdout, stderr = util_calc.run_cmd(cmd_to_run)
-                                    with open(stdout_output_file_path, 'w') as file:
-                                        file.write(str(stdout))
-                                except Exception as err:
-                                    print("An error occured trying next calculation")
-                                    traceback.print_tb(err.__traceback__)
-                                    pass
+                    for hartree_freq_probe, hartree_freq_drive in zip(hartree_freqs_probe, hartree_freqs_drive):
+                        output_file_path = os.path.join(output_dir, "state-{}_freqd-{}_freqp-{}_spin-{}_CN_disp-{}_ONO_rot-{}_cubic_response_NBopt_dunningZ-2.out".format(state, hartree_freq_probe, hartree_freq_drive, spin_mult, CN_displacement, ONO_rotation))
+                        stdout_output_file_path = os.path.join(output_dir, "state-{}_freqd-{}_freqp-{}_spin-{}_CN_disp-{}_ONO_rot-{}_cubic_response_NBopt_dunningZ-2.stdout".format(state, hartree_freq_probe, hartree_freq_drive, spin_mult, CN_displacement, ONO_rotation))
+                        next_dal_file_path = make_dal_file(dal_file_path, freq_hartree, state, spin_mult, freq_perm)
+                        next_mol_file_path = make_mol_file(mol_file_path, CN_displacement, ONO_rotation)
+                        cmd_to_run = ['./dalton', '-mb', '8000', '-o', str(output_file_path), str(next_dal_file_path), str(next_mol_file_path)]
+                        if not os.path.isfile(stdout_output_file_path):
+                            try:
+                                print("running next calculation: freq probe {}, freq drive {}, state {}, spin {}, CN_disp {}, ONO_rot {}".format(hartree_freq_probe, hartree_freq_drive, state, spin_mult, CN_displacement, ONO_rotation))
+                                print("\t running command - {}".format(cmd_to_run))
+                                exit_code, stdout, stderr = util_calc.run_cmd(cmd_to_run)
+                                with open(stdout_output_file_path, 'w') as file:
+                                    file.write(str(stdout))
+                            except Exception as err:
+                                print("An error occured trying next calculation")
+                                traceback.print_tb(err.__traceback__)
+                                pass
 
 if __name__ == "__main__":
     main(argv[1])
