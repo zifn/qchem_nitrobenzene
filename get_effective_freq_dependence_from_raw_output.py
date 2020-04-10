@@ -1,5 +1,6 @@
 from sys import argv
 import os
+import itertools
 
 from scipy import constants as consts
 import pandas as pd
@@ -23,6 +24,22 @@ def convert_hartree_freq_to_eV(freq_hartee):
     E_hartree_conversion = consts.physical_constants['Hartree energy in eV'][0]
     freq_eV = freq_hartee*E_hartree_conversion
     return freq_eV
+    
+def determine_drive_and_probe(lambda_1, lambda_2, lambda_3):
+    freqs = [lambda_1, lambda_2, lambda_3]
+    freq_drive = 0
+    freq_probe = 0
+    for freq1, freq2 in itertools.combinations(freqs, 2):
+        if np.isclose(freq1, -freq2):
+            freq_drive = abs(freq1)
+            freqs.pop(freq1)
+            freqs.pop(freq2)
+            break
+        else:
+            raise AssertionError("Drive Frequency not found in file")
+    assert(len(freqs) == 1)
+    freq_probe = freqs[0]
+    return freq_probe, freq_drive
 
 def main(dir_path, output_file_name, should_return=False):
     folder_location = os.path.normpath(dir_path)
@@ -36,8 +53,11 @@ def main(dir_path, output_file_name, should_return=False):
             file_output = main_conversion.main_conversion(os.path.join(folder_location, file), True)
             if file_output:
                 chi3_eff_sym, chi3_eff_expr, chi3_eff_value, gamma_eff_value, gamma_rot_ave, chi3_rot_ave, chi3_sym, lambda_out, lambda_1, lambda_2, lambda_3, warning_flag = file_output
-                output_data.append({'freq (Hartree)': freq,
-                                    'freq (eV)': abs(convert_hartree_freq_to_eV(freq)),
+                freq_probe, freq_drive = determine_drive_and_probe(lambda_1, lambda_2, lambda_3)
+                output_data.append({'freq probe (Hartree)': freq_probe,
+                                    'freq probe (eV)': abs(convert_hartree_freq_to_eV(freq_probe)),
+                                    'freq drive (Hartree)': freq_drive,
+                                    'freq drive (eV)': abs(convert_hartree_freq_to_eV(freq_drive)),
                                     'freq_permutation': freq_perm,
                                     'gamma effective': gamma_eff_value,
                                     'chi3 effective': chi3_eff_value,
