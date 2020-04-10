@@ -146,7 +146,7 @@
   Hans Agren,               KTH Stockholm,                Sweden      (SIRIUS module, RESPONS, MC-SCRF solvation model)
  --------------------------------------------------------------------------------
 
-     Date and time (Linux)  : Wed Mar 25 17:42:40 2020
+     Date and time (Linux)  : Thu Mar 26 15:49:31 2020
      Host name              : Mechanist                               
 
  * Work memory size             :  1024000000 =  7.629 gigabytes.
@@ -213,10 +213,10 @@ Compilation information
 .DIPLEN
 .BFREQ
 1
--0.0544
+0.0544
 .CFREQ
 1
-0.0544
+-0.0544
 .DFREQ
 1
 0.0544
@@ -871,8 +871,8 @@ H        0.0000000000            0.0000000000           -3.8683953478
 
 
   Time used in GABGEN     is       0.16 seconds
-  Total CPU  time used in HERMIT:   0.47 seconds
-  Total wall time used in HERMIT:   0.51 seconds
+  Total CPU  time used in HERMIT:   0.45 seconds
+  Total wall time used in HERMIT:   0.55 seconds
 
 
                         .----------------------------------.
@@ -917,7 +917,7 @@ H        0.0000000000            0.0000000000           -3.8683953478
  **********************************************************************
 
  
-     Date and time (Linux)  : Wed Mar 25 17:42:41 2020
+     Date and time (Linux)  : Thu Mar 26 15:49:32 2020
      Host name              : Mechanist                               
 
  Title lines from ".mol" input file:
@@ -1001,107 +1001,107 @@ H        0.0000000000            0.0000000000           -3.8683953478
 
  Iter     Total energy    Error norm  Delta(E)    SCF occupation
  -----------------------------------------------------------------------------
-   1  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)   -8    1    T  3.76D+01  3.87D+01
+   1  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)   -8    1    T  3.91D+01  4.32D+01
 @  1  -432.255033762       6.47D+00  -4.32D+02    16  11   3   2
       Virial theorem: -V/T =      1.998650
 @    MULPOP   C       0.34; C   _1  0.26; C   _2  0.26; C   _1  0.24; C   _2  0.24; C       0.36; N       1.30; O   _1 -1.02; O   _2 -1.02; H   _1 -0.20; 
 @             H   _2 -0.20; H   _1 -0.18; H   _2 -0.18; H      -0.19; 
    1  Level shift: doubly occupied orbital energies shifted by -2.00D-01
  -----------------------------------------------------------------------------
-   2  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)   -8    2    T  3.73D+01  3.85D+01
+   2  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)   -8    2    T  3.85D+01  4.11D+01
 @  2  -433.840473573       2.93D+00  -1.59D+00    16  11   3   2
       Virial theorem: -V/T =      2.001483
 @    MULPOP   C       0.91; C   _1  0.35; C   _2  0.35; C   _1  0.35; C   _2  0.35; C       0.38; N       0.33; O   _1 -0.52; O   _2 -0.52; H   _1 -0.40; 
 @             H   _2 -0.40; H   _1 -0.40; H   _2 -0.40; H      -0.40; 
    2  Level shift: doubly occupied orbital energies shifted by -1.00D-01
  -----------------------------------------------------------------------------
-   3  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)   -8    3    T  3.71D+01  3.81D+01
+   3  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)   -8    3    T  3.84D+01  4.04D+01
 @  3  -434.207204089       7.17D-01  -3.67D-01    16  11   3   2
       Virial theorem: -V/T =      2.000864
 @    MULPOP   C       1.68; C   _1  0.24; C   _2  0.24; C   _1  0.44; C   _2  0.44; C       0.30; N       0.67; O   _1 -0.89; O   _2 -0.89; H   _1 -0.45; 
 @             H   _2 -0.45; H   _1 -0.44; H   _2 -0.44; H      -0.44; 
    3  Level shift: doubly occupied orbital energies shifted by -2.50D-02
  -----------------------------------------------------------------------------
-   4  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)   -8    4    T  3.68D+01  3.78D+01
+   4  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)   -8    4    T  3.83D+01  4.05D+01
 @  4  -434.232828188       1.86D-01  -2.56D-02    16  11   3   2
       Virial theorem: -V/T =      2.002656
 @    MULPOP   C       1.76; C   _1  0.19; C   _2  0.19; C   _1  0.51; C   _2  0.51; C       0.28; N       0.54; O   _1 -0.86; O   _2 -0.86; H   _1 -0.45; 
 @             H   _2 -0.45; H   _1 -0.46; H   _2 -0.46; H      -0.46; 
    4  Level shift: doubly occupied orbital energies shifted by -1.25D-02
  -----------------------------------------------------------------------------
-   5  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)  -10    5    F  3.74D+01  3.83D+01
+   5  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)  -10    5    F  3.90D+01  4.15D+01
 @  5  -434.235503640       5.52D-02  -2.68D-03    16  11   3   2
       Virial theorem: -V/T =      2.002075
 @    MULPOP   C       1.80; C   _1  0.17; C   _2  0.17; C   _1  0.51; C   _2  0.51; C       0.26; N       0.53; O   _1 -0.87; O   _2 -0.87; H   _1 -0.44; 
 @             H   _2 -0.44; H   _1 -0.44; H   _2 -0.44; H      -0.44; 
  -----------------------------------------------------------------------------
-   6  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)  -10    6    T  3.72D+01  3.81D+01
+   6  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)  -10    6    T  3.83D+01  4.04D+01
 @  6  -434.235840724       1.54D-02  -3.37D-04    16  11   3   2
       Virial theorem: -V/T =      2.001997
 @    MULPOP   C       1.81; C   _1  0.16; C   _2  0.16; C   _1  0.51; C   _2  0.51; C       0.26; N       0.51; O   _1 -0.86; O   _2 -0.86; H   _1 -0.44; 
 @             H   _2 -0.44; H   _1 -0.44; H   _2 -0.44; H      -0.44; 
  -----------------------------------------------------------------------------
-   7  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)  -13    7    F  3.76D+01  3.87D+01
+   7  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)  -13    7    F  3.86D+01  4.08D+01
 @  7  -434.235873250       6.20D-03  -3.25D-05    16  11   3   2
       Virial theorem: -V/T =      2.002033
 @    MULPOP   C       1.82; C   _1  0.16; C   _2  0.16; C   _1  0.51; C   _2  0.51; C       0.26; N       0.51; O   _1 -0.86; O   _2 -0.86; H   _1 -0.44; 
 @             H   _2 -0.44; H   _1 -0.44; H   _2 -0.44; H      -0.44; 
  -----------------------------------------------------------------------------
-   8  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)  -13    8    T  3.72D+01  3.83D+01
+   8  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)  -13    8    T  3.85D+01  4.05D+01
 @  8  -434.235878261       2.11D-03  -5.01D-06    16  11   3   2
       Virial theorem: -V/T =      2.002021
 @    MULPOP   C       1.82; C   _1  0.16; C   _2  0.16; C   _1  0.51; C   _2  0.51; C       0.26; N       0.51; O   _1 -0.86; O   _2 -0.86; H   _1 -0.44; 
 @             H   _2 -0.44; H   _1 -0.44; H   _2 -0.44; H      -0.44; 
  -----------------------------------------------------------------------------
-   9  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)  -13    9    T  3.79D+01  3.95D+01
+   9  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)  -13    9    T  3.88D+01  4.09D+01
 @  9  -434.235878813       6.62D-04  -5.52D-07    16  11   3   2
       Virial theorem: -V/T =      2.002018
 @    MULPOP   C       1.82; C   _1  0.16; C   _2  0.16; C   _1  0.51; C   _2  0.51; C       0.26; N       0.51; O   _1 -0.86; O   _2 -0.86; H   _1 -0.44; 
 @             H   _2 -0.44; H   _1 -0.44; H   _2 -0.44; H      -0.44; 
  -----------------------------------------------------------------------------
-  10  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)  -13   10    T  3.73D+01  3.84D+01
+  10  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)  -13   10    T  3.88D+01  4.07D+01
 @ 10  -434.235878868       2.21D-04  -5.52D-08    16  11   3   2
       Virial theorem: -V/T =      2.002020
 @    MULPOP   C       1.82; C   _1  0.16; C   _2  0.16; C   _1  0.51; C   _2  0.51; C       0.26; N       0.51; O   _1 -0.86; O   _2 -0.86; H   _1 -0.44; 
 @             H   _2 -0.44; H   _1 -0.44; H   _2 -0.44; H      -0.44; 
  -----------------------------------------------------------------------------
-  11  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)  -13   11    T  3.70D+01  3.82D+01
+  11  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)  -13   11    T  3.85D+01  4.06D+01
 @ 11  -434.235878877       8.32D-05  -8.75D-09    16  11   3   2
       Virial theorem: -V/T =      2.002019
 @    MULPOP   C       1.82; C   _1  0.16; C   _2  0.16; C   _1  0.51; C   _2  0.51; C       0.26; N       0.51; O   _1 -0.86; O   _2 -0.86; H   _1 -0.44; 
 @             H   _2 -0.44; H   _1 -0.44; H   _2 -0.44; H      -0.44; 
  -----------------------------------------------------------------------------
-  12  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)  -13   12    T  3.72D+01  3.83D+01
+  12  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)  -13   12    T  3.86D+01  4.06D+01
 @ 12  -434.235878878       3.45D-05  -1.49D-09    16  11   3   2
       Virial theorem: -V/T =      2.002019
 @    MULPOP   C       1.82; C   _1  0.16; C   _2  0.16; C   _1  0.51; C   _2  0.51; C       0.26; N       0.51; O   _1 -0.86; O   _2 -0.86; H   _1 -0.44; 
 @             H   _2 -0.44; H   _1 -0.44; H   _2 -0.44; H      -0.44; 
  -----------------------------------------------------------------------------
-  13  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)  -13   13    T  3.71D+01  3.79D+01
+  13  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)  -13   13    T  3.84D+01  4.14D+01
 @ 13  -434.235878878       1.91D-05  -2.20D-10    16  11   3   2
       Virial theorem: -V/T =      2.002019
 @    MULPOP   C       1.82; C   _1  0.16; C   _2  0.16; C   _1  0.51; C   _2  0.51; C       0.26; N       0.51; O   _1 -0.86; O   _2 -0.86; H   _1 -0.44; 
 @             H   _2 -0.44; H   _1 -0.44; H   _2 -0.44; H      -0.44; 
  -----------------------------------------------------------------------------
-  14  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)  -13   14    T  3.70D+01  3.82D+01
+  14  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)  -13   14    T  3.83D+01  4.03D+01
 @ 14  -434.235878879       6.79D-06  -1.07D-10    16  11   3   2
       Virial theorem: -V/T =      2.002019
 @    MULPOP   C       1.82; C   _1  0.16; C   _2  0.16; C   _1  0.51; C   _2  0.51; C       0.26; N       0.51; O   _1 -0.86; O   _2 -0.86; H   _1 -0.44; 
 @             H   _2 -0.44; H   _1 -0.44; H   _2 -0.44; H      -0.44; 
  -----------------------------------------------------------------------------
-  15  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)  -13   15    T  3.70D+01  3.79D+01
+  15  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)  -13   15    T  3.82D+01  4.00D+01
 @ 15  -434.235878879       2.78D-06  -1.14D-11    16  11   3   2
       Virial theorem: -V/T =      2.002019
 @    MULPOP   C       1.82; C   _1  0.16; C   _2  0.16; C   _1  0.51; C   _2  0.51; C       0.26; N       0.51; O   _1 -0.86; O   _2 -0.86; H   _1 -0.44; 
 @             H   _2 -0.44; H   _1 -0.44; H   _2 -0.44; H      -0.44; 
  -----------------------------------------------------------------------------
-  16  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)  -13   16    T  3.69D+01  3.79D+01
+  16  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)  -13   16    T  3.82D+01  4.03D+01
 @ 16  -434.235878879       1.24D-06   2.27D-13    16  11   3   2
       Virial theorem: -V/T =      2.002019
 @    MULPOP   C       1.82; C   _1  0.16; C   _2  0.16; C   _1  0.51; C   _2  0.51; C       0.26; N       0.51; O   _1 -0.86; O   _2 -0.86; H   _1 -0.44; 
 @             H   _2 -0.44; H   _1 -0.44; H   _2 -0.44; H      -0.44; 
  -----------------------------------------------------------------------------
-  17  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)  -13   17    T  3.68D+01  3.81D+01
+  17  Screening settings (-IFTHRS, JTDIIS, DIFDEN, times)  -13   17    T  3.78D+01  3.99D+01
 @ 17  -434.235878879       5.11D-07  -3.75D-12    16  11   3   2
 
 @ *** DIIS converged in  17 iterations !
@@ -1110,7 +1110,7 @@ H        0.0000000000            0.0000000000           -3.8683953478
 
  --- Writing SIRIFC interface file
 
- CPU and wall time for SCF :     633.422     651.889
+ CPU and wall time for SCF :     655.297     694.206
 
 
  ----- Output from SIRIUS MP2 module -----
@@ -1216,9 +1216,9 @@ H        0.0000000000            0.0000000000           -3.8683953478
  HERMIT - Number of two-electron integrals written:   203489779 ( 23.5% )
  HERMIT - Megabytes written:                           3106.305
 
-  Time used in TWOINT     is      52.70 seconds
+  Time used in TWOINT     is      54.89 seconds
 
- 2-el. integral transformation level 5: Total CPU and WALL times (sec)     466.422     559.323
+ 2-el. integral transformation level 5: Total CPU and WALL times (sec)     466.219     547.472
 
  MP2 move   0.994252 electrons to unoccupied HF orbitals
 
@@ -1302,9 +1302,9 @@ H        0.0000000000            0.0000000000           -3.8683953478
          0.00013308     0.00011678     0.00010380     0.00009345     0.00006954
          0.00005016     0.00002065     0.00001756     0.00000539
 
- Time used for MP2 natural orbitals :     510.141 CPU seconds,     604.112 wall seconds.
+ Time used for MP2 natural orbitals :     511.453 CPU seconds,     594.593 wall seconds.
 
- CPU and wall time for MP2 :     510.141     604.112
+ CPU and wall time for MP2 :     511.453     594.593
 
 
         SIRIUS MCSCF optimization (SIROPT)
@@ -1319,7 +1319,7 @@ H        0.0000000000            0.0000000000           -3.8683953478
 
 
 
- 2-el. integral transformation level 0: Total CPU and WALL times (sec)     112.422     116.015
+ 2-el. integral transformation level 0: Total CPU and WALL times (sec)     112.219     114.347
 
 
  --- SIRCI.CIST1: plus combination of all degenerate
@@ -1391,7 +1391,7 @@ H        0.0000000000            0.0000000000           -3.8683953478
  --- MACRO ITERATION  1 ---
  --------------------------
 
- 2-el. integral transformation level 3: Total CPU and WALL times (sec)     114.594     118.166
+ 2-el. integral transformation level 3: Total CPU and WALL times (sec)     114.156     116.277
 
  Fock matrix screening setting for this macro iteration: 10^( -9)
 
@@ -1439,7 +1439,7 @@ H        0.0000000000            0.0000000000           -3.8683953478
  --- MACRO ITERATION  2 ---
  --------------------------
 
- 2-el. integral transformation level 3: Total CPU and WALL times (sec)     113.047     115.366
+ 2-el. integral transformation level 3: Total CPU and WALL times (sec)     113.047     113.806
 
  Fock matrix screening setting for this macro iteration: 10^( -9)
 
@@ -1493,7 +1493,7 @@ H        0.0000000000            0.0000000000           -3.8683953478
  --- MACRO ITERATION  3 ---
  --------------------------
 
- 2-el. integral transformation level 3: Total CPU and WALL times (sec)     109.297     109.628
+ 2-el. integral transformation level 3: Total CPU and WALL times (sec)     113.672     114.508
 
  Fock matrix screening setting for this macro iteration: 10^( -9)
 
@@ -1547,7 +1547,7 @@ H        0.0000000000            0.0000000000           -3.8683953478
  --- MACRO ITERATION  4 ---
  --------------------------
 
- 2-el. integral transformation level 3: Total CPU and WALL times (sec)     108.656     109.091
+ 2-el. integral transformation level 3: Total CPU and WALL times (sec)     113.984     114.477
 
  Fock matrix screening setting for this macro iteration: 10^( -9)
 
@@ -1601,7 +1601,7 @@ H        0.0000000000            0.0000000000           -3.8683953478
  --- MACRO ITERATION  5 ---
  --------------------------
 
- 2-el. integral transformation level 3: Total CPU and WALL times (sec)     109.781     110.095
+ 2-el. integral transformation level 3: Total CPU and WALL times (sec)     113.156     113.675
 
  Fock matrix screening setting for this macro iteration: 10^( -9)
 
@@ -1655,7 +1655,7 @@ H        0.0000000000            0.0000000000           -3.8683953478
  --- MACRO ITERATION  6 ---
  --------------------------
 
- 2-el. integral transformation level 3: Total CPU and WALL times (sec)     109.547     109.909
+ 2-el. integral transformation level 3: Total CPU and WALL times (sec)     113.594     114.110
 
  Fock matrix screening setting for this macro iteration: 10^( -9)
 
@@ -1709,7 +1709,7 @@ H        0.0000000000            0.0000000000           -3.8683953478
  --- MACRO ITERATION  7 ---
  --------------------------
 
- 2-el. integral transformation level 3: Total CPU and WALL times (sec)     114.688     118.246
+ 2-el. integral transformation level 3: Total CPU and WALL times (sec)     117.656     124.582
 
  Fock matrix screening setting for this macro iteration: 10^( -9)
 
@@ -1760,7 +1760,7 @@ H        0.0000000000            0.0000000000           -3.8683953478
  --- MACRO ITERATION  8 ---
  --------------------------
 
- 2-el. integral transformation level 3: Total CPU and WALL times (sec)     109.328     109.618
+ 2-el. integral transformation level 3: Total CPU and WALL times (sec)     113.734     114.729
 
  Fock matrix screening setting for this macro iteration: 10^( -9)
 
@@ -1814,7 +1814,7 @@ H        0.0000000000            0.0000000000           -3.8683953478
  --- MACRO ITERATION  9 ---
  --------------------------
 
- 2-el. integral transformation level 3: Total CPU and WALL times (sec)     116.031     118.971
+ 2-el. integral transformation level 3: Total CPU and WALL times (sec)     113.594     114.127
 
  Fock matrix screening setting for this macro iteration: 10^( -9)
 
@@ -1868,7 +1868,7 @@ H        0.0000000000            0.0000000000           -3.8683953478
  --- MACRO ITERATION 10 ---
  --------------------------
 
- 2-el. integral transformation level 3: Total CPU and WALL times (sec)     112.906     115.402
+ 2-el. integral transformation level 3: Total CPU and WALL times (sec)     116.828     121.048
 
  Fock matrix screening setting for this macro iteration: 10^( -9)
 
@@ -1922,7 +1922,7 @@ H        0.0000000000            0.0000000000           -3.8683953478
  --- MACRO ITERATION 11 ---
  --------------------------
 
- 2-el. integral transformation level 3: Total CPU and WALL times (sec)     115.062     117.908
+ 2-el. integral transformation level 3: Total CPU and WALL times (sec)     117.219     120.778
 
  Fock matrix screening setting for this macro iteration: 10^( -9)
 
@@ -1976,7 +1976,7 @@ H        0.0000000000            0.0000000000           -3.8683953478
  --- MACRO ITERATION 12 ---
  --------------------------
 
- 2-el. integral transformation level 3: Total CPU and WALL times (sec)     115.062     117.612
+ 2-el. integral transformation level 3: Total CPU and WALL times (sec)     117.219     120.300
 
  Fock matrix screening setting for this macro iteration: 10^( -9)
 
@@ -2030,7 +2030,7 @@ H        0.0000000000            0.0000000000           -3.8683953478
  --- MACRO ITERATION 13 ---
  --------------------------
 
- 2-el. integral transformation level 3: Total CPU and WALL times (sec)     116.312     118.883
+ 2-el. integral transformation level 3: Total CPU and WALL times (sec)     118.609     125.174
 
  Fock matrix screening setting for this macro iteration: 10^( -9)
 
@@ -2083,7 +2083,7 @@ H        0.0000000000            0.0000000000           -3.8683953478
  --- MACRO ITERATION 14 ---
  --------------------------
 
- 2-el. integral transformation level 3: Total CPU and WALL times (sec)     115.828     118.053
+ 2-el. integral transformation level 3: Total CPU and WALL times (sec)     114.375     115.549
 
  Fock matrix screening setting for this macro iteration: 10^( -9)
 
@@ -2132,7 +2132,7 @@ H        0.0000000000            0.0000000000           -3.8683953478
  --- MACRO ITERATION 15 ---
  --------------------------
 
- 2-el. integral transformation level 3: Total CPU and WALL times (sec)     108.844     109.209
+ 2-el. integral transformation level 3: Total CPU and WALL times (sec)     114.688     115.649
 
  Fock matrix screening setting for this macro iteration: 10^( -9)
 
@@ -2156,9 +2156,9 @@ H        0.0000000000            0.0000000000           -3.8683953478
  *** Optimization control: MCSCF converged ***
      Number of macro iterations used           15
      Number of micro iterations used          147
-     Total number of CPU seconds used      8950.28
+     Total number of CPU seconds used      9078.72
 
- CPU and wall time for MCSCF :    8950.281    9108.151
+ CPU and wall time for MCSCF :    9078.719    9238.225
 
 
                      .----------------------------------------.
@@ -2167,7 +2167,7 @@ H        0.0000000000            0.0000000000           -3.8683953478
 
 
  
-     Date and time (Linux)  : Wed Mar 25 20:35:25 2020
+     Date and time (Linux)  : Thu Mar 26 18:44:59 2020
      Host name              : Mechanist                               
 
 
@@ -2212,21 +2212,21 @@ H        0.0000000000            0.0000000000           -3.8683953478
   ITER ITMIC NCLIN NOLIN   TIMMAC    TIMITR    TIMMIC    TIMLIN    TIMMIC/ITMIC
  ------------------------------------------------------------------------------
 
-    1     4     2     6    363.17    114.59    208.83    170.94     52.21
-    2     8     6     7    505.30    113.05    354.48    316.70     44.31
-    3     6     4     7    431.02    109.30    284.00    246.25     47.33
-    4     7     4     7    462.36    108.66    315.94    277.92     45.13
-    5    20     9    15    957.91    109.78    810.47    772.62     40.52
-    6    10     5    10    584.30    109.55    436.91    397.11     43.69
-    7    14     4    15    776.06    114.69    621.41    583.55     44.39
-    8    10     5    10    593.59    109.33    446.70    406.44     44.67
-    9    12     5    12    690.06    116.03    534.44    496.78     44.54
-   10    11     5    11    651.25    112.91    498.64    458.59     45.33
-   11    11     6    10    642.11    115.06    487.44    447.47     44.31
-   12     6     3     8    459.59    115.06    304.38    264.25     50.73
-   13    24    11    18   1153.08    116.31    996.75    956.39     41.53
-   14     4     2     2    344.58    115.83    188.55    150.84     47.14
-   15     0     0     0    146.42    108.84      0.00      0.00
+    1     4     2     6    370.61    114.16    216.97    177.91     54.24
+    2     8     6     7    517.14    113.05    365.23    326.30     45.65
+    3     6     4     7    445.52    113.67    292.97    254.09     48.83
+    4     7     4     7    479.11    113.98    326.25    287.33     46.61
+    5    20     9    15    975.55    113.16    823.55    784.53     41.18
+    6    10     5    10    605.66    113.59    453.30    412.88     45.33
+    7    14     4    15    770.56    117.66    612.16    573.14     43.73
+    8    10     5    10    600.61    113.73    448.00    408.91     44.80
+    9    12     5    12    691.05    113.59    538.67    498.06     44.89
+   10    11     5    11    660.86    116.83    503.69    464.03     45.79
+   11    11     6    10    657.91    117.22    499.98    459.20     45.45
+   12     6     3     8    465.16    117.22    307.97    267.25     51.33
+   13    24    11    18   1152.20    118.61    993.30    954.12     41.39
+   14     4     2     2    344.62    114.38    191.12    151.98     47.78
+   15     0     0     0    153.70    114.69      0.00      0.00
 
 
  ITER         EMY                 EACTIV              EMCSCF
@@ -2343,7 +2343,7 @@ H        0.0000000000            0.0000000000           -3.8683953478
 @    Final gradient norm:           0.000009768379
 
  
-     Date and time (Linux)  : Wed Mar 25 20:35:25 2020
+     Date and time (Linux)  : Thu Mar 26 18:44:59 2020
      Host name              : Mechanist                               
 
  Occupancies of natural orbitals
@@ -2370,7 +2370,7 @@ H        0.0000000000            0.0000000000           -3.8683953478
 
    1.964839201   1.948068899   0.041704680
 
-File label for MO orbitals:  25Mar20   (CNOORB)
+File label for MO orbitals:  26Mar20   (CNOORB)
 
  (Only coefficients > 0.0100 are printed.)
 
@@ -3060,11 +3060,11 @@ File label for MO orbitals:  25Mar20   (CNOORB)
   10- 6 to 10- 5         2    0.27814786E-10    0.10000000E+01
   Number of coefficients less than 10^-11 times norm is             0
 
-  Total CPU  time used in SIRIUS :   2 hours 48 minutes 14 seconds
-  Total wall time used in SIRIUS :   2 hours 52 minutes 45 seconds
+  Total CPU  time used in SIRIUS :   2 hours 50 minutes 46 seconds
+  Total wall time used in SIRIUS :   2 hours 55 minutes 27 seconds
 
  
-     Date and time (Linux)  : Wed Mar 25 20:35:25 2020
+     Date and time (Linux)  : Thu Mar 26 18:44:59 2020
      Host name              : Mechanist                               
 
 
@@ -3094,8 +3094,8 @@ File label for MO orbitals:  25Mar20   (CNOORB)
 
  Second hyperpolarizability calculation :  CRCAL= T
 
-  1 B-frequencies -5.440000D-02
-  1 C-frequencies  5.440000D-02
+  1 B-frequencies  5.440000D-02
+  1 C-frequencies -5.440000D-02
   1 D-frequencies  5.440000D-02
 
  Print level                                    : IPRCR  =   2
@@ -3152,9 +3152,9 @@ File label for MO orbitals:  25Mar20   (CNOORB)
 
           YDIPLEN 
 
- 2-el. integral transformation level 10: Total CPU and WALL times (sec)     592.688     667.614
+ 2-el. integral transformation level 10: Total CPU and WALL times (sec)     601.156     656.724
 
- Sorting integrals to Dirac format: Total CPU and WALL times (sec)       1.703       1.863
+ Sorting integrals to Dirac format: Total CPU and WALL times (sec)       1.656       1.767
 
 
  MCSCF energy         :     -434.059365521677080
@@ -4066,7 +4066,7 @@ File label for MO orbitals:  25Mar20   (CNOORB)
  Orbital variables.         KZWOPT:    1664
  Configuration variables.   KZCONF:     110
  Total number of variables. KZVAR :    1774
-  Time used in CRVEC1     is     48 minutes 29 seconds
+  Time used in CRVEC1     is     49 minutes 47 seconds
 
 
  Perturbation symmetry.     KSYMOP:       1
@@ -4079,8 +4079,8 @@ File label for MO orbitals:  25Mar20   (CNOORB)
  CRLRV2 -- linear response calc for sym:  1
  CRLRV2 -- operator label1: ZDIPLEN 
  CRLRV2 -- operator label2: ZDIPLEN 
- CRLRV2 -- freqr1 :  -5.440000D-02
- CRLRV2 -- freqr2 :   5.440000D-02
+ CRLRV2 -- freqr1 :   5.440000D-02
+ CRLRV2 -- freqr2 :  -5.440000D-02
 
 
 
@@ -4206,7 +4206,7 @@ File label for MO orbitals:  25Mar20   (CNOORB)
  *** RSPCTL MICROITERATIONS CONVERGED
     ZDIPLEN     ZDIPLEN      freq1     freq2                Norm
  ---------------------------------------------------------------
-                         -0.054400  0.054400     293338.02266647
+                          0.054400 -0.054400     293338.02267041
 
 
  Perturbation symmetry.     KSYMOP:       1
@@ -4504,8 +4504,8 @@ File label for MO orbitals:  25Mar20   (CNOORB)
  CRLRV2 -- linear response calc for sym:  2
  CRLRV2 -- operator label1: XDIPLEN 
  CRLRV2 -- operator label2: ZDIPLEN 
- CRLRV2 -- freqr1 :  -5.440000D-02
- CRLRV2 -- freqr2 :   5.440000D-02
+ CRLRV2 -- freqr1 :   5.440000D-02
+ CRLRV2 -- freqr2 :  -5.440000D-02
 
 
 
@@ -4736,492 +4736,7 @@ File label for MO orbitals:  25Mar20   (CNOORB)
  *** RSPCTL MICROITERATIONS CONVERGED
     XDIPLEN     ZDIPLEN      freq1     freq2                Norm
  ---------------------------------------------------------------
-                         -0.054400  0.054400     129505.53917292
-
-
- Perturbation symmetry.     KSYMOP:       3
- Perturbation spin symmetry.TRPLET:       F
- Orbital variables.         KZWOPT:    1743
- Configuration variables.   KZCONF:     110
- Total number of variables. KZVAR :    1853
-
-
- CRLRV2 -- linear response calc for sym:  3
- CRLRV2 -- operator label1: YDIPLEN 
- CRLRV2 -- operator label2: ZDIPLEN 
- CRLRV2 -- freqr1 :  -5.440000D-02
- CRLRV2 -- freqr2 :   5.440000D-02
-
-
-
- ---  SOLVING SETS OF LINEAR EQUATIONS FOR LINEAR RESPONSE PROPERTIES ---
-
- Operator symmetry = 3  ( B2 ); triplet =   F
-
-
- ** RSPCTL MICROITERATION NUMBER    1
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    9.88344D+01  8.51D+01  5.03D+01  1.42D+03    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER    2
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    9.75647D+01  7.20D+00  9.73D+01  1.79D+03    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER    3
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  3,  triplet       F Dimension of reduced matrix =     8
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after    4 linear transformations is      3.81591253D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is    6    0    2
- Determinant of reduced matrix is  5.88 * 10 ** -7.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    5.21378D+01  7.44D+00  5.16D+01  3.65D+02    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER    4
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  3,  triplet       F Dimension of reduced matrix =    10
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after    5 linear transformations is      4.00354945D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is    8    0    2
- Determinant of reduced matrix is  3.22 * 10 ** -8.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    2.52448D+01  8.18D+00  2.39D+01  3.99D+02    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER    5
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  3,  triplet       F Dimension of reduced matrix =    12
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after    6 linear transformations is      4.03024185D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is   10    0    2
- Determinant of reduced matrix is  9.48 * 10 **-10.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    1.18546D+01  8.61D+00  8.15D+00  4.02D+02    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER    6
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  3,  triplet       F Dimension of reduced matrix =    14
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after    7 linear transformations is      4.03704211D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is   12    0    2
- Determinant of reduced matrix is  5.67 * 10 **-10.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    9.57308D+00  4.46D+00  8.47D+00  4.03D+02    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER    7
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  3,  triplet       F Dimension of reduced matrix =    16
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after    8 linear transformations is      4.04527315D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is   14    0    2
- Determinant of reduced matrix is  8.19 * 10 **-13.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    8.21572D+00  5.14D+00  6.41D+00  4.08D+02    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER    8
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  3,  triplet       F Dimension of reduced matrix =    18
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after    9 linear transformations is      4.05586754D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is   16    0    2
- Determinant of reduced matrix is  6.13 * 10 **-15.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    9.14259D+00  7.32D+00  5.47D+00  4.41D+02    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER    9
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  3,  triplet       F Dimension of reduced matrix =    20
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   10 linear transformations is      4.06468311D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is   18    0    2
- Determinant of reduced matrix is  2.17 * 10 **-15.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    8.04280D+00  2.20D+00  7.74D+00  4.64D+02    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER   10
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  3,  triplet       F Dimension of reduced matrix =    22
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   11 linear transformations is      4.07402757D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is   20    0    2
- Determinant of reduced matrix is  1.49 * 10 **-17.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    6.57902D+00  3.09D+00  5.81D+00  5.09D+02    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER   11
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  3,  triplet       F Dimension of reduced matrix =    24
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   12 linear transformations is      4.07927157D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is   22    0    2
- Determinant of reduced matrix is  8.96 * 10 **-20.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    7.70330D+00  3.28D+00  6.97D+00  5.24D+02    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER   12
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  3,  triplet       F Dimension of reduced matrix =    26
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   13 linear transformations is      4.08435714D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is   24    0    2
- Determinant of reduced matrix is  1.20 * 10 **-21.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    6.54270D+00  3.78D+00  5.34D+00  5.51D+02    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER   13
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  3,  triplet       F Dimension of reduced matrix =    28
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   14 linear transformations is      4.08587740D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is   26    0    2
- Determinant of reduced matrix is  6.29 * 10 **-23.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    4.45632D+00  3.92D+00  2.12D+00  5.62D+02    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER   14
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  3,  triplet       F Dimension of reduced matrix =    30
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   15 linear transformations is      4.08776641D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is   28    0    2
- Determinant of reduced matrix is  3.62 * 10 **-23.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    2.30596D+00  5.82D-01  2.23D+00  5.79D+02    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER   15
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  3,  triplet       F Dimension of reduced matrix =    32
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   16 linear transformations is      4.08810711D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is   30    0    2
- Determinant of reduced matrix is  2.66 * 10 **-25.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    1.09922D+00  6.03D-01  9.19D-01  5.83D+02    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER   16
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  3,  triplet       F Dimension of reduced matrix =    34
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   17 linear transformations is      4.08815596D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is   32    0    2
- Determinant of reduced matrix is  5.80 * 10 **-27.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    7.18010D-01  6.12D-01  3.76D-01  5.83D+02    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER   17
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  3,  triplet       F Dimension of reduced matrix =    36
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   18 linear transformations is      4.08818306D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is   34    0    2
- Determinant of reduced matrix is  7.64 * 10 **-27.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    4.41924D-01  2.32D-01  3.76D-01  5.84D+02    0.00000D+00
-
- *** THE REQUESTED    1 SOLUTION VECTORS CONVERGED
-
- Convergence of RSP solution vectors, threshold = 1.00D-03
- ---------------------------------------------------------------
- (dimension of paired reduced space:   36)
- RSP solution vector no.    1; norm of residual   7.57D-04
-
- *** RSPCTL MICROITERATIONS CONVERGED
-    YDIPLEN     ZDIPLEN      freq1     freq2                Norm
- ---------------------------------------------------------------
-                         -0.054400  0.054400        583.53274081
-
-
- Perturbation symmetry.     KSYMOP:       2
- Perturbation spin symmetry.TRPLET:       F
- Orbital variables.         KZWOPT:    2656
- Configuration variables.   KZCONF:     106
- Total number of variables. KZVAR :    2762
-
-
- CRLRV2 -- linear response calc for sym:  2
- CRLRV2 -- operator label1: ZDIPLEN 
- CRLRV2 -- operator label2: XDIPLEN 
- CRLRV2 -- freqr1 :  -5.440000D-02
- CRLRV2 -- freqr2 :   5.440000D-02
-
-
-
- ---  SOLVING SETS OF LINEAR EQUATIONS FOR LINEAR RESPONSE PROPERTIES ---
-
- Operator symmetry = 2  ( B1 ); triplet =   F
-
-
- ** RSPCTL MICROITERATION NUMBER    1
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    6.70731D+02  3.27D+02  5.86D+02  3.95D+03    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER    2
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    6.00329D+02  4.38D+02  4.11D+02  7.26D+03    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER    3
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    7.68791D+02  3.50D+02  6.85D+02  9.62D+03    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER    4
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    9.96980D+02  7.23D+02  6.86D+02  1.99D+04    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER    5
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    2.30128D+03  9.71D+02  2.09D+03  4.83D+04    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER    6
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  2,  triplet       F Dimension of reduced matrix =    14
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after    7 linear transformations is      1.81658525D+06
- INERTIA (POS,ZER,NEG) of reduced matrix is   13    0    1
- Determinant of reduced matrix is -1.22 * 10 **-18.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    8.98706D+02  6.40D+02  6.31D+02  1.49D+04    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER    7
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  2,  triplet       F Dimension of reduced matrix =    16
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after    8 linear transformations is      2.57685509D+06
- INERTIA (POS,ZER,NEG) of reduced matrix is   15    0    1
- Determinant of reduced matrix is -1.17 * 10 **-19.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    7.06146D+02  4.06D+02  5.78D+02  2.02D+04    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER    8
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  2,  triplet       F Dimension of reduced matrix =    18
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after    9 linear transformations is      3.75492718D+06
- INERTIA (POS,ZER,NEG) of reduced matrix is   17    0    1
- Determinant of reduced matrix is -8.04 * 10 **-23.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    9.03290D+02  7.10D+02  5.59D+02  3.03D+04    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER    9
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  2,  triplet       F Dimension of reduced matrix =    20
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   10 linear transformations is      5.00775347D+06
- INERTIA (POS,ZER,NEG) of reduced matrix is   19    0    1
- Determinant of reduced matrix is -7.60 * 10 **-24.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    1.07445D+03  4.49D+02  9.76D+02  4.70D+04    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER   10
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  2,  triplet       F Dimension of reduced matrix =    22
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   11 linear transformations is      8.74818148D+06
- INERTIA (POS,ZER,NEG) of reduced matrix is   21    0    1
- Determinant of reduced matrix is -1.73 * 10 **-27.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    2.01888D+03  1.58D+03  1.26D+03  1.16D+05    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER   11
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  2,  triplet       F Dimension of reduced matrix =    24
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   12 linear transformations is      3.95706920D+07
- INERTIA (POS,ZER,NEG) of reduced matrix is   23    0    1
- Determinant of reduced matrix is -2.32 * 10 **-29.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    1.09658D+04  1.27D+03  1.09D+04  7.24D+05    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER   12
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  2,  triplet       F Dimension of reduced matrix =    26
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   13 linear transformations is     -5.63282392D+06
- INERTIA (POS,ZER,NEG) of reduced matrix is   24    0    2
- Determinant of reduced matrix is  2.63 * 10 **-32.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    1.60128D+03  1.17D+03  1.10D+03  1.97D+05    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER   13
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  2,  triplet       F Dimension of reduced matrix =    28
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   14 linear transformations is     -3.72891225D+06
- INERTIA (POS,ZER,NEG) of reduced matrix is   26    0    2
- Determinant of reduced matrix is  5.84 * 10 **-33.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    1.39977D+03  2.19D+02  1.38D+03  1.62D+05    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER   14
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  2,  triplet       F Dimension of reduced matrix =    30
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   15 linear transformations is     -2.34132524D+06
- INERTIA (POS,ZER,NEG) of reduced matrix is   28    0    2
- Determinant of reduced matrix is  2.41 * 10 **-36.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    5.66152D+02  3.38D+02  4.54D+02  1.35D+05    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER   15
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  2,  triplet       F Dimension of reduced matrix =    32
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   16 linear transformations is     -2.21288124D+06
- INERTIA (POS,ZER,NEG) of reduced matrix is   30    0    2
- Determinant of reduced matrix is  3.58 * 10 **-39.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    4.09449D+02  3.59D+02  1.97D+02  1.33D+05    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER   16
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  2,  triplet       F Dimension of reduced matrix =    34
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   17 linear transformations is     -2.10305624D+06
- INERTIA (POS,ZER,NEG) of reduced matrix is   32    0    2
- Determinant of reduced matrix is  5.48 * 10 **-40.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    3.36553D+02  1.99D+02  2.71D+02  1.31D+05    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER   17
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  2,  triplet       F Dimension of reduced matrix =    36
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   18 linear transformations is     -2.04019913D+06
- INERTIA (POS,ZER,NEG) of reduced matrix is   34    0    2
- Determinant of reduced matrix is  3.42 * 10 **-43.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    2.45623D+02  2.08D+02  1.30D+02  1.30D+05    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER   18
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  2,  triplet       F Dimension of reduced matrix =    38
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   19 linear transformations is     -1.96663841D+06
- INERTIA (POS,ZER,NEG) of reduced matrix is   36    0    2
- Determinant of reduced matrix is  4.94 * 10 **-44.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    2.05988D+02  1.02D+02  1.79D+02  1.30D+05    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER   19
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  2,  triplet       F Dimension of reduced matrix =    40
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   20 linear transformations is     -1.94976559D+06
- INERTIA (POS,ZER,NEG) of reduced matrix is   38    0    2
- Determinant of reduced matrix is  2.08 * 10 **-46.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    1.28110D+02  1.17D+02  5.29D+01  1.30D+05    0.00000D+00
-
- *** THE REQUESTED    1 SOLUTION VECTORS CONVERGED
-
- Convergence of RSP solution vectors, threshold = 1.00D-03
- ---------------------------------------------------------------
- (dimension of paired reduced space:   40)
- RSP solution vector no.    1; norm of residual   9.89D-04
-
- *** RSPCTL MICROITERATIONS CONVERGED
-    ZDIPLEN     XDIPLEN      freq1     freq2                Norm
- ---------------------------------------------------------------
-                         -0.054400  0.054400     129505.53917099
+                          0.054400 -0.054400     129505.53917077
 
 
  Perturbation symmetry.     KSYMOP:       2
@@ -5614,247 +5129,6 @@ File label for MO orbitals:  25Mar20   (CNOORB)
                           0.054400  0.054400      89592.83881271
 
 
- Perturbation symmetry.     KSYMOP:       1
- Perturbation spin symmetry.TRPLET:       F
- Orbital variables.         KZWOPT:    2762
- Configuration variables.   KZCONF:     115
- Total number of variables. KZVAR :    2877
-
-
- CRLRV2 -- linear response calc for sym:  1
- CRLRV2 -- operator label1: XDIPLEN 
- CRLRV2 -- operator label2: XDIPLEN 
- CRLRV2 -- freqr1 :  -5.440000D-02
- CRLRV2 -- freqr2 :   5.440000D-02
-
-
-
- ---  SOLVING SETS OF LINEAR EQUATIONS FOR LINEAR RESPONSE PROPERTIES ---
-
- Operator symmetry = 1  ( A1 ); triplet =   F
-
-
- ** RSPCTL MICROITERATION NUMBER    1
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  1,  triplet       F Dimension of reduced matrix =     4
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after    2 linear transformations is      4.56614865D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is    2    0    2
- Determinant of reduced matrix is  2.36 * 10 ** -5.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    1.37118D+02  6.91D+01  1.18D+02  3.57D+02    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER    2
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  1,  triplet       F Dimension of reduced matrix =     6
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after    3 linear transformations is      5.44653570D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is    4    0    2
- Determinant of reduced matrix is  1.19 * 10 ** -6.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    1.64002D+02  1.31D+02  9.87D+01  4.86D+02    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER    3
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  1,  triplet       F Dimension of reduced matrix =     8
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after    4 linear transformations is      5.79505176D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is    6    0    2
- Determinant of reduced matrix is  9.48 * 10 ** -7.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    7.19178D+01  6.88D+00  7.16D+01  6.37D+02    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER    4
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  1,  triplet       F Dimension of reduced matrix =    10
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after    5 linear transformations is      6.07667960D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is    8    0    2
- Determinant of reduced matrix is  5.47 * 10 ** -8.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    7.79281D+01  4.71D+01  6.21D+01  6.50D+02    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER    5
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  1,  triplet       F Dimension of reduced matrix =    12
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after    6 linear transformations is      6.18875026D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is   10    0    2
- Determinant of reduced matrix is  2.53 * 10 ** -9.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    3.26589D+01  1.89D+01  2.66D+01  7.76D+02    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER    6
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  1,  triplet       F Dimension of reduced matrix =    14
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after    7 linear transformations is      6.23235246D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is   12    0    2
- Determinant of reduced matrix is  7.25 * 10 **-11.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    2.45235D+01  2.30D+01  8.47D+00  8.36D+02    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER    7
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  1,  triplet       F Dimension of reduced matrix =    16
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after    8 linear transformations is      6.30855665D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is   14    0    2
- Determinant of reduced matrix is  6.06 * 10 **-12.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    1.65751D+01  1.05D+01  1.28D+01  8.93D+02    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER    8
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  1,  triplet       F Dimension of reduced matrix =    18
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after    9 linear transformations is      6.34014480D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is   16    0    2
- Determinant of reduced matrix is  4.72 * 10 **-15.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    1.68296D+01  8.92D+00  1.43D+01  9.45D+02    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER    9
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  1,  triplet       F Dimension of reduced matrix =    20
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   10 linear transformations is      6.36128169D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is   18    0    2
- Determinant of reduced matrix is  1.47 * 10 **-17.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    1.58842D+01  1.01D+01  1.22D+01  1.01D+03    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER   10
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  1,  triplet       F Dimension of reduced matrix =    22
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   11 linear transformations is      6.39090436D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is   20    0    2
- Determinant of reduced matrix is  4.47 * 10 **-19.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    1.71410D+01  1.44D+01  9.35D+00  1.14D+03    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER   11
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  1,  triplet       F Dimension of reduced matrix =    24
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   12 linear transformations is      6.41951381D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is   22    0    2
- Determinant of reduced matrix is  1.69 * 10 **-19.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    1.51545D+01  7.34D+00  1.33D+01  1.25D+03    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER   12
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  1,  triplet       F Dimension of reduced matrix =    26
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   13 linear transformations is      6.43972202D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is   24    0    2
- Determinant of reduced matrix is  4.56 * 10 **-23.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    1.06826D+01  8.71D+00  6.19D+00  1.25D+03    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER   13
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  1,  triplet       F Dimension of reduced matrix =    28
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   14 linear transformations is      6.44690755D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is   26    0    2
- Determinant of reduced matrix is  4.63 * 10 **-23.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    6.86435D+00  1.97D+00  6.57D+00  1.28D+03    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER   14
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  1,  triplet       F Dimension of reduced matrix =    30
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   15 linear transformations is      6.45016096D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is   28    0    2
- Determinant of reduced matrix is  1.23 * 10 **-26.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    3.62056D+00  2.21D+00  2.87D+00  1.27D+03    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER   15
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  1,  triplet       F Dimension of reduced matrix =    32
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   16 linear transformations is      6.45050592D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is   30    0    2
- Determinant of reduced matrix is  3.69 * 10 **-29.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    2.46074D+00  2.30D+00  8.63D-01  1.26D+03    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER   16
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  1,  triplet       F Dimension of reduced matrix =    34
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   17 linear transformations is      6.45090374D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is   32    0    2
- Determinant of reduced matrix is  3.09 * 10 **-29.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    1.08622D+00  3.42D-01  1.03D+00  1.26D+03    0.00000D+00
-
- *** THE REQUESTED    1 SOLUTION VECTORS CONVERGED
-
- Convergence of RSP solution vectors, threshold = 1.00D-03
- ---------------------------------------------------------------
- (dimension of paired reduced space:   34)
- RSP solution vector no.    1; norm of residual   8.61D-04
-
- *** RSPCTL MICROITERATIONS CONVERGED
-    XDIPLEN     XDIPLEN      freq1     freq2                Norm
- ---------------------------------------------------------------
-                         -0.054400  0.054400       1261.93908520
-
-
  Perturbation symmetry.     KSYMOP:       3
  Perturbation spin symmetry.TRPLET:       F
  Orbital variables.         KZWOPT:    1743
@@ -5863,10 +5137,10 @@ File label for MO orbitals:  25Mar20   (CNOORB)
 
 
  CRLRV2 -- linear response calc for sym:  3
- CRLRV2 -- operator label1: ZDIPLEN 
- CRLRV2 -- operator label2: YDIPLEN 
- CRLRV2 -- freqr1 :  -5.440000D-02
- CRLRV2 -- freqr2 :   5.440000D-02
+ CRLRV2 -- operator label1: YDIPLEN 
+ CRLRV2 -- operator label2: ZDIPLEN 
+ CRLRV2 -- freqr1 :   5.440000D-02
+ CRLRV2 -- freqr2 :  -5.440000D-02
 
 
 
@@ -6090,9 +5364,9 @@ File label for MO orbitals:  25Mar20   (CNOORB)
  RSP solution vector no.    1; norm of residual   7.57D-04
 
  *** RSPCTL MICROITERATIONS CONVERGED
-    ZDIPLEN     YDIPLEN      freq1     freq2                Norm
+    YDIPLEN     ZDIPLEN      freq1     freq2                Norm
  ---------------------------------------------------------------
-                         -0.054400  0.054400        583.53274081
+                          0.054400 -0.054400        583.53274081
 
 
  Perturbation symmetry.     KSYMOP:       3
@@ -6361,6 +5635,732 @@ File label for MO orbitals:  25Mar20   (CNOORB)
                           0.054400  0.054400        497.22434926
 
 
+ Perturbation symmetry.     KSYMOP:       2
+ Perturbation spin symmetry.TRPLET:       F
+ Orbital variables.         KZWOPT:    2656
+ Configuration variables.   KZCONF:     106
+ Total number of variables. KZVAR :    2762
+
+
+ CRLRV2 -- linear response calc for sym:  2
+ CRLRV2 -- operator label1: ZDIPLEN 
+ CRLRV2 -- operator label2: XDIPLEN 
+ CRLRV2 -- freqr1 :   5.440000D-02
+ CRLRV2 -- freqr2 :  -5.440000D-02
+
+
+
+ ---  SOLVING SETS OF LINEAR EQUATIONS FOR LINEAR RESPONSE PROPERTIES ---
+
+ Operator symmetry = 2  ( B1 ); triplet =   F
+
+
+ ** RSPCTL MICROITERATION NUMBER    1
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    6.70731D+02  3.27D+02  5.86D+02  3.95D+03    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER    2
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    6.00329D+02  4.38D+02  4.11D+02  7.26D+03    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER    3
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    7.68791D+02  3.50D+02  6.85D+02  9.62D+03    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER    4
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    9.96980D+02  7.23D+02  6.86D+02  1.99D+04    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER    5
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    2.30128D+03  9.71D+02  2.09D+03  4.83D+04    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER    6
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  2,  triplet       F Dimension of reduced matrix =    14
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after    7 linear transformations is      1.81658525D+06
+ INERTIA (POS,ZER,NEG) of reduced matrix is   13    0    1
+ Determinant of reduced matrix is -1.22 * 10 **-18.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    8.98706D+02  6.40D+02  6.31D+02  1.49D+04    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER    7
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  2,  triplet       F Dimension of reduced matrix =    16
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after    8 linear transformations is      2.57685509D+06
+ INERTIA (POS,ZER,NEG) of reduced matrix is   15    0    1
+ Determinant of reduced matrix is -1.17 * 10 **-19.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    7.06146D+02  4.06D+02  5.78D+02  2.02D+04    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER    8
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  2,  triplet       F Dimension of reduced matrix =    18
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after    9 linear transformations is      3.75492718D+06
+ INERTIA (POS,ZER,NEG) of reduced matrix is   17    0    1
+ Determinant of reduced matrix is -8.04 * 10 **-23.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    9.03290D+02  7.10D+02  5.59D+02  3.03D+04    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER    9
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  2,  triplet       F Dimension of reduced matrix =    20
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   10 linear transformations is      5.00775347D+06
+ INERTIA (POS,ZER,NEG) of reduced matrix is   19    0    1
+ Determinant of reduced matrix is -7.60 * 10 **-24.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    1.07445D+03  4.49D+02  9.76D+02  4.70D+04    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER   10
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  2,  triplet       F Dimension of reduced matrix =    22
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   11 linear transformations is      8.74818148D+06
+ INERTIA (POS,ZER,NEG) of reduced matrix is   21    0    1
+ Determinant of reduced matrix is -1.73 * 10 **-27.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    2.01888D+03  1.58D+03  1.26D+03  1.16D+05    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER   11
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  2,  triplet       F Dimension of reduced matrix =    24
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   12 linear transformations is      3.95706920D+07
+ INERTIA (POS,ZER,NEG) of reduced matrix is   23    0    1
+ Determinant of reduced matrix is -2.32 * 10 **-29.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    1.09658D+04  1.27D+03  1.09D+04  7.24D+05    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER   12
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  2,  triplet       F Dimension of reduced matrix =    26
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   13 linear transformations is     -5.63282392D+06
+ INERTIA (POS,ZER,NEG) of reduced matrix is   24    0    2
+ Determinant of reduced matrix is  2.63 * 10 **-32.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    1.60128D+03  1.17D+03  1.10D+03  1.97D+05    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER   13
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  2,  triplet       F Dimension of reduced matrix =    28
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   14 linear transformations is     -3.72891225D+06
+ INERTIA (POS,ZER,NEG) of reduced matrix is   26    0    2
+ Determinant of reduced matrix is  5.84 * 10 **-33.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    1.39977D+03  2.19D+02  1.38D+03  1.62D+05    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER   14
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  2,  triplet       F Dimension of reduced matrix =    30
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   15 linear transformations is     -2.34132524D+06
+ INERTIA (POS,ZER,NEG) of reduced matrix is   28    0    2
+ Determinant of reduced matrix is  2.41 * 10 **-36.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    5.66152D+02  3.38D+02  4.54D+02  1.35D+05    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER   15
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  2,  triplet       F Dimension of reduced matrix =    32
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   16 linear transformations is     -2.21288124D+06
+ INERTIA (POS,ZER,NEG) of reduced matrix is   30    0    2
+ Determinant of reduced matrix is  3.58 * 10 **-39.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    4.09449D+02  3.59D+02  1.97D+02  1.33D+05    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER   16
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  2,  triplet       F Dimension of reduced matrix =    34
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   17 linear transformations is     -2.10305624D+06
+ INERTIA (POS,ZER,NEG) of reduced matrix is   32    0    2
+ Determinant of reduced matrix is  5.48 * 10 **-40.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    3.36553D+02  1.99D+02  2.71D+02  1.31D+05    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER   17
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  2,  triplet       F Dimension of reduced matrix =    36
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   18 linear transformations is     -2.04019913D+06
+ INERTIA (POS,ZER,NEG) of reduced matrix is   34    0    2
+ Determinant of reduced matrix is  3.42 * 10 **-43.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    2.45623D+02  2.08D+02  1.30D+02  1.30D+05    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER   18
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  2,  triplet       F Dimension of reduced matrix =    38
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   19 linear transformations is     -1.96663841D+06
+ INERTIA (POS,ZER,NEG) of reduced matrix is   36    0    2
+ Determinant of reduced matrix is  4.94 * 10 **-44.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    2.05988D+02  1.02D+02  1.79D+02  1.30D+05    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER   19
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  2,  triplet       F Dimension of reduced matrix =    40
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   20 linear transformations is     -1.94976559D+06
+ INERTIA (POS,ZER,NEG) of reduced matrix is   38    0    2
+ Determinant of reduced matrix is  2.08 * 10 **-46.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    1.28110D+02  1.17D+02  5.29D+01  1.30D+05    0.00000D+00
+
+ *** THE REQUESTED    1 SOLUTION VECTORS CONVERGED
+
+ Convergence of RSP solution vectors, threshold = 1.00D-03
+ ---------------------------------------------------------------
+ (dimension of paired reduced space:   40)
+ RSP solution vector no.    1; norm of residual   9.89D-04
+
+ *** RSPCTL MICROITERATIONS CONVERGED
+    ZDIPLEN     XDIPLEN      freq1     freq2                Norm
+ ---------------------------------------------------------------
+                          0.054400 -0.054400     129505.53917205
+
+
+ Perturbation symmetry.     KSYMOP:       1
+ Perturbation spin symmetry.TRPLET:       F
+ Orbital variables.         KZWOPT:    2762
+ Configuration variables.   KZCONF:     115
+ Total number of variables. KZVAR :    2877
+
+
+ CRLRV2 -- linear response calc for sym:  1
+ CRLRV2 -- operator label1: XDIPLEN 
+ CRLRV2 -- operator label2: XDIPLEN 
+ CRLRV2 -- freqr1 :   5.440000D-02
+ CRLRV2 -- freqr2 :  -5.440000D-02
+
+
+
+ ---  SOLVING SETS OF LINEAR EQUATIONS FOR LINEAR RESPONSE PROPERTIES ---
+
+ Operator symmetry = 1  ( A1 ); triplet =   F
+
+
+ ** RSPCTL MICROITERATION NUMBER    1
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  1,  triplet       F Dimension of reduced matrix =     4
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after    2 linear transformations is      4.56614865D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is    2    0    2
+ Determinant of reduced matrix is  2.36 * 10 ** -5.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    1.37118D+02  6.91D+01  1.18D+02  3.57D+02    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER    2
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  1,  triplet       F Dimension of reduced matrix =     6
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after    3 linear transformations is      5.44653570D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is    4    0    2
+ Determinant of reduced matrix is  1.19 * 10 ** -6.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    1.64002D+02  1.31D+02  9.87D+01  4.86D+02    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER    3
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  1,  triplet       F Dimension of reduced matrix =     8
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after    4 linear transformations is      5.79505176D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is    6    0    2
+ Determinant of reduced matrix is  9.48 * 10 ** -7.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    7.19178D+01  6.88D+00  7.16D+01  6.37D+02    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER    4
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  1,  triplet       F Dimension of reduced matrix =    10
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after    5 linear transformations is      6.07667960D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is    8    0    2
+ Determinant of reduced matrix is  5.47 * 10 ** -8.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    7.79281D+01  4.71D+01  6.21D+01  6.50D+02    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER    5
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  1,  triplet       F Dimension of reduced matrix =    12
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after    6 linear transformations is      6.18875026D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is   10    0    2
+ Determinant of reduced matrix is  2.53 * 10 ** -9.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    3.26589D+01  1.89D+01  2.66D+01  7.76D+02    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER    6
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  1,  triplet       F Dimension of reduced matrix =    14
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after    7 linear transformations is      6.23235246D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is   12    0    2
+ Determinant of reduced matrix is  7.25 * 10 **-11.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    2.45235D+01  2.30D+01  8.47D+00  8.36D+02    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER    7
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  1,  triplet       F Dimension of reduced matrix =    16
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after    8 linear transformations is      6.30855665D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is   14    0    2
+ Determinant of reduced matrix is  6.06 * 10 **-12.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    1.65751D+01  1.05D+01  1.28D+01  8.93D+02    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER    8
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  1,  triplet       F Dimension of reduced matrix =    18
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after    9 linear transformations is      6.34014480D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is   16    0    2
+ Determinant of reduced matrix is  4.72 * 10 **-15.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    1.68296D+01  8.92D+00  1.43D+01  9.45D+02    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER    9
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  1,  triplet       F Dimension of reduced matrix =    20
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   10 linear transformations is      6.36128169D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is   18    0    2
+ Determinant of reduced matrix is  1.47 * 10 **-17.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    1.58842D+01  1.01D+01  1.22D+01  1.01D+03    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER   10
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  1,  triplet       F Dimension of reduced matrix =    22
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   11 linear transformations is      6.39090436D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is   20    0    2
+ Determinant of reduced matrix is  4.47 * 10 **-19.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    1.71410D+01  1.44D+01  9.35D+00  1.14D+03    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER   11
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  1,  triplet       F Dimension of reduced matrix =    24
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   12 linear transformations is      6.41951381D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is   22    0    2
+ Determinant of reduced matrix is  1.69 * 10 **-19.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    1.51545D+01  7.34D+00  1.33D+01  1.25D+03    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER   12
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  1,  triplet       F Dimension of reduced matrix =    26
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   13 linear transformations is      6.43972202D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is   24    0    2
+ Determinant of reduced matrix is  4.56 * 10 **-23.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    1.06826D+01  8.71D+00  6.19D+00  1.25D+03    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER   13
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  1,  triplet       F Dimension of reduced matrix =    28
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   14 linear transformations is      6.44690755D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is   26    0    2
+ Determinant of reduced matrix is  4.63 * 10 **-23.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    6.86435D+00  1.97D+00  6.57D+00  1.28D+03    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER   14
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  1,  triplet       F Dimension of reduced matrix =    30
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   15 linear transformations is      6.45016096D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is   28    0    2
+ Determinant of reduced matrix is  1.23 * 10 **-26.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    3.62056D+00  2.21D+00  2.87D+00  1.27D+03    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER   15
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  1,  triplet       F Dimension of reduced matrix =    32
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   16 linear transformations is      6.45050592D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is   30    0    2
+ Determinant of reduced matrix is  3.69 * 10 **-29.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    2.46074D+00  2.30D+00  8.63D-01  1.26D+03    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER   16
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  1,  triplet       F Dimension of reduced matrix =    34
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   17 linear transformations is      6.45090374D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is   32    0    2
+ Determinant of reduced matrix is  3.09 * 10 **-29.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    1.08622D+00  3.42D-01  1.03D+00  1.26D+03    0.00000D+00
+
+ *** THE REQUESTED    1 SOLUTION VECTORS CONVERGED
+
+ Convergence of RSP solution vectors, threshold = 1.00D-03
+ ---------------------------------------------------------------
+ (dimension of paired reduced space:   34)
+ RSP solution vector no.    1; norm of residual   8.61D-04
+
+ *** RSPCTL MICROITERATIONS CONVERGED
+    XDIPLEN     XDIPLEN      freq1     freq2                Norm
+ ---------------------------------------------------------------
+                          0.054400 -0.054400       1261.93908521
+
+
+ Perturbation symmetry.     KSYMOP:       3
+ Perturbation spin symmetry.TRPLET:       F
+ Orbital variables.         KZWOPT:    1743
+ Configuration variables.   KZCONF:     110
+ Total number of variables. KZVAR :    1853
+
+
+ CRLRV2 -- linear response calc for sym:  3
+ CRLRV2 -- operator label1: ZDIPLEN 
+ CRLRV2 -- operator label2: YDIPLEN 
+ CRLRV2 -- freqr1 :   5.440000D-02
+ CRLRV2 -- freqr2 :  -5.440000D-02
+
+
+
+ ---  SOLVING SETS OF LINEAR EQUATIONS FOR LINEAR RESPONSE PROPERTIES ---
+
+ Operator symmetry = 3  ( B2 ); triplet =   F
+
+
+ ** RSPCTL MICROITERATION NUMBER    1
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    9.88344D+01  8.51D+01  5.03D+01  1.42D+03    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER    2
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    9.75647D+01  7.20D+00  9.73D+01  1.79D+03    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER    3
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  3,  triplet       F Dimension of reduced matrix =     8
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after    4 linear transformations is      3.81591253D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is    6    0    2
+ Determinant of reduced matrix is  5.88 * 10 ** -7.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    5.21378D+01  7.44D+00  5.16D+01  3.65D+02    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER    4
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  3,  triplet       F Dimension of reduced matrix =    10
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after    5 linear transformations is      4.00354945D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is    8    0    2
+ Determinant of reduced matrix is  3.22 * 10 ** -8.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    2.52448D+01  8.18D+00  2.39D+01  3.99D+02    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER    5
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  3,  triplet       F Dimension of reduced matrix =    12
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after    6 linear transformations is      4.03024185D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is   10    0    2
+ Determinant of reduced matrix is  9.48 * 10 **-10.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    1.18546D+01  8.61D+00  8.15D+00  4.02D+02    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER    6
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  3,  triplet       F Dimension of reduced matrix =    14
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after    7 linear transformations is      4.03704211D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is   12    0    2
+ Determinant of reduced matrix is  5.67 * 10 **-10.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    9.57308D+00  4.46D+00  8.47D+00  4.03D+02    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER    7
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  3,  triplet       F Dimension of reduced matrix =    16
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after    8 linear transformations is      4.04527315D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is   14    0    2
+ Determinant of reduced matrix is  8.19 * 10 **-13.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    8.21572D+00  5.14D+00  6.41D+00  4.08D+02    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER    8
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  3,  triplet       F Dimension of reduced matrix =    18
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after    9 linear transformations is      4.05586754D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is   16    0    2
+ Determinant of reduced matrix is  6.13 * 10 **-15.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    9.14259D+00  7.32D+00  5.47D+00  4.41D+02    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER    9
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  3,  triplet       F Dimension of reduced matrix =    20
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   10 linear transformations is      4.06468311D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is   18    0    2
+ Determinant of reduced matrix is  2.17 * 10 **-15.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    8.04280D+00  2.20D+00  7.74D+00  4.64D+02    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER   10
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  3,  triplet       F Dimension of reduced matrix =    22
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   11 linear transformations is      4.07402757D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is   20    0    2
+ Determinant of reduced matrix is  1.49 * 10 **-17.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    6.57902D+00  3.09D+00  5.81D+00  5.09D+02    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER   11
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  3,  triplet       F Dimension of reduced matrix =    24
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   12 linear transformations is      4.07927157D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is   22    0    2
+ Determinant of reduced matrix is  8.96 * 10 **-20.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    7.70330D+00  3.28D+00  6.97D+00  5.24D+02    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER   12
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  3,  triplet       F Dimension of reduced matrix =    26
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   13 linear transformations is      4.08435714D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is   24    0    2
+ Determinant of reduced matrix is  1.20 * 10 **-21.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    6.54270D+00  3.78D+00  5.34D+00  5.51D+02    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER   13
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  3,  triplet       F Dimension of reduced matrix =    28
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   14 linear transformations is      4.08587740D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is   26    0    2
+ Determinant of reduced matrix is  6.29 * 10 **-23.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    4.45632D+00  3.92D+00  2.12D+00  5.62D+02    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER   14
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  3,  triplet       F Dimension of reduced matrix =    30
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   15 linear transformations is      4.08776641D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is   28    0    2
+ Determinant of reduced matrix is  3.62 * 10 **-23.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    2.30596D+00  5.82D-01  2.23D+00  5.79D+02    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER   15
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  3,  triplet       F Dimension of reduced matrix =    32
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   16 linear transformations is      4.08810711D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is   30    0    2
+ Determinant of reduced matrix is  2.66 * 10 **-25.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    1.09922D+00  6.03D-01  9.19D-01  5.83D+02    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER   16
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  3,  triplet       F Dimension of reduced matrix =    34
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   17 linear transformations is      4.08815596D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is   32    0    2
+ Determinant of reduced matrix is  5.80 * 10 **-27.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    7.18010D-01  6.12D-01  3.76D-01  5.83D+02    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER   17
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  3,  triplet       F Dimension of reduced matrix =    36
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   18 linear transformations is      4.08818306D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is   34    0    2
+ Determinant of reduced matrix is  7.64 * 10 **-27.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    4.41924D-01  2.32D-01  3.76D-01  5.84D+02    0.00000D+00
+
+ *** THE REQUESTED    1 SOLUTION VECTORS CONVERGED
+
+ Convergence of RSP solution vectors, threshold = 1.00D-03
+ ---------------------------------------------------------------
+ (dimension of paired reduced space:   36)
+ RSP solution vector no.    1; norm of residual   7.57D-04
+
+ *** RSPCTL MICROITERATIONS CONVERGED
+    ZDIPLEN     YDIPLEN      freq1     freq2                Norm
+ ---------------------------------------------------------------
+                          0.054400 -0.054400        583.53274081
+
+
  Perturbation symmetry.     KSYMOP:       1
  Perturbation spin symmetry.TRPLET:       F
  Orbital variables.         KZWOPT:    2762
@@ -6371,8 +6371,8 @@ File label for MO orbitals:  25Mar20   (CNOORB)
  CRLRV2 -- linear response calc for sym:  1
  CRLRV2 -- operator label1: YDIPLEN 
  CRLRV2 -- operator label2: YDIPLEN 
- CRLRV2 -- freqr1 :  -5.440000D-02
- CRLRV2 -- freqr2 :   5.440000D-02
+ CRLRV2 -- freqr1 :   5.440000D-02
+ CRLRV2 -- freqr2 :  -5.440000D-02
 
 
 
@@ -6638,7 +6638,7 @@ File label for MO orbitals:  25Mar20   (CNOORB)
  *** RSPCTL MICROITERATIONS CONVERGED
     YDIPLEN     YDIPLEN      freq1     freq2                Norm
  ---------------------------------------------------------------
-                         -0.054400  0.054400        228.18156630
+                          0.054400 -0.054400        228.18156630
 
 
  Perturbation symmetry.     KSYMOP:       1
@@ -6982,8 +6982,8 @@ File label for MO orbitals:  25Mar20   (CNOORB)
  CRLRV2 -- linear response calc for sym:  4
  CRLRV2 -- operator label1: YDIPLEN 
  CRLRV2 -- operator label2: XDIPLEN 
- CRLRV2 -- freqr1 :  -5.440000D-02
- CRLRV2 -- freqr2 :   5.440000D-02
+ CRLRV2 -- freqr1 :   5.440000D-02
+ CRLRV2 -- freqr2 :  -5.440000D-02
 
 
 
@@ -7202,240 +7202,7 @@ File label for MO orbitals:  25Mar20   (CNOORB)
  *** RSPCTL MICROITERATIONS CONVERGED
     YDIPLEN     XDIPLEN      freq1     freq2                Norm
  ---------------------------------------------------------------
-                         -0.054400  0.054400       3578.78018923
-
-
- Perturbation symmetry.     KSYMOP:       4
- Perturbation spin symmetry.TRPLET:       F
- Orbital variables.         KZWOPT:    1664
- Configuration variables.   KZCONF:     110
- Total number of variables. KZVAR :    1774
-
-
- CRLRV2 -- linear response calc for sym:  4
- CRLRV2 -- operator label1: XDIPLEN 
- CRLRV2 -- operator label2: YDIPLEN 
- CRLRV2 -- freqr1 :  -5.440000D-02
- CRLRV2 -- freqr2 :   5.440000D-02
-
-
-
- ---  SOLVING SETS OF LINEAR EQUATIONS FOR LINEAR RESPONSE PROPERTIES ---
-
- Operator symmetry = 4  ( A2 ); triplet =   F
-
-
- ** RSPCTL MICROITERATION NUMBER    1
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    2.11806D+01  7.89D+00  1.97D+01  1.98D+02    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER    2
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    1.21818D+01  1.05D+01  6.12D+00  2.36D+02    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER    3
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    1.11637D+01  2.74D+00  1.08D+01  2.78D+02    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER    4
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  4,  triplet       F Dimension of reduced matrix =    10
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after    5 linear transformations is      8.54804691D+03
- INERTIA (POS,ZER,NEG) of reduced matrix is    8    0    2
- Determinant of reduced matrix is  4.13 * 10 ** -8.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    8.87192D+00  4.98D+00  7.34D+00  1.96D+02    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER    5
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  4,  triplet       F Dimension of reduced matrix =    12
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after    6 linear transformations is      8.61391326D+03
- INERTIA (POS,ZER,NEG) of reduced matrix is   10    0    2
- Determinant of reduced matrix is  1.38 * 10 ** -9.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    5.96163D+00  4.77D+00  3.58D+00  1.96D+02    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER    6
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  4,  triplet       F Dimension of reduced matrix =    14
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after    7 linear transformations is      8.63231697D+03
- INERTIA (POS,ZER,NEG) of reduced matrix is   12    0    2
- Determinant of reduced matrix is  1.65 * 10 ** -9.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    3.85491D+00  1.11D+00  3.69D+00  1.93D+02    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER    7
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  4,  triplet       F Dimension of reduced matrix =    16
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after    8 linear transformations is      8.67944131D+03
- INERTIA (POS,ZER,NEG) of reduced matrix is   14    0    2
- Determinant of reduced matrix is  1.13 * 10 **-12.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    6.10473D+00  1.75D+00  5.85D+00  2.03D+02    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER    8
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  4,  triplet       F Dimension of reduced matrix =    18
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after    9 linear transformations is      8.81369072D+03
- INERTIA (POS,ZER,NEG) of reduced matrix is   16    0    2
- Determinant of reduced matrix is  5.55 * 10 **-16.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    1.18578D+01  5.41D+00  1.06D+01  2.60D+02    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER    9
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  4,  triplet       F Dimension of reduced matrix =    20
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   10 linear transformations is      8.94299173D+03
- INERTIA (POS,ZER,NEG) of reduced matrix is   18    0    2
- Determinant of reduced matrix is  1.26 * 10 **-18.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    1.14770D+01  9.86D+00  5.87D+00  3.68D+02    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER   10
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  4,  triplet       F Dimension of reduced matrix =    22
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   11 linear transformations is      9.36573726D+03
- INERTIA (POS,ZER,NEG) of reduced matrix is   20    0    2
- Determinant of reduced matrix is  7.25 * 10 **-20.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    2.14968D+01  1.61D+00  2.14D+01  7.57D+02    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER   11
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  4,  triplet       F Dimension of reduced matrix =    24
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   12 linear transformations is      1.04145851D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is   22    0    2
- Determinant of reduced matrix is  3.45 * 10 **-22.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    3.69034D+01  7.25D+00  3.62D+01  1.88D+03    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER   12
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  4,  triplet       F Dimension of reduced matrix =    26
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   13 linear transformations is      1.14368502D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is   24    0    2
- Determinant of reduced matrix is  3.20 * 10 **-24.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    2.17706D+01  1.28D+01  1.76D+01  3.01D+03    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER   13
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  4,  triplet       F Dimension of reduced matrix =    28
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   14 linear transformations is      1.16398146D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is   26    0    2
- Determinant of reduced matrix is  1.14 * 10 **-25.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    1.48636D+01  1.32D+01  6.82D+00  3.22D+03    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER   14
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  4,  triplet       F Dimension of reduced matrix =    30
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   15 linear transformations is      1.18260425D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is   28    0    2
- Determinant of reduced matrix is  9.02 * 10 **-26.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    8.65955D+00  1.21D+00  8.57D+00  3.43D+03    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER   15
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  4,  triplet       F Dimension of reduced matrix =    32
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   16 linear transformations is      1.18972056D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is   30    0    2
- Determinant of reduced matrix is  9.75 * 10 **-29.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    4.81849D+00  3.70D+00  3.09D+00  3.53D+03    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER   16
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  4,  triplet       F Dimension of reduced matrix =    34
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   17 linear transformations is      1.19124952D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is   32    0    2
- Determinant of reduced matrix is  6.23 * 10 **-29.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    5.60426D+00  1.24D+00  5.47D+00  3.55D+03    0.00000D+00
-
- ** RSPCTL MICROITERATION NUMBER   17
-
- *** INFO, negative eigenvalues in reduced matrix. Symmetry  4,  triplet       F Dimension of reduced matrix =    36
-
- GP * SOLUTION vector at frequency     0.00000 a.u.
- after   18 linear transformations is      1.19263182D+04
- INERTIA (POS,ZER,NEG) of reduced matrix is   34    0    2
- Determinant of reduced matrix is  6.87 * 10 **-31.0
-
-       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
-      ----------------------------------------------------------------
-         1    2.27357D+00  1.85D+00  1.33D+00  3.58D+03    0.00000D+00
-
- *** THE REQUESTED    1 SOLUTION VECTORS CONVERGED
-
- Convergence of RSP solution vectors, threshold = 1.00D-03
- ---------------------------------------------------------------
- (dimension of paired reduced space:   36)
- RSP solution vector no.    1; norm of residual   6.35D-04
-
- *** RSPCTL MICROITERATIONS CONVERGED
-    XDIPLEN     YDIPLEN      freq1     freq2                Norm
- ---------------------------------------------------------------
-                         -0.054400  0.054400       3578.78018923
+                          0.054400 -0.054400       3578.78018920
 
 
  Perturbation symmetry.     KSYMOP:       4
@@ -7656,6 +7423,239 @@ File label for MO orbitals:  25Mar20   (CNOORB)
     YDIPLEN     XDIPLEN      freq1     freq2                Norm
  ---------------------------------------------------------------
                           0.054400  0.054400        463.16350365
+
+
+ Perturbation symmetry.     KSYMOP:       4
+ Perturbation spin symmetry.TRPLET:       F
+ Orbital variables.         KZWOPT:    1664
+ Configuration variables.   KZCONF:     110
+ Total number of variables. KZVAR :    1774
+
+
+ CRLRV2 -- linear response calc for sym:  4
+ CRLRV2 -- operator label1: XDIPLEN 
+ CRLRV2 -- operator label2: YDIPLEN 
+ CRLRV2 -- freqr1 :   5.440000D-02
+ CRLRV2 -- freqr2 :  -5.440000D-02
+
+
+
+ ---  SOLVING SETS OF LINEAR EQUATIONS FOR LINEAR RESPONSE PROPERTIES ---
+
+ Operator symmetry = 4  ( A2 ); triplet =   F
+
+
+ ** RSPCTL MICROITERATION NUMBER    1
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    2.11806D+01  7.89D+00  1.97D+01  1.98D+02    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER    2
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    1.21818D+01  1.05D+01  6.12D+00  2.36D+02    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER    3
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    1.11637D+01  2.74D+00  1.08D+01  2.78D+02    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER    4
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  4,  triplet       F Dimension of reduced matrix =    10
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after    5 linear transformations is      8.54804691D+03
+ INERTIA (POS,ZER,NEG) of reduced matrix is    8    0    2
+ Determinant of reduced matrix is  4.13 * 10 ** -8.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    8.87192D+00  4.98D+00  7.34D+00  1.96D+02    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER    5
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  4,  triplet       F Dimension of reduced matrix =    12
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after    6 linear transformations is      8.61391326D+03
+ INERTIA (POS,ZER,NEG) of reduced matrix is   10    0    2
+ Determinant of reduced matrix is  1.38 * 10 ** -9.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    5.96163D+00  4.77D+00  3.58D+00  1.96D+02    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER    6
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  4,  triplet       F Dimension of reduced matrix =    14
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after    7 linear transformations is      8.63231697D+03
+ INERTIA (POS,ZER,NEG) of reduced matrix is   12    0    2
+ Determinant of reduced matrix is  1.65 * 10 ** -9.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    3.85491D+00  1.11D+00  3.69D+00  1.93D+02    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER    7
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  4,  triplet       F Dimension of reduced matrix =    16
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after    8 linear transformations is      8.67944131D+03
+ INERTIA (POS,ZER,NEG) of reduced matrix is   14    0    2
+ Determinant of reduced matrix is  1.13 * 10 **-12.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    6.10473D+00  1.75D+00  5.85D+00  2.03D+02    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER    8
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  4,  triplet       F Dimension of reduced matrix =    18
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after    9 linear transformations is      8.81369072D+03
+ INERTIA (POS,ZER,NEG) of reduced matrix is   16    0    2
+ Determinant of reduced matrix is  5.55 * 10 **-16.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    1.18578D+01  5.41D+00  1.06D+01  2.60D+02    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER    9
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  4,  triplet       F Dimension of reduced matrix =    20
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   10 linear transformations is      8.94299173D+03
+ INERTIA (POS,ZER,NEG) of reduced matrix is   18    0    2
+ Determinant of reduced matrix is  1.26 * 10 **-18.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    1.14770D+01  9.86D+00  5.87D+00  3.68D+02    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER   10
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  4,  triplet       F Dimension of reduced matrix =    22
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   11 linear transformations is      9.36573726D+03
+ INERTIA (POS,ZER,NEG) of reduced matrix is   20    0    2
+ Determinant of reduced matrix is  7.25 * 10 **-20.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    2.14968D+01  1.61D+00  2.14D+01  7.57D+02    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER   11
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  4,  triplet       F Dimension of reduced matrix =    24
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   12 linear transformations is      1.04145851D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is   22    0    2
+ Determinant of reduced matrix is  3.45 * 10 **-22.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    3.69034D+01  7.25D+00  3.62D+01  1.88D+03    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER   12
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  4,  triplet       F Dimension of reduced matrix =    26
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   13 linear transformations is      1.14368502D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is   24    0    2
+ Determinant of reduced matrix is  3.20 * 10 **-24.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    2.17706D+01  1.28D+01  1.76D+01  3.01D+03    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER   13
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  4,  triplet       F Dimension of reduced matrix =    28
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   14 linear transformations is      1.16398146D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is   26    0    2
+ Determinant of reduced matrix is  1.14 * 10 **-25.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    1.48636D+01  1.32D+01  6.82D+00  3.22D+03    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER   14
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  4,  triplet       F Dimension of reduced matrix =    30
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   15 linear transformations is      1.18260425D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is   28    0    2
+ Determinant of reduced matrix is  9.02 * 10 **-26.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    8.65955D+00  1.21D+00  8.57D+00  3.43D+03    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER   15
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  4,  triplet       F Dimension of reduced matrix =    32
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   16 linear transformations is      1.18972056D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is   30    0    2
+ Determinant of reduced matrix is  9.75 * 10 **-29.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    4.81849D+00  3.70D+00  3.09D+00  3.53D+03    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER   16
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  4,  triplet       F Dimension of reduced matrix =    34
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   17 linear transformations is      1.19124952D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is   32    0    2
+ Determinant of reduced matrix is  6.23 * 10 **-29.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    5.60426D+00  1.24D+00  5.47D+00  3.55D+03    0.00000D+00
+
+ ** RSPCTL MICROITERATION NUMBER   17
+
+ *** INFO, negative eigenvalues in reduced matrix. Symmetry  4,  triplet       F Dimension of reduced matrix =    36
+
+ GP * SOLUTION vector at frequency     0.00000 a.u.
+ after   18 linear transformations is      1.19263182D+04
+ INERTIA (POS,ZER,NEG) of reduced matrix is   34    0    2
+ Determinant of reduced matrix is  6.87 * 10 **-31.0
+
+       No.  Residual tot.,    conf., and orb.    Bnorm      Frequency 
+      ----------------------------------------------------------------
+         1    2.27357D+00  1.85D+00  1.33D+00  3.58D+03    0.00000D+00
+
+ *** THE REQUESTED    1 SOLUTION VECTORS CONVERGED
+
+ Convergence of RSP solution vectors, threshold = 1.00D-03
+ ---------------------------------------------------------------
+ (dimension of paired reduced space:   36)
+ RSP solution vector no.    1; norm of residual   6.35D-04
+
+ *** RSPCTL MICROITERATIONS CONVERGED
+    XDIPLEN     YDIPLEN      freq1     freq2                Norm
+ ---------------------------------------------------------------
+                          0.054400 -0.054400       3578.78018918
 
 
  Perturbation symmetry.     KSYMOP:       1
@@ -7954,7 +7954,7 @@ File label for MO orbitals:  25Mar20   (CNOORB)
     YDIPLEN     YDIPLEN      freq1     freq2                Norm
  ---------------------------------------------------------------
                           0.054400  0.054400        438.77337926
-  Time used in CRVEC2     is       4 hours 38 minutes 22 seconds
+  Time used in CRVEC2     is       4 hours 51 minutes 38 seconds
 
 
  ----- CALCULATING CONTRIBUTIONS TO SECOND HYPERPOLARIZABILITY -----
@@ -7963,54 +7963,92 @@ File label for MO orbitals:  25Mar20   (CNOORB)
    Contribution                Term         Accumulated
  ------------------------------------------------------
  Na T[4] Nb Nc Nd261409761.66738987  261409761.66738987
- Na T[3] Nx Nyz -628332979.91167331 -366923218.24428344
- Na X[3] Ny Nz    24043822.13043672 -342879396.11384672
- Nx A[3] Ny Nz     8014607.37681224 -334864788.73703444
- Na X[2] Nyz     -24250073.41850907 -359114862.15554357
- Nx A[2] Nyz     -24800140.88906789 -383915003.04461145
+ Na T[3] Nx Nyz -628332979.91310370 -366923218.24571383
+ Na X[3] Ny Nz    24043822.13043672 -342879396.11527711
+ Nx A[3] Ny Nz     8014607.37681224 -334864788.73846483
+ Na X[2] Nyz     -24250073.41857298 -359114862.15703785
+ Nx A[2] Nyz     -24800140.88913070 -383915003.04616857
 
 @ Cubic response function value in a.u. for
 @ A operator, symmetry, frequency:   ZDIPLEN    1 -0.054400
-@ B operator, symmetry, frequency:   ZDIPLEN    1 -0.054400
-@ C operator, symmetry, frequency:   ZDIPLEN    1  0.054400
+@ B operator, symmetry, frequency:   ZDIPLEN    1  0.054400
+@ C operator, symmetry, frequency:   ZDIPLEN    1 -0.054400
 @ D operator, symmetry, frequency:   ZDIPLEN    1  0.054400
 
-@ << A; B, C, D >>  =  -383915003.04461145
+@ << A; B, C, D >>  =  -383915003.04616857
+
+
+
+   Contribution                Term         Accumulated
+ ------------------------------------------------------
+ Na T[4] Nb Nc Nd  1893826.60155713    1893826.60155713
+ Na T[3] Nx Nyz   -4631252.27902595   -2737425.67746882
+ Na X[3] Ny Nz      100213.62258232   -2637212.05488650
+ Nx A[3] Ny Nz      220203.57120296   -2417008.48368354
+ Na X[2] Nyz       1036652.43076241   -1380356.05292113
+ Nx A[2] Nyz       4413693.94333885    3033337.89041772
+
+@ Cubic response function value in a.u. for
+@ A operator, symmetry, frequency:   XDIPLEN    2 -0.054400
+@ B operator, symmetry, frequency:   XDIPLEN    2  0.054400
+@ C operator, symmetry, frequency:   ZDIPLEN    1 -0.054400
+@ D operator, symmetry, frequency:   ZDIPLEN    1  0.054400
+
+@ << A; B, C, D >>  =     3033337.89041772
+
+
+
+   Contribution                Term         Accumulated
+ ------------------------------------------------------
+ Na T[4] Nb Nc Nd   -79787.02755589     -79787.02755589
+ Na T[3] Nx Nyz     -21456.91283567    -101243.94039155
+ Na X[3] Ny Nz      126581.41780591      25337.47741436
+ Nx A[3] Ny Nz       62652.76665673      87990.24407109
+ Na X[2] Nyz         62780.69481030     150770.93888139
+ Nx A[2] Nyz        -10362.41026515     140408.52861624
+
+@ Cubic response function value in a.u. for
+@ A operator, symmetry, frequency:   YDIPLEN    3 -0.054400
+@ B operator, symmetry, frequency:   YDIPLEN    3  0.054400
+@ C operator, symmetry, frequency:   ZDIPLEN    1 -0.054400
+@ D operator, symmetry, frequency:   ZDIPLEN    1  0.054400
+
+@ << A; B, C, D >>  =      140408.52861624
 
 
 
    Contribution                Term         Accumulated
  ------------------------------------------------------
  Na T[4] Nb Nc Nd -1074890.64311269   -1074890.64311269
- Na T[3] Nx Nyz   -6306707.00391793   -7381597.64703062
- Na X[3] Ny Nz      137572.43275279   -7244025.21427783
- Nx A[3] Ny Nz      232375.95449822   -7011649.25977961
- Na X[2] Nyz       3878731.09250245   -3132918.16727716
- Nx A[2] Nyz      12535270.75589439    9402352.58861724
+ Na T[3] Nx Nyz   -6306707.00376525   -7381597.64687795
+ Na X[3] Ny Nz      137572.43275279   -7244025.21412516
+ Nx A[3] Ny Nz      232375.95449822   -7011649.25962694
+ Na X[2] Nyz       3878731.09242372   -3132918.16720321
+ Nx A[2] Nyz      12535270.75556648    9402352.58836326
 
 @ Cubic response function value in a.u. for
 @ A operator, symmetry, frequency:   XDIPLEN    2 -0.054400
-@ B operator, symmetry, frequency:   XDIPLEN    2 -0.054400
-@ C operator, symmetry, frequency:   ZDIPLEN    1  0.054400
+@ B operator, symmetry, frequency:   ZDIPLEN    1  0.054400
+@ C operator, symmetry, frequency:   XDIPLEN    2 -0.054400
 @ D operator, symmetry, frequency:   ZDIPLEN    1  0.054400
 
-@ << A; B, C, D >>  =     9402352.58861724
+@ << A; B, C, D >>  =     9402352.58836326
 
 
 
    Contribution                Term         Accumulated
  ------------------------------------------------------
  Na T[4] Nb Nc Nd   -62482.57031151     -62482.57031151
- Na T[3] Nx Nyz      17813.72316086     -44668.84715066
- Na X[3] Ny Nz      102770.92172562      58102.07457496
- Nx A[3] Ny Nz       51145.89451895     109247.96909391
- Na X[2] Nyz        -62082.38651879      47165.58257512
- Nx A[2] Nyz       -153839.27222142    -106673.68964630
+ Na T[3] Nx Nyz      17813.72316088     -44668.84715064
+ Na X[3] Ny Nz      102770.92172562      58102.07457498
+ Nx A[3] Ny Nz       51145.89451895     109247.96909393
+ Na X[2] Nyz        -62082.38651878      47165.58257514
+ Nx A[2] Nyz       -153839.27222144    -106673.68964630
 
 @ Cubic response function value in a.u. for
 @ A operator, symmetry, frequency:   YDIPLEN    3 -0.054400
-@ B operator, symmetry, frequency:   YDIPLEN    3 -0.054400
-@ C operator, symmetry, frequency:   ZDIPLEN    1  0.054400
+@ B operator, symmetry, frequency:   ZDIPLEN    1  0.054400
+@ C operator, symmetry, frequency:   YDIPLEN    3 -0.054400
 @ D operator, symmetry, frequency:   ZDIPLEN    1  0.054400
 
 @ << A; B, C, D >>  =     -106673.68964630
@@ -8019,58 +8057,20 @@ File label for MO orbitals:  25Mar20   (CNOORB)
 
    Contribution                Term         Accumulated
  ------------------------------------------------------
- Na T[4] Nb Nc Nd  1893826.60155713    1893826.60155713
- Na T[3] Nx Nyz   -4631252.27896834   -2737425.67741121
- Na X[3] Ny Nz      100213.62258232   -2637212.05482888
- Nx A[3] Ny Nz      220203.57120296   -2417008.48362592
- Na X[2] Nyz       1036652.43073892   -1380356.05288700
- Nx A[2] Nyz       4413693.94322746    3033337.89034046
-
-@ Cubic response function value in a.u. for
-@ A operator, symmetry, frequency:   XDIPLEN    2 -0.054400
-@ B operator, symmetry, frequency:   ZDIPLEN    1 -0.054400
-@ C operator, symmetry, frequency:   XDIPLEN    2  0.054400
-@ D operator, symmetry, frequency:   ZDIPLEN    1  0.054400
-
-@ << A; B, C, D >>  =     3033337.89034046
-
-
-
-   Contribution                Term         Accumulated
- ------------------------------------------------------
- Na T[4] Nb Nc Nd   -79787.02755589     -79787.02755589
- Na T[3] Nx Nyz     -21456.91283602    -101243.94039190
- Na X[3] Ny Nz      126581.41780591      25337.47741400
- Nx A[3] Ny Nz       62652.76665673      87990.24407073
- Na X[2] Nyz         62780.69481059     150770.93888133
- Nx A[2] Nyz        -10362.41026452     140408.52861681
-
-@ Cubic response function value in a.u. for
-@ A operator, symmetry, frequency:   YDIPLEN    3 -0.054400
-@ B operator, symmetry, frequency:   ZDIPLEN    1 -0.054400
-@ C operator, symmetry, frequency:   YDIPLEN    3  0.054400
-@ D operator, symmetry, frequency:   ZDIPLEN    1  0.054400
-
-@ << A; B, C, D >>  =      140408.52861681
-
-
-
-   Contribution                Term         Accumulated
- ------------------------------------------------------
  Na T[4] Nb Nc Nd -1855612.93287535   -1855612.93287535
- Na T[3] Nx Nyz   -9473498.06038488  -11329110.99326023
- Na X[3] Ny Nz      618938.63791162  -10710172.35534860
- Nx A[3] Ny Nz       19794.40238991  -10690377.95295869
- Na X[2] Nyz      16637371.46770289    5946993.51474420
- Nx A[2] Nyz       3422815.60256690    9369809.11731110
+ Na T[3] Nx Nyz   -9473498.06051598  -11329110.99339132
+ Na X[3] Ny Nz      618938.63791162  -10710172.35547970
+ Nx A[3] Ny Nz       19794.40238991  -10690377.95308979
+ Na X[2] Nyz      16637371.46795509    5946993.51486530
+ Nx A[2] Nyz       3422815.60260524    9369809.11747054
 
 @ Cubic response function value in a.u. for
 @ A operator, symmetry, frequency:   ZDIPLEN    1 -0.054400
-@ B operator, symmetry, frequency:   ZDIPLEN    1 -0.054400
-@ C operator, symmetry, frequency:   XDIPLEN    2  0.054400
+@ B operator, symmetry, frequency:   XDIPLEN    2  0.054400
+@ C operator, symmetry, frequency:   ZDIPLEN    1 -0.054400
 @ D operator, symmetry, frequency:   XDIPLEN    2  0.054400
 
-@ << A; B, C, D >>  =     9369809.11731110
+@ << A; B, C, D >>  =     9369809.11747054
 
 
 
@@ -8080,70 +8080,70 @@ File label for MO orbitals:  25Mar20   (CNOORB)
  Na T[3] Nx Nyz    -498624.42056767     118273.48378909
  Na X[3] Ny Nz       77800.08728457     196073.57107366
  Nx A[3] Ny Nz       25933.36242819     222006.93350185
- Na X[2] Nyz        -34002.29484068     188004.63866117
- Nx A[2] Nyz        -43633.35310992     144371.28555126
+ Na X[2] Nyz        -34002.29484069     188004.63866116
+ Nx A[2] Nyz        -43633.35310993     144371.28555123
 
 @ Cubic response function value in a.u. for
 @ A operator, symmetry, frequency:   XDIPLEN    2 -0.054400
-@ B operator, symmetry, frequency:   XDIPLEN    2 -0.054400
-@ C operator, symmetry, frequency:   XDIPLEN    2  0.054400
+@ B operator, symmetry, frequency:   XDIPLEN    2  0.054400
+@ C operator, symmetry, frequency:   XDIPLEN    2 -0.054400
 @ D operator, symmetry, frequency:   XDIPLEN    2  0.054400
 
-@ << A; B, C, D >>  =      144371.28555126
-
-
-
-   Contribution                Term         Accumulated
- ------------------------------------------------------
- Na T[4] Nb Nc Nd     3930.75158919       3930.75158919
- Na T[3] Nx Nyz       7781.67077996      11712.42236915
- Na X[3] Ny Nz       -7585.94738436       4126.47498479
- Nx A[3] Ny Nz       -3519.62892264        606.84606215
- Na X[2] Nyz         -7107.46929477      -6500.62323262
- Nx A[2] Nyz        -12509.60830208     -19010.23153470
-
-@ Cubic response function value in a.u. for
-@ A operator, symmetry, frequency:   YDIPLEN    3 -0.054400
-@ B operator, symmetry, frequency:   YDIPLEN    3 -0.054400
-@ C operator, symmetry, frequency:   XDIPLEN    2  0.054400
-@ D operator, symmetry, frequency:   XDIPLEN    2  0.054400
-
-@ << A; B, C, D >>  =      -19010.23153470
+@ << A; B, C, D >>  =      144371.28555123
 
 
 
    Contribution                Term         Accumulated
  ------------------------------------------------------
  Na T[4] Nb Nc Nd    -4343.74295199      -4343.74295199
- Na T[3] Nx Nyz       2170.23672269      -2173.50622930
- Na X[3] Ny Nz        8119.93492267       5946.42869337
- Nx A[3] Ny Nz        2134.68512558       8081.11381895
- Na X[2] Nyz        -14442.33435247      -6361.22053352
- Nx A[2] Nyz        -23896.57719305     -30257.79772657
+ Na T[3] Nx Nyz       2170.23672268      -2173.50622931
+ Na X[3] Ny Nz        8119.93492267       5946.42869336
+ Nx A[3] Ny Nz        2134.68512558       8081.11381894
+ Na X[2] Nyz        -14442.33435246      -6361.22053352
+ Nx A[2] Nyz        -23896.57719301     -30257.79772653
 
 @ Cubic response function value in a.u. for
 @ A operator, symmetry, frequency:   YDIPLEN    3 -0.054400
-@ B operator, symmetry, frequency:   XDIPLEN    2 -0.054400
-@ C operator, symmetry, frequency:   YDIPLEN    3  0.054400
+@ B operator, symmetry, frequency:   YDIPLEN    3  0.054400
+@ C operator, symmetry, frequency:   XDIPLEN    2 -0.054400
 @ D operator, symmetry, frequency:   XDIPLEN    2  0.054400
 
-@ << A; B, C, D >>  =      -30257.79772657
+@ << A; B, C, D >>  =      -30257.79772653
+
+
+
+   Contribution                Term         Accumulated
+ ------------------------------------------------------
+ Na T[4] Nb Nc Nd     3930.75158919       3930.75158919
+ Na T[3] Nx Nyz       7781.67077992      11712.42236910
+ Na X[3] Ny Nz       -7585.94738436       4126.47498475
+ Nx A[3] Ny Nz       -3519.62892264        606.84606211
+ Na X[2] Nyz         -7107.46929477      -6500.62323266
+ Nx A[2] Nyz        -12509.60830196     -19010.23153462
+
+@ Cubic response function value in a.u. for
+@ A operator, symmetry, frequency:   YDIPLEN    3 -0.054400
+@ B operator, symmetry, frequency:   XDIPLEN    2  0.054400
+@ C operator, symmetry, frequency:   YDIPLEN    3 -0.054400
+@ D operator, symmetry, frequency:   XDIPLEN    2  0.054400
+
+@ << A; B, C, D >>  =      -19010.23153462
 
 
 
    Contribution                Term         Accumulated
  ------------------------------------------------------
  Na T[4] Nb Nc Nd   -24035.60348338     -24035.60348338
- Na T[3] Nx Nyz     -35261.64585392     -59297.24933730
- Na X[3] Ny Nz       49450.82889045      -9846.42044685
- Nx A[3] Ny Nz        -405.31098026     -10251.73142710
- Na X[2] Nyz        -72621.45426859     -82873.18569570
- Nx A[2] Nyz        -19318.20309201    -102191.38878770
+ Na T[3] Nx Nyz     -35261.64585393     -59297.24933731
+ Na X[3] Ny Nz       49450.82889045      -9846.42044686
+ Nx A[3] Ny Nz        -405.31098026     -10251.73142711
+ Na X[2] Nyz        -72621.45426858     -82873.18569569
+ Nx A[2] Nyz        -19318.20309200    -102191.38878770
 
 @ Cubic response function value in a.u. for
 @ A operator, symmetry, frequency:   ZDIPLEN    1 -0.054400
-@ B operator, symmetry, frequency:   ZDIPLEN    1 -0.054400
-@ C operator, symmetry, frequency:   YDIPLEN    3  0.054400
+@ B operator, symmetry, frequency:   YDIPLEN    3  0.054400
+@ C operator, symmetry, frequency:   ZDIPLEN    1 -0.054400
 @ D operator, symmetry, frequency:   YDIPLEN    3  0.054400
 
 @ << A; B, C, D >>  =     -102191.38878770
@@ -8153,19 +8153,19 @@ File label for MO orbitals:  25Mar20   (CNOORB)
    Contribution                Term         Accumulated
  ------------------------------------------------------
  Na T[4] Nb Nc Nd      451.41778339        451.41778339
- Na T[3] Nx Nyz      16183.56957004      16634.98735343
- Na X[3] Ny Nz       -2112.99361681      14521.99373662
- Nx A[3] Ny Nz         286.64858892      14808.64232554
- Na X[2] Nyz        -20687.24318070      -5878.60085516
- Nx A[2] Nyz        -13142.09510559     -19020.69596075
+ Na T[3] Nx Nyz      16183.56957002      16634.98735341
+ Na X[3] Ny Nz       -2112.99361681      14521.99373660
+ Nx A[3] Ny Nz         286.64858892      14808.64232552
+ Na X[2] Nyz        -20687.24318063      -5878.60085512
+ Nx A[2] Nyz        -13142.09510557     -19020.69596069
 
 @ Cubic response function value in a.u. for
 @ A operator, symmetry, frequency:   XDIPLEN    2 -0.054400
-@ B operator, symmetry, frequency:   XDIPLEN    2 -0.054400
-@ C operator, symmetry, frequency:   YDIPLEN    3  0.054400
+@ B operator, symmetry, frequency:   YDIPLEN    3  0.054400
+@ C operator, symmetry, frequency:   XDIPLEN    2 -0.054400
 @ D operator, symmetry, frequency:   YDIPLEN    3  0.054400
 
-@ << A; B, C, D >>  =      -19020.69596075
+@ << A; B, C, D >>  =      -19020.69596069
 
 
 
@@ -8180,8 +8180,8 @@ File label for MO orbitals:  25Mar20   (CNOORB)
 
 @ Cubic response function value in a.u. for
 @ A operator, symmetry, frequency:   YDIPLEN    3 -0.054400
-@ B operator, symmetry, frequency:   YDIPLEN    3 -0.054400
-@ C operator, symmetry, frequency:   YDIPLEN    3  0.054400
+@ B operator, symmetry, frequency:   YDIPLEN    3  0.054400
+@ C operator, symmetry, frequency:   YDIPLEN    3 -0.054400
 @ D operator, symmetry, frequency:   YDIPLEN    3  0.054400
 
 @ << A; B, C, D >>  =      -37263.78723846
@@ -8191,45 +8191,45 @@ File label for MO orbitals:  25Mar20   (CNOORB)
   Summary of gamma values for a set of frequencies
  -------------------------------------------------
 
-@ B-freq: -0.054400
-@ C-freq:  0.054400
+@ B-freq:  0.054400
+@ C-freq: -0.054400
 @ D-freq:  0.054400
 
 @ gamma(X;X,X,X)    -144371.2856
-@ gamma(X;X,Y,Y)      19020.6960
+@ gamma(X;X,Y,Y)      30257.7977
 @ gamma(X;Y,Y,X)      30257.7977
-@ gamma(X;Y,X,Y)      30257.7977
-@ gamma(X;X,Z,Z)   -9402352.5886
-@ gamma(X;Z,Z,X)   -3033337.8903
-@ gamma(X;Z,X,Z)   -3033337.8903
-@ gamma(Y;Y,X,X)      19010.2315
+@ gamma(X;Y,X,Y)      19020.6960
+@ gamma(X;X,Z,Z)   -3033337.8904
+@ gamma(X;Z,Z,X)   -3033337.8904
+@ gamma(X;Z,X,Z)   -9402352.5884
+@ gamma(Y;Y,X,X)      30257.7977
 @ gamma(Y;X,X,Y)      30257.7977
-@ gamma(Y;X,Y,X)      30257.7977
+@ gamma(Y;X,Y,X)      19010.2315
 @ gamma(Y;Y,Y,Y)      37263.7872
-@ gamma(Y;Y,Z,Z)     106673.6896
+@ gamma(Y;Y,Z,Z)    -140408.5286
 @ gamma(Y;Z,Z,Y)    -140408.5286
-@ gamma(Y;Z,Y,Z)    -140408.5286
-@ gamma(Z;Z,X,X)   -9369809.1173
-@ gamma(Z;X,X,Z)   -3033337.8903
-@ gamma(Z;X,Z,X)   -3033337.8903
-@ gamma(Z;Z,Y,Y)     102191.3888
+@ gamma(Y;Z,Y,Z)     106673.6896
+@ gamma(Z;Z,X,X)   -3033337.8904
+@ gamma(Z;X,X,Z)   -3033337.8904
+@ gamma(Z;X,Z,X)   -9369809.1175
+@ gamma(Z;Z,Y,Y)    -140408.5286
 @ gamma(Z;Y,Y,Z)    -140408.5286
-@ gamma(Z;Y,Z,Y)    -140408.5286
-@ gamma(Z;Z,Z,Z)  383915003.0446
+@ gamma(Z;Y,Z,Y)     102191.3888
+@ gamma(Z;Z,Z,Z)  383915003.0462
 
-@ Averaged gamma parallel to the applied field is  74688297.763598
+@ Averaged gamma parallel to the applied field is  74688297.763896
 
-  Total CPU  time used in RESPONSE:  18 hours 56 minutes 16 seconds
-  Total wall time used in RESPONSE:  19 hours 14 minutes  4 seconds
+  Total CPU  time used in RESPONSE:  19 hours 17 minutes 55 seconds
+  Total wall time used in RESPONSE:  19 hours 45 minutes 13 seconds
 
 
                    .-------------------------------------------.
                    | End of Dynamic Property Section (RESPONS) |
                    `-------------------------------------------'
 
-  Total CPU  time used in DALTON:  21 hours 44 minutes 30 seconds
-  Total wall time used in DALTON:  22 hours  6 minutes 49 seconds
+  Total CPU  time used in DALTON:  22 hours  8 minutes 41 seconds
+  Total wall time used in DALTON:  22 hours 40 minutes 41 seconds
 
  
-     Date and time (Linux)  : Thu Mar 26 15:49:29 2020
+     Date and time (Linux)  : Fri Mar 27 14:30:11 2020
      Host name              : Mechanist                               
