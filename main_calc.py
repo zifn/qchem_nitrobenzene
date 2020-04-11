@@ -161,6 +161,7 @@ def main(json_config_path):
                                     file.write(str(stdout))
                             except Exception as err:
                                 print("An error occured trying next calculation")
+                                print(err.args)
                                 traceback.print_tb(err.__traceback__)
                                 pass
 
