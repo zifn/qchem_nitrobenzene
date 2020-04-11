@@ -117,18 +117,20 @@ def parse_config(json_path):
     file_path = os.path.normpath(json_path)
     with open(file_path) as config_file:
         raw_json = json.load(config_file)
-    output_dir = os.path.join(raw_json["output_file_dir"])    
+    output_dir = os.path.join(raw_json["output_file_dir"])
+    mpi_process_numb = raw_json["mpi_processes_numb"]
+    memory_mb = raw_json['memory_mb']
     states = raw_json["states"]
     spin_mults = raw_json["spin_multiplicities"]
     hartree_freqs_probe = np.linspace(raw_json["hartree_freqs_probe"]['start'], raw_json["hartree_freqs_probe"]['end'], raw_json["hartree_freqs"]['points'])
     hartree_freqs_drive = np.linspace(raw_json["hartree_freqs_drive"]['start'], raw_json["hartree_freqs_drive"]['end'], raw_json["hartree_freqs"]['points'])
     CN_displacements = np.linspace(raw_json["CN_displacements"]['start'], raw_json["CN_displacements"]['end'], raw_json["CN_displacements"]['points'])
     ONO_rotations = np.linspace(raw_json["ONO_rotations"]['start'], raw_json["ONO_rotations"]['end'], raw_json["ONO_rotations"]['points'])
-    return output_dir, states, spin_mults, hartree_freqs_probe, hartree_freqs_drive, CN_displacements, ONO_rotations
+    return output_dir, states, spin_mults, hartree_freqs_probe, hartree_freqs_drive, CN_displacements, ONO_rotations, mpi_process_numb, memory_mb
 
 
 def main(json_config_path):
-    output_dir, states, spin_mults, hartree_freqs_probe, hartree_freqs_drive, CN_displacements, ONO_rotations = parse_config(json_config_path)
+    output_dir, states, spin_mults, hartree_freqs_probe, hartree_freqs_drive, CN_displacements, ONO_rotations, mpi_process_numb, memory_mb = parse_config(json_config_path)
     
     if os.path.isdir(output_dir) == False:
         os.mkdir(output_dir)
@@ -149,7 +151,7 @@ def main(json_config_path):
                         stdout_output_file_path = os.path.join(output_dir, "state-{}_freqd-{}_freqp-{}_spin-{}_CN_disp-{}_ONO_rot-{}_cubic_response_NBopt_dunningZ-2.stdout".format(state, hartree_freq_probe, hartree_freq_drive, spin_mult, CN_displacement, ONO_rotation))
                         next_dal_file_path = make_dal_file(dal_file_path, hartree_freq_probe, hartree_freq_drive, state, spin_mult)
                         next_mol_file_path = make_mol_file(mol_file_path, CN_displacement, ONO_rotation)
-                        cmd_to_run = ['./dalton', '-mb', '8000', '-o', str(output_file_path), str(next_dal_file_path), str(next_mol_file_path)]
+                        cmd_to_run = ['./dalton', '-mb', str(memory_mb), '-N', str(mpi_process_numb), '-o', str(output_file_path), str(next_dal_file_path), str(next_mol_file_path)]
                         if not os.path.isfile(stdout_output_file_path):
                             try:
                                 print("running next calculation: freq probe {}, freq drive {}, state {}, spin {}, CN_disp {}, ONO_rot {}".format(hartree_freq_probe, hartree_freq_drive, state, spin_mult, CN_displacement, ONO_rotation))
