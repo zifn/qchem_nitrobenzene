@@ -23,7 +23,7 @@ def angle_between(v1, v2):
     v2_u = unit_vector(v2)
     return np.arccos(np.clip(np.dot(v1_u, v2_u), -1.0, 1.0))
 
-def make_dal_file(file_path, freq_hartree_drive, freq_hartree_probe, state, spin_mult):
+def make_dal_file(file_path, freq_hartree_drive, freq_hartree_probe, state, spin_mult, max_ittr):
     fd = freq_hartree_drive
     fp = freq_hartree_probe
     freq_1, freq_2, freq_3 = -fd, fd, fp
@@ -58,7 +58,7 @@ def make_dal_file(file_path, freq_hartree_drive, freq_hartree_probe, state, spin
 **RESPONSE
 *CUBIC
 .MAX IT
-120
+{5}
 .DIPLEN
 .BFREQ
 1
@@ -69,7 +69,7 @@ def make_dal_file(file_path, freq_hartree_drive, freq_hartree_probe, state, spin
 .DFREQ
 1
 {4}
-**END OF DALTON INPUT""".format(int(state), int(spin_mult), str(freq_1), str(freq_2), str(freq_3))
+**END OF DALTON INPUT""".format(int(state), int(spin_mult), str(freq_1), str(freq_2), str(freq_3), max_ittr)
     with open(file_path, 'w') as dal_file:
         dal_file.write(dal_input)
     
@@ -120,17 +120,18 @@ def parse_config(json_path):
     output_dir = os.path.join(raw_json["output_file_dir"])
     mpi_process_numb = raw_json["mpi_processes_numb"]
     memory_mb = raw_json['memory_mb']
+    max_itter = raw_json["max_itter"]
     states = raw_json["states"]
     spin_mults = raw_json["spin_multiplicities"]
     hartree_freqs_probe = np.linspace(raw_json["hartree_freqs_probe"]['start'], raw_json["hartree_freqs_probe"]['end'], raw_json["hartree_freqs"]['points'])
     hartree_freqs_drive = np.linspace(raw_json["hartree_freqs_drive"]['start'], raw_json["hartree_freqs_drive"]['end'], raw_json["hartree_freqs"]['points'])
     CN_displacements = np.linspace(raw_json["CN_displacements"]['start'], raw_json["CN_displacements"]['end'], raw_json["CN_displacements"]['points'])
     ONO_rotations = np.linspace(raw_json["ONO_rotations"]['start'], raw_json["ONO_rotations"]['end'], raw_json["ONO_rotations"]['points'])
-    return output_dir, states, spin_mults, hartree_freqs_probe, hartree_freqs_drive, CN_displacements, ONO_rotations, mpi_process_numb, memory_mb
+    return output_dir, states, spin_mults, hartree_freqs_probe, hartree_freqs_drive, CN_displacements, ONO_rotations, mpi_process_numb, memory_mb, max_itter
 
 
 def main(json_config_path):
-    output_dir, states, spin_mults, hartree_freqs_probe, hartree_freqs_drive, CN_displacements, ONO_rotations, mpi_process_numb, memory_mb = parse_config(json_config_path)
+    output_dir, states, spin_mults, hartree_freqs_probe, hartree_freqs_drive, CN_displacements, ONO_rotations, mpi_process_numb, memory_mb, max_itter = parse_config(json_config_path)
     
     if os.path.isdir(output_dir) == False:
         os.mkdir(output_dir)
@@ -149,7 +150,7 @@ def main(json_config_path):
                     for hartree_freq_probe, hartree_freq_drive in zip(hartree_freqs_probe, hartree_freqs_drive):
                         output_file_path = os.path.join(output_dir, "state-{}_freqd-{}_freqp-{}_spin-{}_CN_disp-{}_ONO_rot-{}_cubic_response_NBopt_dunningZ-2.out".format(state, hartree_freq_probe, hartree_freq_drive, spin_mult, CN_displacement, ONO_rotation))
                         stdout_output_file_path = os.path.join(output_dir, "state-{}_freqd-{}_freqp-{}_spin-{}_CN_disp-{}_ONO_rot-{}_cubic_response_NBopt_dunningZ-2.stdout".format(state, hartree_freq_probe, hartree_freq_drive, spin_mult, CN_displacement, ONO_rotation))
-                        next_dal_file_path = make_dal_file(dal_file_path, hartree_freq_probe, hartree_freq_drive, state, spin_mult)
+                        next_dal_file_path = make_dal_file(dal_file_path, hartree_freq_probe, hartree_freq_drive, state, spin_mult, max_itter)
                         next_mol_file_path = make_mol_file(mol_file_path, CN_displacement, ONO_rotation)
                         cmd_to_run = ['./dalton', '-mb', str(memory_mb), '-N', str(mpi_process_numb), '-o', str(output_file_path), str(next_dal_file_path), str(next_mol_file_path)]
                         if not os.path.isfile(stdout_output_file_path):
