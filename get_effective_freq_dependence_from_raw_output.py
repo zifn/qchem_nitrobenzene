@@ -29,15 +29,19 @@ def determine_drive_and_probe(lambda_1, lambda_2, lambda_3):
     freqs = [lambda_1, lambda_2, lambda_3]
     freq_drive = 0
     freq_probe = 0
-    for freq1, freq2 in itertools.combinations(freqs, 2):
-        if np.isclose(freq1, -freq2):
+    freq_combos = [(freq1, freq2, np.isclose(freq1, -freq2)) for freq1, freq2 in itertools.combinations(freqs, 2)]
+    for freq1, freq2, is_drive in freq_combos:
+        if is_drive:
             freq_drive = abs(freq1)
-            freqs.pop(freq1)
-            freqs.pop(freq2)
+            freqs.remove(freq1)
+            freqs.remove(freq2)
             break
-        else:
-            raise AssertionError("Drive Frequency not found in file")
-    assert(len(freqs) == 1)
+    try:
+        assert(len(freqs) == 1)
+    except AssertionError as err:
+        print('Printing frequency combinations: (freq1, freq2, np.isclose(freq1, -freq2))')
+        print(freq_combos)
+        raise AssertionError("Drive Frequency not found in file")
     freq_probe = freqs[0]
     return freq_probe, freq_drive
 
