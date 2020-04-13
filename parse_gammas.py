@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from sys import argv
+import traceback
 """
 take a dalton output file like output_files/NB_rotated_static_gamma_STO-3G_hf.out and extract the
 gamma info
@@ -61,8 +62,10 @@ def extract_gammas_and_freq_from_file(filename):
                     freqs.append(parse_freq(line))
                 if "@WARNING" in line:
                     warning_flag = True
-            except ValueError as e:
+            except ValueError as err:
                 print("error parsing file - {}".format(filename))
+                print("errored on line - {}".format(line))
+                traceback.print_tb(err.__traceback__)
                 return [], [], True
         return gammas, freqs, warning_flag
 
