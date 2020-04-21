@@ -6,10 +6,6 @@ take a dalton output file like output_files/NB_rotated_static_gamma_STO-3G_hf.ou
 gamma info
 """
 
-def strip_gamma(k):
-    return k.replace("gamma(", "").replace(")", "")
-
-
 def convert(k):
     """convert "Y;Y,Z,Z" to (1,1,2,2)
     output is a tuple
@@ -32,8 +28,9 @@ def parse_gamma(gamma_line):
         float
     )
     """
-    _, k, v = gamma_line.split()
-    k = convert(strip_gamma(k))
+    _, line = gamma_line.split('(')
+    k, v = line.split(')')
+    k = convert(k)
     v = float(v)
     return (k, v)
 
@@ -67,6 +64,7 @@ def extract_gammas_and_freq_from_file(filename):
                 print("errored on line - {}".format(line))
                 traceback.print_tb(err.__traceback__)
                 return [], [], True
+        print("freqs = ",freqs)
         return gammas, freqs, warning_flag
 
 if __name__ == "__main__":
