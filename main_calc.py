@@ -23,7 +23,7 @@ def angle_between(v1, v2):
     v2_u = unit_vector(v2)
     return np.arccos(np.clip(np.dot(v1_u, v2_u), -1.0, 1.0))
 
-def make_dal_file(file_path, freq_hartree_drive, freq_hartree_probe, state, spin_mult, max_ittr):
+def make_dal_file(file_path, freq_hartree_probe, freq_hartree_drive, state, spin_mult, max_ittr):
     fd = freq_hartree_drive
     fp = freq_hartree_probe
     freq_1, freq_2, freq_3 = -fd, fd, fp
