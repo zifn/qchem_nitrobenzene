@@ -83,7 +83,7 @@ def main_conversion(file_path, should_return=False):
         chi3_eff_value = chi3_rot_ave[1][0][0][1] + chi3_rot_ave[1][0][1][0]
         gamma_eff_value = gamma_rot_ave[1][0][0][1] + gamma_rot_ave[1][0][1][0]
         if should_return:
-            return chi3_eff_sym, chi3_eff_expr, chi3_eff_value, gamma_eff_value, gamma_rot_ave, chi3_rot_ave, chi3_sym, lambda_out, lambda_1, lambda_2, lambda_3, warning_flag
+            return (chi3_eff_sym, chi3_eff_expr, chi3_eff_value, gamma_eff_value, gamma_rot_ave, chi3_rot_ave, chi3_sym, {"micron": [lambda_out, lambda_1, lambda_2, lambda_3], "hartree": freqs}, warning_flag)
         else:
             print_chi3_elements(chi3_sym, chi3_rot_ave)
             print("\n{0} = {1}".format(sp.latex(chi3_eff_sym), sp.latex(chi3_eff_expr)))
