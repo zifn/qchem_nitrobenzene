@@ -9,9 +9,11 @@
 """
 
 from sys import argv
+from copy import deepcopy
 import numpy as np
 import sympy as sp
 import scipy.constants as constants
+import itertools
 
 import parse_gammas
 import gamma_to_chi3_conversion
@@ -64,26 +66,62 @@ def convert_hartree_freq_to_microns(freq):
         freq_micron = freq_SI/constants.micron
         return freq_micron
 
+def determine_drive_and_probe(freqs):
+    freqs_keys = list(deepcopy(freqs).keys())
+    drive_keys = []
+    freq_combos = [(freq1_key, freq2_key, np.isclose(freqs[freq1_key], -freqs[freq2_key]))
+                    for freq1_key, freq2_key in itertools.combinations(freqs.keys(), 2)]
+    for freq1_key, freq2_key, is_drive in freq_combos:
+        if is_drive:
+            drive_keys.append(freq1_key)
+            drive_keys.append(freq2_key)
+            freqs_keys.remove(freq1_key)
+            freqs_keys.remove(freq2_key)
+            break
+    try:
+        assert(len(freqs_keys) == 1)
+    except AssertionError as err:
+        print('Printing frequency combinations: (freq1, freq2, np.isclose(freq1, -freq2))')
+        print(freq_combos)
+        raise AssertionError("Drive Frequency not found in file")
+    probe_key = freqs_keys[0]
+    return probe_key, drive_keys
+
 def main_conversion(file_path, should_return=False):
     gamma_tuples, freqs, warning_flag = parse_gammas.extract_gammas_and_freq_from_file(file_path)
     if len(gamma_tuples) > 0: # check for valid dalton run
-        freqs.insert(0, -sum(freqs))
-        lambda_out, lambda_1, lambda_2, lambda_3 = [convert_hartree_freq_to_microns(freq) for freq in freqs]
+        probe_key, drive_keys = determine_drive_and_probe(freqs)
+        freqs['A'] = -sum(freqs.values()) # add signal field
+        freqs_micron = {key: convert_hartree_freq_to_microns(freq) for key, freq in freqs.items()}
         gamma_rot_ave, chi3_rot_ave, chi3_sym = gamma_to_chi3_conversion.compute_and_display_chi3_from_raw_gamma(
             gamma_tuples,
             number_density_of_liquid_nitrobenzene(),
             refractive_index_sq_of_liq_NB,
-            lambda_out, 
-            lambda_1, 
-            lambda_2, 
-            lambda_3
+            freqs_micron['A'],
+            freqs_micron['B'],
+            freqs_micron['C'],
+            freqs_micron['D']
         )
+        
+        # choose terms for the effective chi3
+        indices = {'signal': 1, 'probe': 0, 'drive1': 0, 'drive2': 1}
+        map1 = {field_key: indices[index_key] for index_key, field_key in zip(['signal', 'probe', 'drive1', 'drive2'], ['A', probe_key, drive_keys[0], drive_keys[1]])}
+        map2 = {field_key: indices[index_key] for index_key, field_key in zip(['signal', 'probe', 'drive1', 'drive2'], ['A', probe_key, drive_keys[1], drive_keys[0]])}
+        
         chi3_eff_sym = sp.symbols("chi^(3)_eff")
-        chi3_eff_expr = chi3_sym[1][0][0][1] + chi3_sym[1][0][1][0]
-        chi3_eff_value = chi3_rot_ave[1][0][0][1] + chi3_rot_ave[1][0][1][0]
-        gamma_eff_value = gamma_rot_ave[1][0][0][1] + gamma_rot_ave[1][0][1][0]
+        chi3_eff_expr = chi3_sym[map1['A']][map1['B']][map1['C']][map1['D']] + chi3_sym[map2['A']][map2['B']][map2['C']][map2['D']]
+        chi3_eff_value = chi3_rot_ave[map1['A']][map1['B']][map1['C']][map1['D']] + chi3_rot_ave[map2['A']][map2['B']][map2['C']][map2['D']]
+        gamma_eff_value = gamma_rot_ave[map1['A']][map1['B']][map1['C']][map1['D']] + gamma_rot_ave[map2['A']][map2['B']][map2['C']][map2['D']]
         if should_return:
-            return (chi3_eff_sym, chi3_eff_expr, chi3_eff_value, gamma_eff_value, gamma_rot_ave, chi3_rot_ave, chi3_sym, {"micron": [lambda_out, lambda_1, lambda_2, lambda_3], "hartree": freqs}, warning_flag)
+            return (chi3_eff_sym, 
+            chi3_eff_expr, 
+            chi3_eff_value, 
+            gamma_eff_value, 
+            gamma_rot_ave, 
+            chi3_rot_ave,
+            chi3_sym,
+            {"micron": freqs_micron, "hartree": freqs, 'probe_key': probe_key, 'drive_keys': drive_keys},
+            warning_flag)
         else:
             print_chi3_elements(chi3_sym, chi3_rot_ave)
             print("\n{0} = {1}".format(sp.latex(chi3_eff_sym), sp.latex(chi3_eff_expr)))

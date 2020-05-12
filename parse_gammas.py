@@ -41,22 +41,24 @@ def parse_freq(freq_line):
         float
     )
     """
+    keys = ['B', 'C', 'D']
+    key = [ key for key in keys if key in freq_line ][0]
     _, _, v = freq_line.split()
     v = float(v)
-    return v
+    return {key: v}
 
 def extract_gammas_and_freq_from_file(filename):
     with open(filename) as f:
         lines = f.readlines()
         gammas = []
-        freqs = []
+        freqs = {}
         warning_flag = False
         for line in lines:
             try:
                 if "@ gamma(" in line:
                     gammas.append(parse_gamma(line))
                 if "@ B-freq:" in line or "@ C-freq:" in line or "@ D-freq:" in line:
-                    freqs.append(parse_freq(line))
+                    freqs.update(parse_freq(line))
                 if "@WARNING" in line:
                     warning_flag = True
             except ValueError as err:
@@ -64,7 +66,7 @@ def extract_gammas_and_freq_from_file(filename):
                 print("errored on line - {}".format(line))
                 traceback.print_tb(err.__traceback__)
                 return [], [], True
-        print("freqs = ",freqs)
+        #print("freqs = ",freqs)
         return gammas, freqs, warning_flag
 
 if __name__ == "__main__":
