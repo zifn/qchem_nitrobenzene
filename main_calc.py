@@ -80,10 +80,13 @@ def make_dal_file(file_path, freq_hartree_probe, freq_hartree_drive, state, spin
         dalton_dal_text = dal_input + dal_wave + dal_response
     else:
         dal_input = """**DALTON INPUT
+.RUN PROPERTIES
 .DIRECT
 """
+        dal_properties = """**PROPERTIES
+"""
         dal_end = "**END OF DALTON INPUT"
-        dalton_dal_text = dal_input + dal_wave + dal_end
+        dalton_dal_text = dal_input + dal_wave + dal_properties + dal_end
 
     with open(file_path, 'w') as dal_file:
         dal_file.write(dalton_dal_text)
