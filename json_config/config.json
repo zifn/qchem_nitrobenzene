@@ -2,7 +2,7 @@
 	"output_file_dir": "qchem_nitrobenzene//wavefunctions_0033",
 	"states": [1, 2],
         "symmetries": [1, 2, 3, 4],
-        "run_response": False,
+        "run_response": FALSE,
 	"spin_multiplicities": [1, 3],
         "mpi_processes_numb": 1,
         "memory_mb": 16000,
