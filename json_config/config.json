@@ -1,6 +1,8 @@
 {
 	"output_file_dir": "qchem_nitrobenzene//freq_dep_001",
 	"states": [1],
+    "symmetries": [1],
+    "run_response": False
 	"spin_multiplicities": [1],
         "mpi_processes_numb": 8,
         "memory_mb": 16000,

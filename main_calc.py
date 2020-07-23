@@ -23,23 +23,18 @@ def angle_between(v1, v2):
     v2_u = unit_vector(v2)
     return np.arccos(np.clip(np.dot(v1_u, v2_u), -1.0, 1.0))
 
-def make_dal_file(file_path, freq_hartree_probe, freq_hartree_drive, state, spin_mult, max_ittr):
-    fd = freq_hartree_drive
-    fp = freq_hartree_probe
-    freq_1, freq_2, freq_3 = -fd, fd, fp
-
-    dal_input = """**DALTON INPUT
-.RUN RESPONSE
-.DIRECT
+def make_dal_file(file_path, freq_hartree_probe, freq_hartree_drive, state, spin_mult, max_ittr, symmetry, run_response=True):
+    
+    dal_wave = """
 **WAVE FUNCTIONS
 .HF
 .MP2
 .MCSCF
 *CONFIGURATION INPUT
 .SPIN MULTIPLICITY
-{1}
+{0}
 .SYMMETRY
-1
+{1}
 .INACTIVE ORBITALS
 16 11 2 0
 .CAS SPACE
@@ -52,26 +47,47 @@ def make_dal_file(file_path, freq_hartree_probe, freq_hartree_drive, state, spin
 *OPTIMIZATION
 .DETERMINANTS
 .STATE
-{0}
+{2}
 *CI VECTOR
 .PLUS COMBINATIONS
+""".format(int(spin_mult), int(symmetry),  int(state))
+
+    if run_response:
+        fd = freq_hartree_drive
+        fp = freq_hartree_probe
+        freq_1, freq_2, freq_3 = -fd, fd, fp
+    
+        dal_input = """**DALTON INPUT
+.RUN RESPONSE
+.DIRECT
+"""
+
+        dal_response = """
 **RESPONSE
 *CUBIC
 .MAX IT
-{5}
+{0}
 .DIPLEN
 .BFREQ
 1
-{2}
+{1}
 .CFREQ
 1
-{3}
+{2}
 .DFREQ
 1
-{4}
-**END OF DALTON INPUT""".format(int(state), int(spin_mult), str(freq_1), str(freq_2), str(freq_3), max_ittr)
+{3}
+**END OF DALTON INPUT""".format(max_ittr, str(freq_1), str(freq_2), str(freq_3))
+
+        dalton_dal_text = dal_input + dal_wave + dal_response
+    else:
+        dal_input = """**DALTON INPUT
+.DIRECT
+"""
+        dalton_dal_text = dal_input + dal_wave 
+
     with open(file_path, 'w') as dal_file:
-        dal_file.write(dal_input)
+        dal_file.write(dalton_dal_text)
     
     return file_path
 
@@ -122,16 +138,18 @@ def parse_config(json_path):
     memory_mb = raw_json['memory_mb']
     max_itter = raw_json["max_itter"]
     states = raw_json["states"]
+    run_response =  bool(raw_json["run_response"])
+    symmetries = raw_json["symmetries"]
     spin_mults = raw_json["spin_multiplicities"]
     hartree_freqs_probe = np.linspace(raw_json["hartree_freqs_probe"]['start'], raw_json["hartree_freqs_probe"]['end'], raw_json["hartree_freqs"]['points'])
     hartree_freqs_drive = np.linspace(raw_json["hartree_freqs_drive"]['start'], raw_json["hartree_freqs_drive"]['end'], raw_json["hartree_freqs"]['points'])
     CN_displacements = np.linspace(raw_json["CN_displacements"]['start'], raw_json["CN_displacements"]['end'], raw_json["CN_displacements"]['points'])
     ONO_rotations = np.linspace(raw_json["ONO_rotations"]['start'], raw_json["ONO_rotations"]['end'], raw_json["ONO_rotations"]['points'])
-    return output_dir, states, spin_mults, hartree_freqs_probe, hartree_freqs_drive, CN_displacements, ONO_rotations, mpi_process_numb, memory_mb, max_itter
+    return output_dir, states, spin_mults, hartree_freqs_probe, hartree_freqs_drive, CN_displacements, ONO_rotations, mpi_process_numb, memory_mb, max_itter, symmetries, run_response
 
 
 def main(json_config_path):
-    output_dir, states, spin_mults, hartree_freqs_probe, hartree_freqs_drive, CN_displacements, ONO_rotations, mpi_process_numb, memory_mb, max_itter = parse_config(json_config_path)
+    output_dir, states, spin_mults, hartree_freqs_probe, hartree_freqs_drive, CN_displacements, ONO_rotations, mpi_process_numb, memory_mb, max_itter, symmetries, run_response = parse_config(json_config_path)
     
     if os.path.isdir(output_dir) == False:
         os.mkdir(output_dir)
@@ -144,27 +162,28 @@ def main(json_config_path):
     mol_file_path = os.path.join(temp_dir, "temp_mol_file.mol")
     
     for state in states:
-        for spin_mult in spin_mults:
-            for CN_displacement in CN_displacements:
-                for ONO_rotation in ONO_rotations:
-                    for hartree_freq_probe, hartree_freq_drive in zip(hartree_freqs_probe, hartree_freqs_drive):
-                        output_file_path = os.path.join(output_dir, "state-{}_freqd-{}_freqp-{}_spin-{}_CN_disp-{}_ONO_rot-{}_cubic_response_NBopt_dunningZ-2.out".format(state, hartree_freq_probe, hartree_freq_drive, spin_mult, CN_displacement, ONO_rotation))
-                        stdout_output_file_path = os.path.join(output_dir, "state-{}_freqd-{}_freqp-{}_spin-{}_CN_disp-{}_ONO_rot-{}_cubic_response_NBopt_dunningZ-2.stdout".format(state, hartree_freq_probe, hartree_freq_drive, spin_mult, CN_displacement, ONO_rotation))
-                        next_dal_file_path = make_dal_file(dal_file_path, hartree_freq_probe, hartree_freq_drive, state, spin_mult, max_itter)
-                        next_mol_file_path = make_mol_file(mol_file_path, CN_displacement, ONO_rotation)
-                        cmd_to_run = ['./dalton', '-mb', str(memory_mb), '-N', str(mpi_process_numb), '-o', str(output_file_path), str(next_dal_file_path), str(next_mol_file_path)]
-                        if not os.path.isfile(stdout_output_file_path):
-                            try:
-                                print("running next calculation: freq probe {}, freq drive {}, state {}, spin {}, CN_disp {}, ONO_rot {}".format(hartree_freq_probe, hartree_freq_drive, state, spin_mult, CN_displacement, ONO_rotation))
-                                print("\t running command - {}".format(cmd_to_run))
-                                exit_code, stdout, stderr = util_calc.run_cmd(cmd_to_run)
-                                with open(stdout_output_file_path, 'w') as file:
-                                    file.write(str(stdout))
-                            except Exception as err:
-                                print("An error occured trying next calculation")
-                                print(err.args)
-                                traceback.print_tb(err.__traceback__)
-                                pass
+        for symmetry in symmetries:
+            for spin_mult in spin_mults:
+                for CN_displacement in CN_displacements:
+                    for ONO_rotation in ONO_rotations:
+                        for hartree_freq_probe, hartree_freq_drive in zip(hartree_freqs_probe, hartree_freqs_drive):
+                            output_file_path = os.path.join(output_dir, "state-{}_sym-{}_freqd-{}_freqp-{}_spin-{}_CN_disp-{}_ONO_rot-{}_NBopt_dunningZ-2.out".format(state, symmetry, hartree_freq_probe, hartree_freq_drive, spin_mult, CN_displacement, ONO_rotation))
+                            stdout_output_file_path = os.path.join(output_dir, "state-{}_sym-{}_freqd-{}_freqp-{}_spin-{}_CN_disp-{}_ONO_rot-{}_NBopt_dunningZ-2.stdout".format(state, symmetry, hartree_freq_probe, hartree_freq_drive, spin_mult, CN_displacement, ONO_rotation))
+                            next_dal_file_path = make_dal_file(dal_file_path, hartree_freq_probe, hartree_freq_drive, state, spin_mult, max_itter, symmetry, run_response)
+                            next_mol_file_path = make_mol_file(mol_file_path, CN_displacement, ONO_rotation)
+                            cmd_to_run = ['./dalton', '-mb', str(memory_mb), '-N', str(mpi_process_numb), '-o', str(output_file_path), str(next_dal_file_path), str(next_mol_file_path)]
+                            if not os.path.isfile(stdout_output_file_path):
+                                try:
+                                    print("running next calculation: freq probe {}, freq drive {}, state {}, sym {}, spin {}, CN_disp {}, ONO_rot {}".format(hartree_freq_probe, hartree_freq_drive, state, symmetry, spin_mult, CN_displacement, ONO_rotation))
+                                    print("\t running command - {}".format(cmd_to_run))
+                                    exit_code, stdout, stderr = util_calc.run_cmd(cmd_to_run)
+                                    with open(stdout_output_file_path, 'w') as file:
+                                        file.write(str(stdout))
+                                except Exception as err:
+                                    print("An error occured trying next calculation")
+                                    print(err.args)
+                                    traceback.print_tb(err.__traceback__)
+                                    pass
 
 if __name__ == "__main__":
     main(argv[1])
