@@ -25,8 +25,7 @@ def angle_between(v1, v2):
 
 def make_dal_file(file_path, freq_hartree_probe, freq_hartree_drive, state, spin_mult, max_ittr, symmetry, run_response=True):
     
-    dal_wave = """
-**WAVE FUNCTIONS
+    dal_wave = """**WAVE FUNCTIONS
 .HF
 .MP2
 .MCSCF
@@ -62,8 +61,7 @@ def make_dal_file(file_path, freq_hartree_probe, freq_hartree_drive, state, spin
 .DIRECT
 """
 
-        dal_response = """
-**RESPONSE
+        dal_response = """**RESPONSE
 *CUBIC
 .MAX IT
 {0}
@@ -82,9 +80,13 @@ def make_dal_file(file_path, freq_hartree_probe, freq_hartree_drive, state, spin
         dalton_dal_text = dal_input + dal_wave + dal_response
     else:
         dal_input = """**DALTON INPUT
+.RUN PROPERTIES
 .DIRECT
 """
-        dalton_dal_text = dal_input + dal_wave 
+        dal_properties = """**PROPERTIES
+"""
+        dal_end = "**END OF DALTON INPUT"
+        dalton_dal_text = dal_input + dal_wave + dal_properties + dal_end
 
     with open(file_path, 'w') as dal_file:
         dal_file.write(dalton_dal_text)

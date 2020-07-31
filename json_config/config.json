@@ -1,10 +1,10 @@
 {
-	"output_file_dir": "qchem_nitrobenzene//freq_dep_001",
-	"states": [1],
-    "symmetries": [1],
-    "run_response": False
-	"spin_multiplicities": [1],
-        "mpi_processes_numb": 8,
+	"output_file_dir": "qchem_nitrobenzene//wavefunctions_0033",
+	"states": [1, 2],
+        "symmetries": [1, 2, 3, 4],
+        "run_response": false,
+	"spin_multiplicities": [1, 3],
+        "mpi_processes_numb": 1,
         "memory_mb": 16000,
         "max_itter": 1000,
         "hartree_freqs_probe": {
@@ -16,7 +16,7 @@
                 "end": 0.5
         },
 	"hartree_freqs": {
-		"points": 6
+		"points": 1
 	},
 	"CN_displacements": {
 		"start": 0,
