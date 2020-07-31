@@ -36,11 +36,11 @@ def make_dal_file(file_path, freq_hartree_probe, freq_hartree_drive, state, spin
 .SYMMETRY
 {1}
 .INACTIVE ORBITALS
-16 11 2 0
+15 10 0 0
 .CAS SPACE
-0 0 3 3 
+1 1 6 3 
 .ELECTRONS
-6
+14
 *ORBITAL INPUT
 .MOSTART
 .HUCKEL
