@@ -159,9 +159,6 @@ def main(json_config_path):
     temp_dir = os.path.join(output_dir, "temp")
     if os.path.isdir(temp_dir) == False:
         os.mkdir(temp_dir)
-        
-    dal_file_path = os.path.join(temp_dir, "temp_dal_file.dal")
-    mol_file_path = os.path.join(temp_dir, "temp_mol_file.mol")
     
     for state in states:
         for symmetry in symmetries:
@@ -169,8 +166,12 @@ def main(json_config_path):
                 for CN_displacement in CN_displacements:
                     for ONO_rotation in ONO_rotations:
                         for hartree_freq_probe, hartree_freq_drive in zip(hartree_freqs_probe, hartree_freqs_drive):
-                            output_file_path = os.path.join(output_dir, "state-{}_sym-{}_freqd-{}_freqp-{}_spin-{}_CN_disp-{}_ONO_rot-{}_NBopt_dunningZ-2.out".format(state, symmetry, hartree_freq_probe, hartree_freq_drive, spin_mult, CN_displacement, ONO_rotation))
-                            stdout_output_file_path = os.path.join(output_dir, "state-{}_sym-{}_freqd-{}_freqp-{}_spin-{}_CN_disp-{}_ONO_rot-{}_NBopt_dunningZ-2.stdout".format(state, symmetry, hartree_freq_probe, hartree_freq_drive, spin_mult, CN_displacement, ONO_rotation))
+                            root_name = "state-{}_sym-{}_freqd-{}_freqp-{}_spin-{}_CN_disp-{}_ONO_rot-{}_NBopt_dunningZ-2".format(state, symmetry, hartree_freq_probe, hartree_freq_drive, spin_mult, CN_displacement, ONO_rotation)
+                            output_file_path = os.path.join(output_dir, root_name + ".out")
+                            stdout_output_file_path = os.path.join(output_dir, root_name + ".stdout")
+                            dal_file_path = os.path.join(temp_dir, root_name + ".dal")
+                            mol_file_path = os.path.join(temp_dir, root_name + ".mol")
+                            
                             next_dal_file_path = make_dal_file(dal_file_path, hartree_freq_probe, hartree_freq_drive, state, spin_mult, max_itter, symmetry, run_response)
                             next_mol_file_path = make_mol_file(mol_file_path, CN_displacement, ONO_rotation)
                             cmd_to_run = ['./dalton', '-mb', str(memory_mb), '-N', str(mpi_process_numb), '-o', str(output_file_path), str(next_dal_file_path), str(next_mol_file_path)]
