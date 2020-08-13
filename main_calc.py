@@ -169,8 +169,8 @@ def main(json_config_path):
                             root_name = "state-{}_sym-{}_freqd-{}_freqp-{}_spin-{}_CN_disp-{}_ONO_rot-{}_NBopt_dunningZ-2".format(state, symmetry, hartree_freq_probe, hartree_freq_drive, spin_mult, CN_displacement, ONO_rotation)
                             output_file_path = os.path.join(output_dir, root_name + ".out")
                             stdout_output_file_path = os.path.join(output_dir, root_name + ".stdout")
-                            dal_file_path = os.path.join(temp_dir, root_name + ".dal")
-                            mol_file_path = os.path.join(temp_dir, root_name + ".mol")
+                            dal_file_path =  "temp.dal"
+                            mol_file_path = "temp.mol"
                             
                             next_dal_file_path = make_dal_file(dal_file_path, hartree_freq_probe, hartree_freq_drive, state, spin_mult, max_itter, symmetry, run_response)
                             next_mol_file_path = make_mol_file(mol_file_path, CN_displacement, ONO_rotation)
@@ -182,10 +182,18 @@ def main(json_config_path):
                                     exit_code, stdout, stderr = util_calc.run_cmd(cmd_to_run)
                                     with open(stdout_output_file_path, 'w') as file:
                                         file.write(str(stdout))
+                                    os.rename(dal_file_path, os.path.join(temp_dir, root_name + ".dal"))
+                                    os.rename(mol_file_path, os.path.join(temp_dir, root_name + ".mol"))
+                                    if os.path.exists("temp_temp.tar.gz"):
+                                        os.rename("temp_temp.tar.gz", os.path.join(temp_dir, root_name + ".tar.gz"))
                                 except Exception as err:
                                     print("An error occured trying next calculation")
                                     print(err.args)
                                     traceback.print_tb(err.__traceback__)
+                                    if os.path.exists(dal_file_path):
+                                        os.rename(dal_file_path, os.path.join(temp_dir, root_name + ".dal"))
+                                    if os.path.exists(mol_file_path):
+                                        os.rename(mol_file_path, os.path.join(temp_dir, root_name + ".mol"))
                                     pass
 
 if __name__ == "__main__":
