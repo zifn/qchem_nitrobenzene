@@ -184,8 +184,8 @@ def main(json_config_path):
                                         file.write(str(stdout))
                                     os.rename(dal_file_path, os.path.join(temp_dir, root_name + ".dal"))
                                     os.rename(mol_file_path, os.path.join(temp_dir, root_name + ".mol"))
-                                    if os.path.exists("temp_temp.tar.gz"):
-                                        os.rename("temp_temp.tar.gz", os.path.join(temp_dir, root_name + ".tar.gz"))
+                                    if os.path.exists("temp.tar.gz"):
+                                        os.rename("temp.tar.gz", os.path.join(temp_dir, root_name + ".tar.gz"))
                                 except Exception as err:
                                     print("An error occured trying next calculation")
                                     print(err.args)
