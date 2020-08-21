@@ -2,6 +2,7 @@
 from sys import argv
 import traceback
 import math
+import scipy.constants as constants
 """
 take a dalton output file like:
     globus\\nb_trans_dipole_hf-mp2-mcscf_determ_06_GW_dunning.out
@@ -15,6 +16,14 @@ def remove_repeated_white_space(line):
     if line[0] == " ":
         temp = temp[1:]
     return temp
+
+def eV_to_hartree(energy_eV):
+    converstion_factor = constants.physical_constants["electron volt-hartree relationship"][0]
+    return energy_eV*converstion_factor
+
+def hartree_to_eV(energy_hartree):
+    converstion_factor = constants.physical_constants["Hartree energy in eV"][0]
+    return energy_eV*converstion_factor
 
 def extract_info_from_file(file_path):
     labels = {"ZDIPLEN": 'z',"YDIPLEN": 'y',"XDIPLEN": 'x'}
@@ -41,13 +50,20 @@ def extract_info_from_file(file_path):
                         _, state_no = state_line.split(":")
                         _, trans_moment = moment_line.split(":")
                         _, energy = energy_line.split(":")
-                        temp = {"transition dipole": float(trans_moment),
-                                     "dipole label": temp_label,
-                                     "energy(eV)": float(energy),
-                                     "state_no": int(state_no),
-                                     "ref_sym": None, 
-                                     'excite_sym': None,
-                                     "dipole sym": None}
+                        temp = {
+                                    "mu_label": temp_label,
+                                    "mu_sym": None,
+                                    "mu_spin": None,
+                                    "B_state_no": 0,
+                                    "B_sym": None,
+                                    "B_spin": None,
+                                    "C_state_no": int(state_no),
+                                    "C_sym": None,
+                                    "C_spin": None,
+                                    "B_energy": 0.0,
+                                    "C_energy": eV_to_hartree(float(energy)),
+                                    "moment": float(trans_moment),
+                                    }
                         temp_transition_dipoles.append(temp)
                         temp = {}
                     if "*** @ Excit." in line:
@@ -56,9 +72,9 @@ def extract_info_from_file(file_path):
                         ref_sym = remove_repeated_white_space(ref_sym_line).split(" ")[0]
                         excite_sym = remove_repeated_white_space(excite_sym_line).split(" ")[1]
                         for temp_transition_dipole in temp_transition_dipoles:
-                            temp_transition_dipole["ref_sym"] = int(ref_sym)
-                            temp_transition_dipole["excite_sym"] = int(excite_sym)
-                            temp_transition_dipole["dipole sym"] = int(operator_sym)
+                            temp_transition_dipole["B_sym"] = int(ref_sym)
+                            temp_transition_dipole["C_sym"] = int(excite_sym)
+                            temp_transition_dipole["mu_sym"] = int(operator_sym)
                         transition_dipoles += temp_transition_dipoles
                         temp_transition_dipoles = []
                         transition_dipole_flag = False
@@ -73,6 +89,6 @@ if __name__ == "__main__":
     import pandas as pd
     transition_dipoles = extract_info_from_file(argv[1])
     df_transition_dipoles = pd.DataFrame(transition_dipoles)
-    df_transition_dipoles(argv[2])
+    df_transition_dipoles.to_csv(argv[2])
     print(df_transition_dipoles)
 

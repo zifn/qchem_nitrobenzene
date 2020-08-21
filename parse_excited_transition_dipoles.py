@@ -19,6 +19,7 @@ def remove_repeated_white_space(line):
 def extract_info_from_file(file_path):
     labels = {"ZDIPLEN": 'z',"YDIPLEN": 'y',"XDIPLEN": 'x'}
     reference_dipole = {"z": 0, "y": 0, "x": 0}
+    ref_sym = None
     
     with open(file_path) as f:
         lines = f.readlines()
@@ -34,6 +35,15 @@ def extract_info_from_file(file_path):
                 if "FINAL RESULTS from ABACUS" in line:
                     ABACUS_flag = True
                 if ABACUS_flag:
+                    if "Spatial symmetry" in line:
+                        temp_line = remove_repeated_white_space(line)
+                        ref_sym = int(temp_line.split(" ")[2])
+                    if "Spin multiplicity" in line:
+                        temp_line = remove_repeated_white_space(line)
+                        ref_spin = int((int(temp_line.split(" ")[2]) - 1)/2)
+                    if "State number" in line:
+                        temp_line = remove_repeated_white_space(line)
+                        ref_state_no = int(temp_line.split(" ")[2]) - 1
                     if "Dipole moment components" in line:
                         dipole_flag = True
                     if dipole_flag:
@@ -48,9 +58,9 @@ def extract_info_from_file(file_path):
                         _, temp_line = line.split(":")
                         temp_line = remove_repeated_white_space(temp_line)
                         A_label, A_sym, A_spin = temp_line.split(" ")
-                        temp["A_label"] = labels[A_label]
-                        temp["A_sym"] = int(A_sym)
-                        temp["A_spin"] = int(A_spin)
+                        temp["mu_label"] = labels[A_label]
+                        temp["mu_sym"] = int(A_sym)
+                        temp["mu_spin"] = int(A_spin)
                     if "@ B excited state no., symmetry, spin:" in line:
                         _, temp_line = line.split(":")
                         temp_line = remove_repeated_white_space(temp_line)
@@ -71,7 +81,7 @@ def extract_info_from_file(file_path):
                         B_energy, C_energy, transition_moment = temp_line.split(" ")
                         temp["B_energy"] = float(B_energy)
                         temp["C_energy"] = float(C_energy)
-                        temp["transition_moment"] = float(transition_moment)
+                        temp["moment"] = float(transition_moment)
                         transition_dipoles.append(temp)
                         temp = {}
                         transition_dipole_flag = False
@@ -81,16 +91,32 @@ def extract_info_from_file(file_path):
             traceback.print_tb(err.__traceback__)
 
     for transition_dipole in transition_dipoles:
-        ref_dipole_componet = reference_dipole[transition_dipole["A_label"]]
-        transition_dipole["transition_moment"] = transition_dipole["transition_moment"] + ref_dipole_componet
-    
+        ref_dipole_componet = reference_dipole[transition_dipole["mu_label"]]
+        transition_dipole["moment"] = transition_dipole["moment"] + ref_dipole_componet
+
+    for label, ref_dipole_componet in reference_dipole.items():
+        temp = {
+        "mu_label": label,
+        "mu_sym": None,
+        "mu_spin": None,
+        "B_state_no": ref_state_no,
+        "B_sym": ref_sym,
+        "B_spin": ref_spin,
+        "C_state_no": ref_state_no,
+        "C_sym": ref_sym,
+        "C_spin": ref_spin,
+        "B_energy": 0.0,
+        "C_energy": 0.0,
+        "moment": ref_dipole_componet,
+        }
+        transition_dipoles.append(temp)
     return transition_dipoles
 
 if __name__ == "__main__":
     import pandas as pd
     transition_dipoles = extract_info_from_file(argv[1])
     df_transition_dipoles = pd.DataFrame(transition_dipoles)
-    df_transition_dipoles(argv[2])
+    df_transition_dipoles.to_csv(argv[2])
     print(df_transition_dipoles)
         
 
