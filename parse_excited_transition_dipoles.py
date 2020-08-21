@@ -16,7 +16,7 @@ def remove_repeated_white_space(line):
         temp = temp[1:]
     return temp
 
-def extract_state_info_from_file(file_path):
+def extract_info_from_file(file_path):
     labels = {"ZDIPLEN": 'z',"YDIPLEN": 'y',"XDIPLEN": 'x'}
     reference_dipole = {"z": 0, "y": 0, "x": 0}
     
@@ -88,7 +88,7 @@ def extract_state_info_from_file(file_path):
 
 if __name__ == "__main__":
     import pandas as pd
-    transition_dipoles = extract_state_info_from_file(argv[1])
+    transition_dipoles = extract_info_from_file(argv[1])
     df_transition_dipoles = pd.DataFrame(transition_dipoles)
     df_transition_dipoles(argv[2])
     print(df_transition_dipoles)
