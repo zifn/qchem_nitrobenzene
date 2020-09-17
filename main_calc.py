@@ -180,7 +180,7 @@ def parse_config(json_path):
     hartree_freqs_drive = np.linspace(raw_json["hartree_freqs_drive"]['start'], raw_json["hartree_freqs_drive"]['end'], raw_json["hartree_freqs"]['points'])
     CN_displacements = np.linspace(raw_json["CN_displacements"]['start'], raw_json["CN_displacements"]['end'], raw_json["CN_displacements"]['points'])
     ONO_rotations = np.linspace(raw_json["ONO_rotations"]['start'], raw_json["ONO_rotations"]['end'], raw_json["ONO_rotations"]['points'])
-    return output_dir, states, spin_mults, hartree_freqs_probe, hartree_freqs_drive, CN_displacements, ONO_rotations, mpi_process_numb, memory_mb, max_itter, symmetries, calculation_type , roots
+    return output_dir, states, spin_mults, hartree_freqs_probe, hartree_freqs_drive, CN_displacements, ONO_rotations, mpi_process_numb, memory_mb, max_itter, symmetries, calculation_kind , roots
 
 
 def main(json_config_path):
