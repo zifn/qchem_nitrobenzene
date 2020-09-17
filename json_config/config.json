@@ -1,6 +1,6 @@
 {
 	"output_file_dir": "qchem_nitrobenzene//dipoles_benchmarking",
-	"states": [1,],
+	"states": [1],
     "symmetries": [1],
     "calculation_kind": "dipoles",
 	"spin_multiplicities": [1],
@@ -11,7 +11,7 @@
 		"start": 2,
 		"end": 11,
 		"step_size": 2
-	}
+	},
     "hartree_freqs_probe": {
         "start": 0.1,
         "end": 0.5
