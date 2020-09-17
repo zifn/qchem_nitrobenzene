@@ -213,7 +213,7 @@ def main(json_config_path):
                                     dal_file_path =  "temp.dal"
                                     mol_file_path = "temp.mol"
                                     
-                                    next_dal_file_path = make_dal_file(dal_file_path, hartree_freq_probe, hartree_freq_drive, state, spin_mult, max_itter, symmetry, max_roots, calculation_type)
+                                    next_dal_file_path = make_dal_file(dal_file_path, hartree_freq_probe, hartree_freq_drive, state, spin_mult, max_itter, symmetry, root, calculation_type)
                                     next_mol_file_path = make_mol_file(mol_file_path, CN_displacement, ONO_rotation)
                                     cmd_to_run = ['./dalton', '-mb', str(memory_mb), '-N', str(mpi_process_numb), '-o', str(output_file_path), str(next_dal_file_path), str(next_mol_file_path)]
                                     if not os.path.isfile(stdout_output_file_path):
