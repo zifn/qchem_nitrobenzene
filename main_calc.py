@@ -23,7 +23,8 @@ def angle_between(v1, v2):
     v2_u = unit_vector(v2)
     return np.arccos(np.clip(np.dot(v1_u, v2_u), -1.0, 1.0))
 
-def make_dal_file(file_path, freq_hartree_probe, freq_hartree_drive, state, spin_mult, max_ittr, symmetry, run_response=True):
+def make_dal_file(file_path, freq_hartree_probe, freq_hartree_drive, state,
+                                spin_mult, max_ittr, symmetry, max_roots, calculation_type="cubic_gamma"):
     
     dal_wave = """**WAVE FUNCTIONS
 .HF
@@ -51,7 +52,7 @@ def make_dal_file(file_path, freq_hartree_probe, freq_hartree_drive, state, spin
 .PLUS COMBINATIONS
 """.format(int(spin_mult), int(symmetry),  int(state))
 
-    if run_response:
+    if calculation_type == "cubic_gamma":
         fd = freq_hartree_drive
         fp = freq_hartree_probe
         freq_1, freq_2, freq_3 = -fd, fd, fp
@@ -78,6 +79,37 @@ def make_dal_file(file_path, freq_hartree_probe, freq_hartree_drive, state, spin
 **END OF DALTON INPUT""".format(max_ittr, str(freq_1), str(freq_2), str(freq_3))
 
         dalton_dal_text = dal_input + dal_wave + dal_response
+    elif calculation_type == "mu_ee_gg":
+        dal_input = """**DALTON INPUT
+.RUN PROPERTIES
+.RUN RESPONSE
+"""
+
+        dal_response = """**PROPERTIES
+**RESPONSE
+*QUADRATIC
+.DOUBLE RESIDUE
+.DIPLEN
+.ROOTS
+{0} {0} {0} {0}
+**END OF DALTON INPUT""".format(max_roots)
+
+        dalton_dal_text = dal_input + dal_wave + dal_response
+    elif calculation_type == "mu_eg":
+        dal_input = """**DALTON INPUT
+.RUN RESPONSE
+"""
+
+        dal_response = """**RESPONSE
+*LINEAR
+.SINGLE RESIDUE
+.DIPLEN
+.ROOTS
+{0} {0} {0} {0}
+**END OF DALTON INPUT""".format(max_roots)
+
+        dalton_dal_text = dal_input + dal_wave + dal_response
+    
     else:
         dal_input = """**DALTON INPUT
 .RUN PROPERTIES
@@ -140,18 +172,19 @@ def parse_config(json_path):
     memory_mb = raw_json['memory_mb']
     max_itter = raw_json["max_itter"]
     states = raw_json["states"]
-    run_response =  bool(raw_json["run_response"])
+    calculation_kind =  raw_json["calculation_kind"]
+    roots =  np.arange(int(raw_json["roots"]['start']), int(raw_json["roots"]['end']), int(raw_json["roots"]['step_size']))
     symmetries = raw_json["symmetries"]
     spin_mults = raw_json["spin_multiplicities"]
     hartree_freqs_probe = np.linspace(raw_json["hartree_freqs_probe"]['start'], raw_json["hartree_freqs_probe"]['end'], raw_json["hartree_freqs"]['points'])
     hartree_freqs_drive = np.linspace(raw_json["hartree_freqs_drive"]['start'], raw_json["hartree_freqs_drive"]['end'], raw_json["hartree_freqs"]['points'])
     CN_displacements = np.linspace(raw_json["CN_displacements"]['start'], raw_json["CN_displacements"]['end'], raw_json["CN_displacements"]['points'])
     ONO_rotations = np.linspace(raw_json["ONO_rotations"]['start'], raw_json["ONO_rotations"]['end'], raw_json["ONO_rotations"]['points'])
-    return output_dir, states, spin_mults, hartree_freqs_probe, hartree_freqs_drive, CN_displacements, ONO_rotations, mpi_process_numb, memory_mb, max_itter, symmetries, run_response
+    return output_dir, states, spin_mults, hartree_freqs_probe, hartree_freqs_drive, CN_displacements, ONO_rotations, mpi_process_numb, memory_mb, max_itter, symmetries, calculation_type , roots
 
 
 def main(json_config_path):
-    output_dir, states, spin_mults, hartree_freqs_probe, hartree_freqs_drive, CN_displacements, ONO_rotations, mpi_process_numb, memory_mb, max_itter, symmetries, run_response = parse_config(json_config_path)
+    output_dir, states, spin_mults, hartree_freqs_probe, hartree_freqs_drive, CN_displacements, ONO_rotations, mpi_process_numb, memory_mb, max_itter, symmetries, calculation_kind, roots = parse_config(json_config_path)
     
     if os.path.isdir(output_dir) == False:
         os.mkdir(output_dir)
@@ -159,42 +192,50 @@ def main(json_config_path):
     temp_dir = os.path.join(output_dir, "temp")
     if os.path.isdir(temp_dir) == False:
         os.mkdir(temp_dir)
+        
+    if calculation_kind == "dipoles":
+        calculation_types = ["mu_ee_gg", "mu_eg"]
+    else:
+        calculation_types = [calculation_kind]
+
     
-    for state in states:
-        for symmetry in symmetries:
-            for spin_mult in spin_mults:
-                for CN_displacement in CN_displacements:
-                    for ONO_rotation in ONO_rotations:
-                        for hartree_freq_probe, hartree_freq_drive in zip(hartree_freqs_probe, hartree_freqs_drive):
-                            root_name = "state-{}_sym-{}_freqd-{}_freqp-{}_spin-{}_CN_disp-{}_ONO_rot-{}_NBopt_dunningZ-2".format(state, symmetry, hartree_freq_probe, hartree_freq_drive, spin_mult, CN_displacement, ONO_rotation)
-                            output_file_path = os.path.join(output_dir, root_name + ".out")
-                            stdout_output_file_path = os.path.join(output_dir, root_name + ".stdout")
-                            dal_file_path =  "temp.dal"
-                            mol_file_path = "temp.mol"
-                            
-                            next_dal_file_path = make_dal_file(dal_file_path, hartree_freq_probe, hartree_freq_drive, state, spin_mult, max_itter, symmetry, run_response)
-                            next_mol_file_path = make_mol_file(mol_file_path, CN_displacement, ONO_rotation)
-                            cmd_to_run = ['./dalton', '-mb', str(memory_mb), '-N', str(mpi_process_numb), '-o', str(output_file_path), str(next_dal_file_path), str(next_mol_file_path)]
-                            if not os.path.isfile(stdout_output_file_path):
-                                try:
-                                    print("running next calculation: freq probe {}, freq drive {}, state {}, sym {}, spin {}, CN_disp {}, ONO_rot {}".format(hartree_freq_probe, hartree_freq_drive, state, symmetry, spin_mult, CN_displacement, ONO_rotation))
-                                    print("\t running command - {}".format(cmd_to_run))
-                                    exit_code, stdout, stderr = util_calc.run_cmd(cmd_to_run)
-                                    with open(stdout_output_file_path, 'w') as file:
-                                        file.write(str(stdout))
-                                    os.rename(dal_file_path, os.path.join(temp_dir, root_name + ".dal"))
-                                    os.rename(mol_file_path, os.path.join(temp_dir, root_name + ".mol"))
-                                    if os.path.exists("temp.tar.gz"):
-                                        os.rename("temp.tar.gz", os.path.join(temp_dir, root_name + ".tar.gz"))
-                                except Exception as err:
-                                    print("An error occured trying next calculation")
-                                    print(err.args)
-                                    traceback.print_tb(err.__traceback__)
-                                    if os.path.exists(dal_file_path):
-                                        os.rename(dal_file_path, os.path.join(temp_dir, root_name + ".dal"))
-                                    if os.path.exists(mol_file_path):
-                                        os.rename(mol_file_path, os.path.join(temp_dir, root_name + ".mol"))
-                                    pass
+    for root in roots:
+        for calculation_type in calculation_types:
+            for state in states:
+                for symmetry in symmetries:
+                    for spin_mult in spin_mults:
+                        for CN_displacement in CN_displacements:
+                            for ONO_rotation in ONO_rotations:
+                                for hartree_freq_probe, hartree_freq_drive in zip(hartree_freqs_probe, hartree_freqs_drive):
+                                    root_name = "state-{}_sym-{}_freqd-{}_freqp-{}_spin-{}_CN_disp-{}_ONO_rot-{}_kind-{}_roots-{}".format(state, symmetry, hartree_freq_probe, hartree_freq_drive, spin_mult, CN_displacement, ONO_rotation, calculation_type, root)
+                                    output_file_path = os.path.join(output_dir, root_name + ".out")
+                                    stdout_output_file_path = os.path.join(output_dir, root_name + ".stdout")
+                                    dal_file_path =  "temp.dal"
+                                    mol_file_path = "temp.mol"
+                                    
+                                    next_dal_file_path = make_dal_file(dal_file_path, hartree_freq_probe, hartree_freq_drive, state, spin_mult, max_itter, symmetry, max_roots, calculation_type)
+                                    next_mol_file_path = make_mol_file(mol_file_path, CN_displacement, ONO_rotation)
+                                    cmd_to_run = ['./dalton', '-mb', str(memory_mb), '-N', str(mpi_process_numb), '-o', str(output_file_path), str(next_dal_file_path), str(next_mol_file_path)]
+                                    if not os.path.isfile(stdout_output_file_path):
+                                        try:
+                                            print("running next calculation: freq probe {}, freq drive {}, state {}, sym {}, spin {}, CN_disp {}, ONO_rot {}, kind-{}, roots-{}".format(hartree_freq_probe, hartree_freq_drive, state, symmetry, spin_mult, CN_displacement, ONO_rotation, calculation_type, root))
+                                            exit_code, stdout, stderr = util_calc.run_cmd(cmd_to_run)
+                                            with open(stdout_output_file_path, 'w') as file:
+                                                file.write(str(stdout))
+                                            os.rename(dal_file_path, os.path.join(temp_dir, root_name + ".dal"))
+                                            os.rename(mol_file_path, os.path.join(temp_dir, root_name + ".mol"))
+                                            if os.path.exists("temp.tar.gz"):
+                                                os.rename("temp.tar.gz", os.path.join(temp_dir, root_name + ".tar.gz"))
+                                        except Exception as err:
+                                            print("An error occured when running the following command - \n{}".format(cmd_to_run))
+                                            print(err.args)
+                                            traceback.print_tb(err.__traceback__)
+                                            if os.path.exists(dal_file_path):
+                                                os.rename(dal_file_path, os.path.join(temp_dir, root_name + ".dal"))
+                                            if os.path.exists(mol_file_path):
+                                                os.rename(mol_file_path, os.path.join(temp_dir, root_name + ".mol"))
+                                            print("trying next calculation")
+                                            pass
 
 if __name__ == "__main__":
     main(argv[1])
