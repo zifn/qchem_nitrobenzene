@@ -81,7 +81,7 @@ def extract_info_from_file(file_path):
                         B_energy, C_energy, transition_moment = temp_line.split(" ")
                         temp["B_energy"] = float(B_energy)
                         temp["C_energy"] = float(C_energy)
-                        temp["moment"] = float(transition_moment)
+                        temp["moment real"] = float(transition_moment)
                         transition_dipoles.append(temp)
                         temp = {}
                         transition_dipole_flag = False
