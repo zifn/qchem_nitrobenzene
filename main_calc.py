@@ -109,7 +109,26 @@ def make_dal_file(file_path, freq_hartree_probe, freq_hartree_drive, state,
 **END OF DALTON INPUT""".format(max_roots)
 
         dalton_dal_text = dal_input + dal_wave + dal_response
-    
+    elif calculation_type == "linear":
+        fp = freq_hartree_probe
+        dal_input = """**DALTON INPUT
+.RUN RESPONSE
+*PCM
+.SOLVNT
+ETHANOL
+.NEQRSP
+*PCMCAV
+"""
+
+        dal_response = """**RESPONSE
+*LINEAR
+.DIPLEN
+.FREQUENCIES
+1
+{0}
+**END OF DALTON INPUT""".format(fp)
+
+        dalton_dal_text = dal_input + dal_wave + dal_response
     else:
         dal_input = """**DALTON INPUT
 .RUN PROPERTIES
